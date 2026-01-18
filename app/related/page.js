@@ -1,5 +1,6 @@
 import InOneMinute from '@/components/InOneMinute'
 import RelatedReading from '@/components/RelatedReading'
+import { Link2, Activity, Dna, AlertCircle } from 'lucide-react'
 
 export const metadata = {
   title: 'Related Conditions - Celiac Information Hub',
@@ -13,174 +14,150 @@ export default function RelatedPage() {
     { href: '/research', title: 'Latest Research' },
   ]
 
+  const conditions = [
+    {
+      title: 'Type 1 Diabetes',
+      description: '5-10% of people with Type 1 diabetes also have celiac disease. Regular screening is recommended for diabetic patients.',
+      screening: 'At diagnosis and periodically thereafter'
+    },
+    {
+      title: 'Autoimmune Thyroid Disease',
+      description: 'Hashimoto\'s thyroiditis and Graves\' disease occur more frequently in people with celiac disease.',
+      screening: 'If symptoms of thyroid dysfunction develop'
+    },
+    {
+      title: 'Dermatitis Herpetiformis',
+      description: 'A skin manifestation of celiac disease characterized by intensely itchy, blistering rash. Responds to a gluten-free diet.',
+      screening: 'Skin biopsy for diagnosis'
+    },
+    {
+      title: 'Autoimmune Liver Disease',
+      description: 'Includes autoimmune hepatitis and primary biliary cholangitis. Elevated liver enzymes may be the only sign.',
+      screening: 'Regular liver function tests'
+    }
+  ]
+
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="max-w-4xl mx-auto">
-        {/* Page Header */}
-        <h1 className="text-4xl font-bold text-purple-900 mb-6">
-          Related Conditions
-        </h1>
+    <div className="bg-slate-50">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-teal-100 rounded-full opacity-20 blur-3xl pointer-events-none"></div>
+      
+      <div className="relative container mx-auto px-4 py-16">
+        <div className="max-w-4xl mx-auto">
+          {/* Page Header */}
+          <div className="mb-12">
+            <div className="inline-flex items-center space-x-2 bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-sm font-medium mb-4">
+              <Link2 className="w-4 h-4" />
+              <span>Associated Conditions</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              Related Conditions
+            </h1>
+            <p className="text-lg text-slate-600">Understanding associated autoimmune disorders</p>
+          </div>
 
-        {/* In One Minute Section */}
-        <div className="mb-12">
-          <InOneMinute>
-            <p>
-              Celiac disease is often associated with other autoimmune conditions. People with celiac disease have a higher risk of developing Type 1 diabetes, autoimmune thyroid disease, autoimmune liver disease, and other conditions. First-degree relatives of people with celiac disease should be screened. If you have celiac disease and experience new symptoms, discuss screening for related conditions with your healthcare provider.
-            </p>
-          </InOneMinute>
-        </div>
+          {/* In One Minute Section */}
+          <div className="mb-12">
+            <InOneMinute>
+              <p>
+                Celiac disease is often associated with other autoimmune conditions. People with celiac disease have a higher risk of developing Type 1 diabetes, autoimmune thyroid disease, autoimmune liver disease, and other conditions. First-degree relatives of people with celiac disease should be screened. If you have celiac disease and experience new symptoms, discuss screening for related conditions with your healthcare provider.
+              </p>
+            </InOneMinute>
+          </div>
 
-        {/* Main Content */}
-        <div className="prose max-w-none mb-12">
-          <div className="bg-white rounded-lg p-8 shadow-md border border-purple-100 mb-8">
-            <h2 className="text-2xl font-bold text-purple-900 mb-4">Common Associated Conditions</h2>
-            <div className="space-y-6">
-              <div className="border-l-4 border-purple-500 pl-4">
-                <h3 className="text-lg font-semibold text-purple-900 mb-2">Type 1 Diabetes</h3>
-                <p className="text-purple-700 mb-2">
-                  5-10% of people with Type 1 diabetes also have celiac disease. Regular screening is recommended for diabetic patients.
-                </p>
-                <p className="text-sm text-purple-600 italic">
-                  Screening recommended: At diagnosis and periodically thereafter
-                </p>
+          {/* Common Associated Conditions */}
+          <div className="bg-white rounded-xl p-8 shadow-sm border border-slate-200 mb-8">
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center">
+                <Activity className="w-6 h-6 text-teal-700" />
               </div>
-
-              <div className="border-l-4 border-purple-500 pl-4">
-                <h3 className="text-lg font-semibold text-purple-900 mb-2">Autoimmune Thyroid Disease</h3>
-                <p className="text-purple-700 mb-2">
-                  Hashimoto's thyroiditis and Graves' disease occur more frequently in people with celiac disease.
-                </p>
-                <p className="text-sm text-purple-600 italic">
-                  Screening recommended: If symptoms of thyroid dysfunction develop
-                </p>
-              </div>
-
-              <div className="border-l-4 border-purple-500 pl-4">
-                <h3 className="text-lg font-semibold text-purple-900 mb-2">Dermatitis Herpetiformis</h3>
-                <p className="text-purple-700 mb-2">
-                  A skin manifestation of celiac disease characterized by intensely itchy, blistering rash. Responds to a gluten-free diet.
-                </p>
-                <p className="text-sm text-purple-600 italic">
-                  Consider: Skin biopsy for diagnosis
-                </p>
-              </div>
-
-              <div className="border-l-4 border-purple-500 pl-4">
-                <h3 className="text-lg font-semibold text-purple-900 mb-2">Autoimmune Liver Disease</h3>
-                <p className="text-purple-700 mb-2">
-                  Includes autoimmune hepatitis and primary biliary cholangitis. Elevated liver enzymes may be the only sign.
-                </p>
-                <p className="text-sm text-purple-600 italic">
-                  Monitoring: Regular liver function tests
-                </p>
-              </div>
-
-              <div className="border-l-4 border-purple-500 pl-4">
-                <h3 className="text-lg font-semibold text-purple-900 mb-2">Addison's Disease</h3>
-                <p className="text-purple-700 mb-2">
-                  Autoimmune adrenal insufficiency is rare but more common in people with celiac disease.
-                </p>
-                <p className="text-sm text-purple-600 italic">
-                  Symptoms to watch: Fatigue, low blood pressure, skin darkening
-                </p>
-              </div>
+              <h2 className="text-2xl font-bold text-slate-800">Common Associated Conditions</h2>
+            </div>
+            <div className="space-y-4">
+              {conditions.map((condition, index) => (
+                <div key={index} className="group hover:bg-slate-50 rounded-lg p-5 transition-all border border-slate-200">
+                  <h3 className="font-semibold text-slate-800 mb-2 flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                    <span>{condition.title}</span>
+                  </h3>
+                  <p className="text-slate-600 text-sm mb-2">{condition.description}</p>
+                  <p className="text-xs text-purple-700 font-medium bg-purple-50 inline-block px-3 py-1 rounded-full">
+                    Screening: {condition.screening}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="bg-white rounded-lg p-8 shadow-md border border-purple-100 mb-8">
-            <h2 className="text-2xl font-bold text-purple-900 mb-4">Chromosomal Conditions</h2>
-            <p className="text-purple-700 mb-4">
+          {/* Chromosomal Conditions */}
+          <div className="bg-white rounded-xl p-8 shadow-sm border border-slate-200 mb-8">
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <Dna className="w-6 h-6 text-blue-700" />
+              </div>
+              <h2 className="text-2xl font-bold text-slate-800">Chromosomal Conditions</h2>
+            </div>
+            <p className="text-slate-600 mb-6">
               Certain genetic conditions are associated with higher rates of celiac disease:
             </p>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-purple-50 p-4 rounded-lg">
-                <h3 className="font-semibold text-purple-900 mb-2">Down Syndrome</h3>
-                <p className="text-purple-700 text-sm">12-16% of individuals with Down syndrome have celiac disease. Regular screening is recommended.</p>
+              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg p-6 border border-blue-200">
+                <h3 className="font-semibold text-slate-800 mb-2">Down Syndrome</h3>
+                <p className="text-slate-700 text-sm">12-16% of individuals with Down syndrome have celiac disease. Regular screening is recommended.</p>
               </div>
-              <div className="bg-purple-50 p-4 rounded-lg">
-                <h3 className="font-semibold text-purple-900 mb-2">Turner Syndrome</h3>
-                <p className="text-purple-700 text-sm">4-8% of individuals with Turner syndrome have celiac disease. Screening should be performed.</p>
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 border border-purple-200">
+                <h3 className="font-semibold text-slate-800 mb-2">Turner Syndrome</h3>
+                <p className="text-slate-700 text-sm">4-8% of individuals with Turner syndrome have celiac disease. Screening should be performed.</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-lg p-8 shadow-md border border-purple-100 mb-8">
-            <h2 className="text-2xl font-bold text-purple-900 mb-4">Family Screening</h2>
-            <p className="text-purple-700 mb-4">
-              First-degree relatives (parents, siblings, children) of people with celiac disease have a 10-15% chance of also having the condition.
+          {/* Family Screening */}
+          <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl p-8 border border-purple-200 mb-8">
+            <h2 className="text-2xl font-bold text-slate-800 mb-4">Family Screening</h2>
+            <p className="text-slate-700 mb-4">
+              First-degree relatives (parents, siblings, children) of people with celiac disease have a <strong>10-15% chance</strong> of also having the condition.
             </p>
-            <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
-              <h3 className="font-semibold text-purple-900 mb-3">Screening Recommendations:</h3>
-              <ul className="space-y-2 text-purple-700">
+            <div className="bg-white rounded-lg p-6 border border-slate-200">
+              <h3 className="font-semibold text-slate-800 mb-3">Screening Recommendations:</h3>
+              <ul className="space-y-2 text-slate-700 text-sm">
                 <li className="flex items-start space-x-2">
-                  <span className="text-purple-500 mt-1">•</span>
+                  <span className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 flex-shrink-0"></span>
                   <span>All first-degree relatives should be tested, even without symptoms</span>
                 </li>
                 <li className="flex items-start space-x-2">
-                  <span className="text-purple-500 mt-1">•</span>
+                  <span className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 flex-shrink-0"></span>
                   <span>Testing should include celiac antibody blood tests</span>
                 </li>
                 <li className="flex items-start space-x-2">
-                  <span className="text-purple-500 mt-1">•</span>
+                  <span className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 flex-shrink-0"></span>
                   <span>Consider genetic testing (HLA-DQ2/DQ8) to help assess risk</span>
                 </li>
                 <li className="flex items-start space-x-2">
-                  <span className="text-purple-500 mt-1">•</span>
+                  <span className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 flex-shrink-0"></span>
                   <span>Repeat testing every 2-3 years if initial tests are negative</span>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="bg-white rounded-lg p-8 shadow-md border border-purple-100 mb-8">
-            <h2 className="text-2xl font-bold text-purple-900 mb-4">Other Conditions to Monitor</h2>
-            <div className="space-y-3 text-purple-700">
-              <div className="flex items-start space-x-3">
-                <span className="text-purple-500 mt-1">•</span>
-                <div>
-                  <span className="font-semibold text-purple-900">Osteoporosis:</span>
-                  <span className="ml-1">Reduced bone density is common due to malabsorption. Regular bone density testing recommended.</span>
-                </div>
+          {/* Important Note */}
+          <div className="bg-gradient-to-r from-blue-50 to-teal-50 border border-blue-200 rounded-xl p-6 mb-12">
+            <div className="flex items-start space-x-4">
+              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <AlertCircle className="w-5 h-5 text-blue-700" />
               </div>
-              <div className="flex items-start space-x-3">
-                <span className="text-purple-500 mt-1">•</span>
-                <div>
-                  <span className="font-semibold text-purple-900">Lactose Intolerance:</span>
-                  <span className="ml-1">Temporary lactose intolerance can occur due to intestinal damage but often improves with healing.</span>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <span className="text-purple-500 mt-1">•</span>
-                <div>
-                  <span className="font-semibold text-purple-900">Microscopic Colitis:</span>
-                  <span className="ml-1">Chronic diarrhea may persist in some patients even on a gluten-free diet.</span>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <span className="text-purple-500 mt-1">•</span>
-                <div>
-                  <span className="font-semibold text-purple-900">Neurological Issues:</span>
-                  <span className="ml-1">Some patients experience peripheral neuropathy, ataxia, or other neurological symptoms.</span>
-                </div>
+              <div>
+                <h3 className="font-semibold text-slate-800 mb-2">Important Note</h3>
+                <p className="text-slate-700 text-sm leading-relaxed">
+                  If you have celiac disease and develop new symptoms or have a family history of autoimmune conditions, discuss appropriate screening with your healthcare provider. Early detection and management of related conditions can prevent complications.
+                </p>
               </div>
             </div>
           </div>
 
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-            <h3 className="font-semibold text-blue-900 mb-2 flex items-center space-x-2">
-              <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>Important Note</span>
-            </h3>
-            <p className="text-blue-800 text-sm">
-              If you have celiac disease and develop new symptoms or have a family history of autoimmune conditions, discuss appropriate screening with your healthcare provider. Early detection and management of related conditions can prevent complications.
-            </p>
-          </div>
+          {/* Related Reading Section */}
+          <RelatedReading links={relatedLinks} />
         </div>
-
-        {/* Related Reading Section */}
-        <RelatedReading links={relatedLinks} />
       </div>
     </div>
   )
