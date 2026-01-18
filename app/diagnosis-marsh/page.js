@@ -1,5 +1,6 @@
 import InOneMinute from '@/components/InOneMinute'
 import RelatedReading from '@/components/RelatedReading'
+import { Microscope, TestTube, Dna, AlertTriangle } from 'lucide-react'
 
 export const metadata = {
   title: 'Diagnosis & Marsh Classification - Celiac Information Hub',
@@ -13,92 +14,132 @@ export default function DiagnosisMarchPage() {
     { href: '/research', title: 'Latest Research' },
   ]
 
+  const diagnosticSteps = [
+    {
+      number: 1,
+      title: 'Blood Tests',
+      description: 'Screening for specific antibodies including tTG-IgA, EMA, and total serum IgA. These tests must be done while on a gluten-containing diet.'
+    },
+    {
+      number: 2,
+      title: 'Endoscopy & Biopsy',
+      description: 'If blood tests are positive, an upper endoscopy with small intestinal biopsy is performed to confirm diagnosis and assess damage.'
+    },
+    {
+      number: 3,
+      title: 'Genetic Testing',
+      description: 'HLA-DQ2 and HLA-DQ8 genetic testing can help rule out celiac disease but cannot confirm it on its own.'
+    }
+  ]
+
+  const marshStages = [
+    { stage: 'Marsh 0', label: 'Normal', description: 'Normal intestinal architecture with no significant changes.', color: 'green' },
+    { stage: 'Marsh 1', label: 'Infiltrative', description: 'Increased intraepithelial lymphocytes (IELs) with normal villi and crypts.', color: 'yellow' },
+    { stage: 'Marsh 2', label: 'Hyperplastic', description: 'Increased IELs with crypt hyperplasia, but villi still present.', color: 'orange' },
+    { stage: 'Marsh 3', label: 'Destructive', description: 'Villous atrophy ranging from partial (3a) to subtotal (3b) to total (3c), along with crypt hyperplasia.', color: 'red' }
+  ]
+
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="max-w-4xl mx-auto">
-        {/* Page Header */}
-        <h1 className="text-4xl font-bold text-purple-900 mb-6">
-          Diagnosis & Marsh Classification
-        </h1>
+    <div className="bg-slate-50">
+      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-100 rounded-full opacity-20 blur-3xl pointer-events-none"></div>
+      
+      <div className="relative container mx-auto px-4 py-16">
+        <div className="max-w-4xl mx-auto">
+          {/* Page Header */}
+          <div className="mb-12">
+            <div className="inline-flex items-center space-x-2 bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium mb-4">
+              <Microscope className="w-4 h-4" />
+              <span>Diagnostic Information</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              Diagnosis & Marsh Classification
+            </h1>
+            <p className="text-lg text-slate-600">Understanding testing and damage classification</p>
+          </div>
 
-        {/* In One Minute Section */}
-        <div className="mb-12">
-          <InOneMinute>
-            <p>
-              Celiac disease diagnosis involves blood tests for specific antibodies, followed by an endoscopic biopsy of the small intestine. The Marsh classification system (Modified Marsh stages 0-3) categorizes the degree of intestinal damage, from normal villi to complete villous atrophy. Accurate diagnosis requires consuming gluten before testing—never start a gluten-free diet before being tested.
-            </p>
-          </InOneMinute>
-        </div>
+          {/* In One Minute Section */}
+          <div className="mb-12">
+            <InOneMinute>
+              <p>
+                Celiac disease diagnosis involves blood tests for specific antibodies, followed by an endoscopic biopsy of the small intestine. The Marsh classification system (Modified Marsh stages 0-3) categorizes the degree of intestinal damage, from normal villi to complete villous atrophy. Accurate diagnosis requires consuming gluten before testing—never start a gluten-free diet before being tested.
+              </p>
+            </InOneMinute>
+          </div>
 
-        {/* Main Content */}
-        <div className="prose max-w-none mb-12">
-          <div className="bg-white rounded-lg p-8 shadow-md border border-purple-100 mb-8">
-            <h2 className="text-2xl font-bold text-purple-900 mb-4">Diagnostic Process</h2>
-            <div className="space-y-4 text-purple-700">
-              <div className="flex items-start space-x-3">
-                <div className="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center text-purple-700 font-bold">1</div>
-                <div>
-                  <h3 className="font-semibold text-purple-900 mb-1">Blood Tests</h3>
-                  <p>Screening for specific antibodies including tTG-IgA, EMA, and total serum IgA. These tests must be done while on a gluten-containing diet.</p>
-                </div>
+          {/* Diagnostic Process */}
+          <div className="bg-white rounded-xl p-8 shadow-sm border border-slate-200 mb-8">
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <TestTube className="w-6 h-6 text-blue-700" />
               </div>
-              <div className="flex items-start space-x-3">
-                <div className="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center text-purple-700 font-bold">2</div>
-                <div>
-                  <h3 className="font-semibold text-purple-900 mb-1">Endoscopy & Biopsy</h3>
-                  <p>If blood tests are positive, an upper endoscopy with small intestinal biopsy is performed to confirm diagnosis and assess damage.</p>
+              <h2 className="text-2xl font-bold text-slate-800">Diagnostic Process</h2>
+            </div>
+            <div className="space-y-6">
+              {diagnosticSteps.map((step) => (
+                <div key={step.number} className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-lg">{step.number}</span>
+                  </div>
+                  <div className="flex-1 pt-1">
+                    <h3 className="font-semibold text-slate-800 mb-1">{step.title}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed">{step.description}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <div className="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center text-purple-700 font-bold">3</div>
-                <div>
-                  <h3 className="font-semibold text-purple-900 mb-1">Genetic Testing</h3>
-                  <p>HLA-DQ2 and HLA-DQ8 genetic testing can help rule out celiac disease but cannot confirm it on its own.</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
-          <div className="bg-white rounded-lg p-8 shadow-md border border-purple-100 mb-8">
-            <h2 className="text-2xl font-bold text-purple-900 mb-4">The Marsh Classification System</h2>
-            <p className="text-purple-700 mb-6">
+          {/* Marsh Classification */}
+          <div className="bg-white rounded-xl p-8 shadow-sm border border-slate-200 mb-8">
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                <Dna className="w-6 h-6 text-purple-700" />
+              </div>
+              <h2 className="text-2xl font-bold text-slate-800">The Marsh Classification System</h2>
+            </div>
+            <p className="text-slate-600 mb-6">
               The Marsh classification (modified by Oberhuber) is used to categorize the degree of damage to the small intestine based on biopsy results:
             </p>
             <div className="space-y-4">
-              <div className="border-l-4 border-green-500 pl-4 py-2">
-                <h3 className="font-semibold text-purple-900 mb-1">Marsh 0 - Normal</h3>
-                <p className="text-purple-700">Normal intestinal architecture with no significant changes.</p>
+              {marshStages.map((stage, index) => (
+                <div key={index} className="group hover:bg-slate-50 rounded-lg p-4 transition-all border-l-4 border-slate-200 hover:border-purple-500">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-slate-800 mb-1">
+                        {stage.stage} - {stage.label}
+                      </h3>
+                      <p className="text-slate-600 text-sm">{stage.description}</p>
+                    </div>
+                    <div className={`w-3 h-3 rounded-full ml-4 mt-1 ${
+                      stage.color === 'green' ? 'bg-green-500' :
+                      stage.color === 'yellow' ? 'bg-yellow-500' :
+                      stage.color === 'orange' ? 'bg-orange-500' :
+                      'bg-red-500'
+                    }`}></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Important Note */}
+          <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-xl p-6 mb-12">
+            <div className="flex items-start space-x-4">
+              <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <AlertTriangle className="w-5 h-5 text-amber-700" />
               </div>
-              <div className="border-l-4 border-yellow-500 pl-4 py-2">
-                <h3 className="font-semibold text-purple-900 mb-1">Marsh 1 - Infiltrative</h3>
-                <p className="text-purple-700">Increased intraepithelial lymphocytes (IELs) with normal villi and crypts.</p>
-              </div>
-              <div className="border-l-4 border-orange-500 pl-4 py-2">
-                <h3 className="font-semibold text-purple-900 mb-1">Marsh 2 - Hyperplastic</h3>
-                <p className="text-purple-700">Increased IELs with crypt hyperplasia, but villi still present.</p>
-              </div>
-              <div className="border-l-4 border-red-500 pl-4 py-2">
-                <h3 className="font-semibold text-purple-900 mb-1">Marsh 3 - Destructive (3a, 3b, 3c)</h3>
-                <p className="text-purple-700">Villous atrophy ranging from partial (3a) to subtotal (3b) to total (3c), along with crypt hyperplasia and increased IELs.</p>
+              <div>
+                <h3 className="font-semibold text-slate-800 mb-2">Important Note</h3>
+                <p className="text-slate-700 text-sm leading-relaxed">
+                  You must continue eating gluten-containing foods before testing. Starting a gluten-free diet before diagnosis can lead to false-negative results and delay proper treatment.
+                </p>
               </div>
             </div>
           </div>
 
-          <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
-            <h3 className="font-semibold text-purple-900 mb-2 flex items-center space-x-2">
-              <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-              </svg>
-              <span>Important Note</span>
-            </h3>
-            <p className="text-purple-700 text-sm">
-              You must continue eating gluten-containing foods before testing. Starting a gluten-free diet before diagnosis can lead to false-negative results and delay proper treatment.
-            </p>
-          </div>
+          {/* Related Reading Section */}
+          <RelatedReading links={relatedLinks} />
         </div>
-
-        {/* Related Reading Section */}
-        <RelatedReading links={relatedLinks} />
       </div>
     </div>
   )
