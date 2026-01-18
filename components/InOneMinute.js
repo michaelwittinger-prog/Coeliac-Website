@@ -1,14 +1,22 @@
+import { Clock } from 'lucide-react'
+
 export default function InOneMinute({ children }) {
   return (
-    <div className="bg-gradient-to-r from-purple-600 to-purple-700 rounded-lg p-8 shadow-lg">
-      <div className="flex items-center space-x-3 mb-4">
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        <h2 className="text-2xl font-bold text-white">In One Minute</h2>
-      </div>
-      <div className="text-white text-lg leading-relaxed">
-        {children}
+    <div className="relative">
+      {/* Geometric decoration */}
+      <div className="absolute -top-2 -left-2 w-16 h-16 bg-purple-200 rounded-full opacity-20 blur-xl"></div>
+      <div className="absolute -bottom-2 -right-2 w-20 h-20 bg-blue-200 rounded-full opacity-20 blur-xl"></div>
+      
+      <div className="relative bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 rounded-xl p-8 shadow-lg">
+        <div className="flex items-center space-x-3 mb-4">
+          <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+            <Clock className="w-5 h-5 text-white" />
+          </div>
+          <h2 className="text-2xl font-bold text-white">In One Minute</h2>
+        </div>
+        <div className="text-white/95 text-base leading-relaxed">
+          {children}
+        </div>
       </div>
     </div>
   )
