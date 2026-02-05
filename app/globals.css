@@ -139,3 +139,9 @@ code {
     @apply bg-background text-foreground;
     }
 }
+
+/* Custom purple color for navigation and interactive elements */
+.nav-link-hover:hover {
+  color: #854F9B !important;
+  background-color: rgba(133, 79, 155, 0.1) !important;
+}
