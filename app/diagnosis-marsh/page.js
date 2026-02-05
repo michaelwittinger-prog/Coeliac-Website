@@ -36,7 +36,8 @@ export default function DiagnosisMarchPage() {
     { stage: 'Marsh 0', label: 'Normal', description: 'Normal intestinal architecture with no significant changes.', color: 'green' },
     { stage: 'Marsh 1', label: 'Infiltrative', description: 'Increased intraepithelial lymphocytes (IELs) with normal villi and crypts.', color: 'yellow' },
     { stage: 'Marsh 2', label: 'Hyperplastic', description: 'Increased IELs with crypt hyperplasia, but villi still present.', color: 'orange' },
-    { stage: 'Marsh 3', label: 'Destructive', description: 'Villous atrophy ranging from partial (3a) to subtotal (3b) to total (3c), along with crypt hyperplasia.', color: 'red' }
+    { stage: 'Marsh 3', label: 'Destructive', description: 'Villous atrophy ranging from partial (3a) to subtotal (3b) to total (3c), along with crypt hyperplasia.', color: 'red' },
+    { stage: 'Marsh 4', label: 'Hypoplastic', description: 'Total villous atrophy with crypt hypoplasia, representing severe and prolonged damage.', color: 'darkred' }
   ]
 
   return (
