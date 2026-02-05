@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import MobileMenu from './MobileMenu'
-import { BookOpen, FileText, HeartPulse, Users, Link2, Utensils, FlaskConical, Info } from 'lucide-react'
+import { BookOpen, FileText, HeartPulse, Users, Link2, Utensils, FlaskConical, Info, MapPin } from 'lucide-react'
 
 const navLinks = [
   { href: '/understanding', label: 'Understanding', icon: BookOpen },
@@ -13,6 +13,7 @@ const navLinks = [
   { href: '/related', label: 'Related', icon: Link2 },
   { href: '/living', label: 'Living', icon: Utensils },
   { href: '/research', label: 'Research', icon: FlaskConical },
+  { href: '/local/austria/vienna', label: 'Local Support', icon: MapPin },
   { href: '/about', label: 'About', icon: Info },
 ]
 
