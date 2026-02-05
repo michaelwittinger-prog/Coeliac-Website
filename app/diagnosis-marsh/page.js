@@ -71,22 +71,22 @@ export default function DiagnosisMarchPage() {
           </div>
 
           {/* Diagnostic Process */}
-          <div className="bg-white rounded-xl p-8 shadow-sm border border-slate-200 mb-8">
+          <div className="bg-gradient-to-br from-white via-sky-50/20 to-teal-50/30 rounded-xl p-8 shadow-sm border border-teal-100/40 mb-8">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                <TestTube className="w-6 h-6 text-blue-700" />
+              <div className="w-12 h-12 bg-gradient-to-br from-teal-100/80 to-emerald-100/60 rounded-lg flex items-center justify-center border border-teal-200/30">
+                <TestTube className="w-6 h-6 text-teal-700" />
               </div>
               <h2 className="text-2xl font-bold text-slate-800">Diagnostic Process</h2>
             </div>
             <div className="space-y-6">
               {diagnosticSteps.map((step) => (
                 <div key={step.number} className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
+                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center shadow-sm">
                     <span className="text-white font-bold text-lg">{step.number}</span>
                   </div>
                   <div className="flex-1 pt-1">
                     <h3 className="font-semibold text-slate-800 mb-1">{step.title}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">{step.description}</p>
+                    <p className="text-slate-700 text-sm leading-relaxed">{step.description}</p>
                   </div>
                 </div>
               ))}
