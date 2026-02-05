@@ -16,6 +16,33 @@ export default function DiagnosisMarchPage() {
     { href: '/research', title: 'Latest Research' },
   ]
 
+  const externalLinks = [
+    {
+      title: 'International Society for the Study of Celiac Disease (ISSCD)',
+      url: 'https://www.coeliacsociety.org.uk/',
+      description: 'Professional medical guidelines and diagnostic standards for coeliac disease from international experts.',
+      region: 'International'
+    },
+    {
+      title: 'Association of European Coeliac Societies (AOECS)',
+      url: 'https://www.aoecs.org/',
+      description: 'European diagnostic protocols and clinical practice guidelines for coeliac disease testing.',
+      region: 'Europe'
+    },
+    {
+      title: 'Coeliac UK - Getting Diagnosed',
+      url: 'https://www.coeliac.org.uk/information-and-support/getting-diagnosed/',
+      description: 'Comprehensive UK guidance on coeliac disease testing procedures and what to expect during diagnosis.',
+      region: 'United Kingdom'
+    },
+    {
+      title: 'Beyond Celiac - Diagnosis',
+      url: 'https://www.beyondceliac.org/celiac-disease/get-tested/',
+      description: 'Evidence-based information on celiac disease testing and diagnosis from leading US research organisation.',
+      region: 'United States'
+    }
+  ]
+
   const diagnosticSteps = [
     {
       number: 1,
