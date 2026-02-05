@@ -1,6 +1,6 @@
 import InOneMinute from '@/components/InOneMinute'
 import RelatedReading from '@/components/RelatedReading'
-import { Microscope, TestTube, Dna, AlertTriangle } from 'lucide-react'
+import { Microscope, TestTube, Dna, AlertTriangle, Clock, AlertCircle } from 'lucide-react'
 
 export const metadata = {
   title: 'Diagnosis & Marsh Classification - Celiac Information Hub',
