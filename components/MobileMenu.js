@@ -127,11 +127,14 @@ export default function MobileMenu() {
       {isOpen && (
         <div
           className="fixed inset-0 z-[100] lg:hidden"
-          onClick={handleOverlayClick}
           aria-hidden="true"
         >
-          {/* Semi-transparent backdrop */}
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+          {/* Semi-transparent backdrop - clickable to close */}
+          <div 
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm cursor-pointer" 
+            onClick={closeMenu}
+            aria-label="Close menu"
+          />
 
           {/* Menu Panel - slides in from right */}
           <div
@@ -141,7 +144,6 @@ export default function MobileMenu() {
             aria-modal="true"
             aria-label="Navigation menu"
             className="absolute top-0 right-0 h-full w-[280px] max-w-[85vw] bg-white shadow-2xl overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
           >
             {/* Menu Header */}
             <div className="sticky top-0 bg-white border-b border-slate-200 px-4 py-4 flex items-center justify-between">
