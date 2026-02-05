@@ -34,13 +34,13 @@ export default function RootLayout({ children }) {
               <div className="flex items-center justify-between h-16">
                 <Link href="/" className="flex items-center space-x-3 group">
                   <div className="relative">
-                    <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-purple-700 rounded flex items-center justify-center transform group-hover:scale-105 transition-transform">
+                    <div className="w-10 h-10 rounded flex items-center justify-center transform group-hover:scale-105 transition-transform" style={{background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)'}}>
                       <span className="text-white font-semibold text-lg">C</span>
                     </div>
-                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-purple-400 rounded-full opacity-75"></div>
+                    <div className="absolute -top-1 -right-1 w-3 h-3 rounded-full opacity-75" style={{backgroundColor: '#854F9B'}}></div>
                   </div>
                   <div>
-                    <span className="text-lg font-semibold text-slate-800 block leading-none">Celiac Info Hub</span>
+                    <span className="text-lg font-semibold text-slate-800 block leading-none">Coeliac Info Hub</span>
                     <span className="text-xs text-slate-500">Evidence-based information</span>
                   </div>
                 </Link>
