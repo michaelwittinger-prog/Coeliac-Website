@@ -259,7 +259,8 @@ export default function LivingPage() {
           </div>
 
           {/* Related Reading Section */}
-          <RelatedReading links={relatedLinks} />
+          {/* External Resources Section */}
+          <ExternalResources links={externalLinks} title="Gluten-Free Living Resources" />
         </div>
       </div>
     </div>

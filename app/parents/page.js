@@ -227,7 +227,8 @@ export default function ParentsPage() {
           </div>
 
           {/* Related Reading Section */}
-          <RelatedReading links={relatedLinks} />
+          {/* External Resources Section */}
+          <ExternalResources links={externalLinks} title="Resources for Parents" />
         </div>
       </div>
     </div>

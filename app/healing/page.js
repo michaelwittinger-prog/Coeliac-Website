@@ -179,7 +179,8 @@ export default function HealingPage() {
           </div>
 
           {/* Related Reading Section */}
-          <RelatedReading links={relatedLinks} />
+          {/* External Resources Section */}
+          <ExternalResources links={externalLinks} title="Healing & Recovery Resources" />
         </div>
       </div>
     </div>
