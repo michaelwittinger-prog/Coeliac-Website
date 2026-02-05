@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { X, BookOpen, FileText, HeartPulse, Users, Link2, Utensils, FlaskConical, Info, Home } from 'lucide-react'
 
 const navLinks = [
@@ -22,6 +22,7 @@ export default function MobileMenu() {
   const menuPanelRef = useRef(null)
   const buttonRef = useRef(null)
   const pathname = usePathname()
+  const router = useRouter()
 
   // Close menu when route changes
   useEffect(() => {
@@ -160,9 +161,9 @@ export default function MobileMenu() {
                   const isActive = pathname === link.href
                   return (
                     <li key={link.href}>
-                      <Link
+                      <a
                         href={link.href}
-                        onClick={closeMenu}
+                        onClick={(e) => handleNavClick(e, link.href)}
                         className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-base font-medium transition-colors cursor-pointer touch-manipulation ${
                           isActive
                             ? 'bg-purple-50 text-purple-700'
@@ -172,7 +173,7 @@ export default function MobileMenu() {
                       >
                         <Icon className={`w-5 h-5 flex-shrink-0 ${isActive ? 'text-purple-600' : 'text-slate-500'}`} />
                         <span>{link.label}</span>
-                      </Link>
+                      </a>
                     </li>
                   )
                 })}
