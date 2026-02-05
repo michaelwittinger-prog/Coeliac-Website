@@ -153,3 +153,16 @@ code {
 .group:hover .group-hover-title {
   color: #854F9B !important;
 }
+
+.related-link-hover:hover {
+  background-color: rgba(133, 79, 155, 0.05) !important;
+  border-color: rgba(133, 79, 155, 0.2) !important;
+}
+
+.group:hover .group-hover-text {
+  color: #854F9B !important;
+}
+
+.group:hover .group-hover-arrow {
+  color: #854F9B !important;
+}
