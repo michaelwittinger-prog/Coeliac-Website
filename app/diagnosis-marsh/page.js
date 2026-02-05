@@ -12,7 +12,7 @@ export default function DiagnosisMarchPage() {
   const externalLinks = [
     {
       title: 'International Society for the Study of Coeliac Disease (ISSCD)',
-      url: 'https://www.coeliacsociety.org.uk/',
+      url: 'https://www.isscd-global.org/',
       description: 'Professional medical guidelines and diagnostic standards for coeliac disease from international experts.',
       region: 'International'
     },

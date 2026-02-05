@@ -11,7 +11,7 @@ export default function ParentsPage() {
   const externalLinks = [
     {
       title: 'Coeliac UK - Children & Young People',
-      url: 'https://www.coeliac.org.uk/information-and-support/coeliac-disease/coeliac-disease-in-children/',
+      url: 'https://www.coeliac.org.uk/living-with-coeliac-disease/children-and-young-people/',
       description: 'Dedicated resources for parents of children with coeliac disease.',
       region: 'United Kingdom'
     },

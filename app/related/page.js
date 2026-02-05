@@ -23,7 +23,7 @@ export default function RelatedPage() {
     },
     {
       title: 'ISSCD - Scientific Research',
-      url: 'https://isscd.org/',
+      url: 'https://www.isscd-global.org/',
       description: 'International scientific society research on coeliac disease comorbidities.',
       region: 'International'
     }

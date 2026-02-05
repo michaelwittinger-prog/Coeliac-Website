@@ -11,7 +11,7 @@ export default function ResearchPage() {
   const externalLinks = [
     {
       title: 'ISSCD - Research Publications',
-      url: 'https://isscd.org/',
+      url: 'https://www.isscd-global.org/',
       description: 'International Society for the Study of Celiac Disease research and publications.',
       region: 'International'
     },
@@ -23,7 +23,7 @@ export default function ResearchPage() {
     },
     {
       title: 'Coeliac UK - Research',
-      url: 'https://www.coeliac.org.uk/information-and-support/coeliac-disease/research/',
+      url: 'https://www.coeliac.org.uk/about-us/our-work/',
       description: 'UK-funded research projects and scientific advances.',
       region: 'United Kingdom'
     },
