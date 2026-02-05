@@ -1,5 +1,5 @@
 import InOneMinute from '@/components/InOneMinute'
-import RelatedReading from '@/components/RelatedReading'
+import ExternalResources from '@/components/ExternalResources'
 import Link from 'next/link'
 import { ArrowRight, BookOpen, FileText, HeartPulse, Users, Microscope, CheckCircle2 } from 'lucide-react'
 
@@ -10,10 +10,25 @@ export const metadata = {
 }
 
 export default function Home() {
-  const relatedLinks = [
-    { href: '/understanding', title: 'Understanding Coeliac Disease' },
-    { href: '/diagnosis-marsh', title: 'Diagnosis & Marsh Classification' },
-    { href: '/healing', title: 'Healing Process' },
+  const externalLinks = [
+    {
+      title: 'Coeliac UK',
+      url: 'https://www.coeliac.org.uk/',
+      description: 'The UK\'s leading charity for coeliac disease information and support.',
+      region: 'United Kingdom'
+    },
+    {
+      title: 'Beyond Celiac',
+      url: 'https://www.beyondceliac.org/',
+      description: 'Leading US organisation for celiac disease awareness and research.',
+      region: 'United States'
+    },
+    {
+      title: 'Association of European Coeliac Societies (AOECS)',
+      url: 'https://www.aoecs.org/',
+      description: 'Pan-European organisation representing coeliac societies across Europe.',
+      region: 'Europe'
+    }
   ]
 
   const features = [

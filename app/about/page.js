@@ -1,5 +1,5 @@
 import InOneMinute from '@/components/InOneMinute'
-import RelatedReading from '@/components/RelatedReading'
+import ExternalResources from '@/components/ExternalResources'
 import { Target, CheckCircle2, RefreshCcw, Users, Info } from 'lucide-react'
 
 export const metadata = {
@@ -8,10 +8,31 @@ export const metadata = {
 }
 
 export default function AboutPage() {
-  const relatedLinks = [
-    { href: '/understanding', title: 'Understanding Coeliac Disease' },
-    { href: '/diagnosis-marsh', title: 'Diagnosis & Marsh Classification' },
-    { href: '/research', title: 'Latest Research' },
+  const externalLinks = [
+    {
+      title: 'Coeliac UK',
+      url: 'https://www.coeliac.org.uk/',
+      description: 'Leading UK charity for people with coeliac disease and dermatitis herpetiformis.',
+      region: 'United Kingdom'
+    },
+    {
+      title: 'Beyond Celiac',
+      url: 'https://www.beyondceliac.org/',
+      description: 'US organisation driving diagnosis, treatment and a cure for celiac disease.',
+      region: 'United States'
+    },
+    {
+      title: 'Association of European Coeliac Societies (AOECS)',
+      url: 'https://www.aoecs.org/',
+      description: 'Umbrella organisation for European coeliac societies.',
+      region: 'Europe'
+    },
+    {
+      title: 'Coeliac Australia',
+      url: 'https://www.coeliac.org.au/',
+      description: 'Supporting Australians with coeliac disease through education and advocacy.',
+      region: 'Australia'
+    }
   ]
 
   const missions = [
