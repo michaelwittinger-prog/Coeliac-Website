@@ -3,13 +3,13 @@ import RelatedReading from '@/components/RelatedReading'
 import { Microscope, TestTube, Dna, AlertTriangle, Clock, AlertCircle } from 'lucide-react'
 
 export const metadata = {
-  title: 'Diagnosis & Marsh Classification - Celiac Information Hub',
-  description: 'Understand how Celiac disease is diagnosed through blood tests, endoscopy, and the Marsh classification system for intestinal damage.',
+  title: 'Diagnosis & Marsh Classification - Coeliac Disease Information Hub',
+  description: 'Understand how Coeliac disease (Celiac disease) is diagnosed through blood tests, endoscopy, and the Marsh classification system for intestinal damage.',
 }
 
 export default function DiagnosisMarchPage() {
   const relatedLinks = [
-    { href: '/understanding', title: 'Understanding Celiac Disease' },
+    { href: '/understanding', title: 'Understanding Coeliac Disease' },
     { href: '/healing', title: 'Healing Process and Timeline' },
     { href: '/research', title: 'Latest Research' },
   ]
