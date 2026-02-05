@@ -34,7 +34,7 @@ const navLinks = [
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${urbanist.variable}`}>
       <body className={inter.className}>
         <div className="min-h-screen flex flex-col bg-slate-50">
           {/* Header Navigation */}
