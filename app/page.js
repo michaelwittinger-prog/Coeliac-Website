@@ -1,7 +1,7 @@
 import InOneMinute from '@/components/InOneMinute'
 import ExternalResources from '@/components/ExternalResources'
 import Link from 'next/link'
-import { ArrowRight, BookOpen, FileText, HeartPulse, Users, Microscope, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, BookOpen, FileText, HeartPulse, Users, Microscope, CheckCircle2, MapPin } from 'lucide-react'
 
 export const metadata = {
   title: 'Home - Coeliac Disease Information Hub',
