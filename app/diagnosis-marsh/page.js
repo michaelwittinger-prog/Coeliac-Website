@@ -49,14 +49,14 @@ export default function DiagnosisMarchPage() {
         <div className="max-w-4xl mx-auto">
           {/* Page Header */}
           <div className="mb-12">
-            <div className="inline-flex items-center space-x-2 bg-teal-50/80 text-teal-800 px-3 py-1 rounded-full text-sm font-medium mb-4 border border-teal-100/50">
+            <div className="inline-flex items-center space-x-2 bg-blue-50 text-blue-700 px-3 py-1.5 rounded-md text-sm font-medium mb-4 border border-blue-100">
               <Microscope className="w-4 h-4" />
               <span>Diagnostic Information</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
               Diagnosis & Marsh Classification
             </h1>
-            <p className="text-lg text-slate-700">Understanding testing and damage classification</p>
+            <p className="text-lg text-slate-600 leading-relaxed">Understanding testing and damage classification</p>
           </div>
 
           {/* In One Minute Section */}
