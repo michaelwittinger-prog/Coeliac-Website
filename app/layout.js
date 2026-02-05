@@ -1,10 +1,19 @@
-import { Inter } from 'next/font/google'
+import { Inter, Urbanist } from 'next/font/google'
 import './globals.css'
 import Link from 'next/link'
 import MedicalDisclaimer from '@/components/MedicalDisclaimer'
 import { Home, BookOpen, FileText, HeartPulse, Users, Link2, Utensils, FlaskConical, Info } from 'lucide-react'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
+})
+
+const urbanist = Urbanist({ 
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-urbanist',
+})
 
 export const metadata = {
   title: 'Coeliac Disease Information Hub',
@@ -26,7 +35,7 @@ const navLinks = [
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.variable} ${urbanist.variable} font-sans`}>
         <div className="min-h-screen flex flex-col bg-slate-50">
           {/* Header Navigation */}
           <header className="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
