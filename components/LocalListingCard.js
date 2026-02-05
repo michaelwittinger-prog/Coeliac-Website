@@ -91,9 +91,10 @@ export default function LocalListingCard({
             href={websiteUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-lg text-sm font-medium text-white transition-all cursor-pointer touch-manipulation min-w-[44px] min-h-[44px]"
+            className="inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-lg text-sm font-medium text-white transition-all cursor-pointer touch-manipulation min-w-[44px] min-h-[44px] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2"
             style={{ 
               background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)',
+              '--tw-ring-color': '#854F9B'
             }}
           >
             <ExternalLink className="w-4 h-4" />
@@ -105,19 +106,11 @@ export default function LocalListingCard({
           href={finalMapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-lg text-sm font-medium border-2 transition-all cursor-pointer touch-manipulation min-w-[44px] min-h-[44px]"
+          className="inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-lg text-sm font-medium border-2 transition-all cursor-pointer touch-manipulation min-w-[44px] min-h-[44px] hover:bg-purple-50 focus:outline-none focus:ring-2 focus:ring-offset-2"
           style={{ 
             borderColor: 'rgba(133, 79, 155, 0.3)',
             color: '#854F9B',
-            backgroundColor: 'transparent'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = 'rgba(133, 79, 155, 0.05)'
-            e.currentTarget.style.borderColor = '#854F9B'
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = 'transparent'
-            e.currentTarget.style.borderColor = 'rgba(133, 79, 155, 0.3)'
+            '--tw-ring-color': '#854F9B'
           }}
         >
           <MapPin className="w-4 h-4" />
