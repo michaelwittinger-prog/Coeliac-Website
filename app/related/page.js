@@ -3,7 +3,7 @@ import RelatedReading from '@/components/RelatedReading'
 import { Link2, Activity, Dna, AlertCircle } from 'lucide-react'
 
 export const metadata = {
-  title: 'Related Conditions - Celiac Information Hub',
+  title: 'Related Conditions - Coeliac Information Hub',
   description: 'Learn about conditions associated with Coeliac disease including Type 1 diabetes, thyroid disorders, and other autoimmune conditions.',
 }
 

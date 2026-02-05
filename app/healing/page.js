@@ -3,7 +3,7 @@ import RelatedReading from '@/components/RelatedReading'
 import { HeartPulse, TrendingUp, Clock, Info } from 'lucide-react'
 
 export const metadata = {
-  title: 'Healing Process - Celiac Information Hub',
+  title: 'Healing Process - Coeliac Information Hub',
   description: 'Learn about the intestinal healing process after starting a gluten-free diet, timelines for recovery, and monitoring progress.',
 }
 

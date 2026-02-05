@@ -3,7 +3,7 @@ import RelatedReading from '@/components/RelatedReading'
 import { Utensils, X, Check, AlertTriangle, ShieldCheck } from 'lucide-react'
 
 export const metadata = {
-  title: 'Living with Coeliac Disease - Celiac Information Hub',
+  title: 'Living with Coeliac Disease - Coeliac Information Hub',
   description: 'Practical tips for living well with Coeliac disease. Learn about the gluten-free diet, dining out, travel, and maintaining quality of life.',
 }
 

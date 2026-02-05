@@ -3,8 +3,8 @@ import RelatedReading from '@/components/RelatedReading'
 import { Target, CheckCircle2, RefreshCcw, Users, Info } from 'lucide-react'
 
 export const metadata = {
-  title: 'About - Celiac Information Hub',
-  description: 'Learn about the Celiac Information Hub, our mission to provide evidence-based information about Coeliac disease, and our commitment to supporting the community.',
+  title: 'About - Coeliac Information Hub',
+  description: 'Learn about the Coeliac Information Hub, our mission to provide evidence-based information about Coeliac disease, and our commitment to supporting the community.',
 }
 
 export default function AboutPage() {
@@ -50,7 +50,7 @@ export default function AboutPage() {
               <span>About Us</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              About Celiac Information Hub
+              About Coeliac Information Hub
             </h1>
             <p className="text-lg text-slate-600">Our mission to provide trusted celiac disease information</p>
           </div>
@@ -59,7 +59,7 @@ export default function AboutPage() {
           <div className="mb-12">
             <InOneMinute>
               <p>
-                The Celiac Information Hub is dedicated to providing accurate, evidence-based information about celiac disease to patients, families, and healthcare providers. Our mission is to empower individuals with the knowledge they need to understand, diagnose, and manage celiac disease effectively. All information is based on current medical research and guidelines from leading celiac disease organizations.
+                The Coeliac Information Hub is dedicated to providing accurate, evidence-based information about celiac disease to patients, families, and healthcare providers. Our mission is to empower individuals with the knowledge they need to understand, diagnose, and manage celiac disease effectively. All information is based on current medical research and guidelines from leading celiac disease organizations.
               </p>
             </InOneMinute>
           </div>

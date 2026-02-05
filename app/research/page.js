@@ -3,7 +3,7 @@ import RelatedReading from '@/components/RelatedReading'
 import { FlaskConical, Beaker, Dna, Info } from 'lucide-react'
 
 export const metadata = {
-  title: 'Latest Research - Celiac Information Hub',
+  title: 'Latest Research - Coeliac Information Hub',
   description: 'Stay informed about the latest Coeliac disease research, including new treatments, diagnostic methods, and scientific discoveries.',
 }
 

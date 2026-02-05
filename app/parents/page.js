@@ -3,7 +3,7 @@ import RelatedReading from '@/components/RelatedReading'
 import { Users, GraduationCap, Home, Heart } from 'lucide-react'
 
 export const metadata = {
-  title: 'Resources for Parents - Celiac Information Hub',
+  title: 'Resources for Parents - Coeliac Information Hub',
   description: 'Information and support for parents of children with Coeliac disease. Learn about pediatric diagnosis, school management, and family adaptation.',
 }
 

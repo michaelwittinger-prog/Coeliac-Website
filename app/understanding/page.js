@@ -3,7 +3,7 @@ import RelatedReading from '@/components/RelatedReading'
 import { Dna, Activity, Users2, AlertTriangle } from 'lucide-react'
 
 export const metadata = {
-  title: 'Understanding Coeliac Disease - Celiac Information Hub',
+  title: 'Understanding Coeliac Disease - Coeliac Information Hub',
   description: 'Learn about Coeliac disease, an autoimmune disorder triggered by gluten. Understand the basics, symptoms, and how it affects the body.',
 }
 
