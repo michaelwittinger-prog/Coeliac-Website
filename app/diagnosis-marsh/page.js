@@ -93,15 +93,15 @@ export default function DiagnosisMarchPage() {
           {/* Diagnostic Process */}
           <div className="bg-white rounded-lg p-8 shadow-sm border border-slate-200 mb-8">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center">
-                <TestTube className="w-6 h-6 text-blue-600" />
+              <div className="w-12 h-12 bg-teal-50 rounded-lg flex items-center justify-center">
+                <TestTube className="w-6 h-6 text-teal-600" />
               </div>
               <h2 className="text-2xl font-bold text-slate-900">Diagnostic Process</h2>
             </div>
             <div className="space-y-6">
               {diagnosticSteps.map((step) => (
                 <div key={step.number} className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                  <div className="flex-shrink-0 w-10 h-10 bg-teal-500 rounded-lg flex items-center justify-center shadow-sm">
                     <span className="text-white font-semibold text-lg">{step.number}</span>
                   </div>
                   <div className="flex-1 pt-1">
