@@ -145,3 +145,11 @@ code {
   color: #854F9B !important;
   background-color: rgba(133, 79, 155, 0.1) !important;
 }
+
+.feature-card-hover:hover {
+  border-color: #854F9B !important;
+}
+
+.group:hover .group-hover-title {
+  color: #854F9B !important;
+}
