@@ -41,9 +41,9 @@ export default function DiagnosisMarchPage() {
   ]
 
   return (
-    <div className="bg-slate-50">
-      {/* Subtle background accent - minimal, clinical */}
-      <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-gradient-to-bl from-blue-50/40 to-transparent pointer-events-none"></div>
+    <div className="bg-slate-900 min-h-screen">
+      {/* Subtle background accent */}
+      <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-gradient-to-bl from-blue-900/20 to-transparent pointer-events-none"></div>
       
       <div className="relative container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
