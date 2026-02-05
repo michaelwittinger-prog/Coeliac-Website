@@ -128,10 +128,10 @@ export default function DiagnosisMarchPage() {
           </div>
 
           {/* NEW: The Diagnostic Delay Section */}
-          <div className="bg-white rounded-xl p-8 shadow-sm border border-slate-200 mb-8">
+          <div className="bg-gradient-to-br from-white via-stone-50/40 to-amber-50/20 rounded-xl p-8 shadow-sm border border-stone-200/50 mb-8">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center">
-                <Clock className="w-6 h-6 text-slate-700" />
+              <div className="w-12 h-12 bg-gradient-to-br from-amber-100/70 to-stone-100/60 rounded-lg flex items-center justify-center border border-amber-200/30">
+                <Clock className="w-6 h-6 text-amber-800" />
               </div>
               <h2 className="text-2xl font-bold text-slate-800">Understanding Diagnostic Delay</h2>
             </div>
@@ -147,35 +147,35 @@ export default function DiagnosisMarchPage() {
             <div className="mb-8">
               <h3 className="text-xl font-semibold text-slate-800 mb-4">Why Diagnostic Delay Occurs</h3>
               <div className="space-y-4">
-                <div className="bg-slate-50 rounded-lg p-5 border border-slate-200">
+                <div className="bg-gradient-to-r from-stone-50/80 to-sand-50/60 rounded-lg p-5 border border-stone-200/40">
                   <h4 className="font-semibold text-slate-800 mb-2">Low Testing Rates</h4>
                   <p className="text-slate-700 text-sm leading-relaxed">
                     Despite the availability of reliable screening methods, coeliac disease testing is not routinely performed in many clinical settings unless symptoms are strongly suggestive. This results in missed opportunities for early detection, particularly in populations where the condition is underestimated or misunderstood.
                   </p>
                 </div>
 
-                <div className="bg-slate-50 rounded-lg p-5 border border-slate-200">
+                <div className="bg-gradient-to-r from-stone-50/80 to-sand-50/60 rounded-lg p-5 border border-stone-200/40">
                   <h4 className="font-semibold text-slate-800 mb-2">Symptom Overlap with Other Conditions</h4>
                   <p className="text-slate-700 text-sm leading-relaxed">
                     Coeliac disease shares symptoms with more than 200 other conditions, including irritable bowel syndrome, chronic fatigue, anemia, and anxiety disorders. This overlap often leads to alternative diagnoses that address symptoms but not the underlying autoimmune process. The conditions diagnosed during this period are frequently consequences or correlations of untreated coeliac disease rather than separate root causes.
                   </p>
                 </div>
 
-                <div className="bg-slate-50 rounded-lg p-5 border border-slate-200">
+                <div className="bg-gradient-to-r from-stone-50/80 to-sand-50/60 rounded-lg p-5 border border-stone-200/40">
                   <h4 className="font-semibold text-slate-800 mb-2">Non Classical Presentations</h4>
                   <p className="text-slate-700 text-sm leading-relaxed">
                     While digestive symptoms are commonly associated with coeliac disease, many individuals present with non gastrointestinal manifestations such as skin conditions, neurological symptoms, joint pain, or reproductive issues. These less recognized presentations can lead clinicians to investigate other diagnostic pathways before considering coeliac disease.
                   </p>
                 </div>
 
-                <div className="bg-slate-50 rounded-lg p-5 border border-slate-200">
+                <div className="bg-gradient-to-r from-stone-50/80 to-sand-50/60 rounded-lg p-5 border border-stone-200/40">
                   <h4 className="font-semibold text-slate-800 mb-2">Fragmented Healthcare Pathways</h4>
                   <p className="text-slate-700 text-sm leading-relaxed">
                     Individuals with diverse symptoms may consult multiple specialists across different medical domains. Without a coordinated approach or a clinical prompt to test for coeliac disease, the condition may remain outside the diagnostic focus even when symptoms persist across consultations.
                   </p>
                 </div>
 
-                <div className="bg-slate-50 rounded-lg p-5 border border-slate-200">
+                <div className="bg-gradient-to-r from-stone-50/80 to-sand-50/60 rounded-lg p-5 border border-stone-200/40">
                   <h4 className="font-semibold text-slate-800 mb-2">Underrecognition in Adults</h4>
                   <p className="text-slate-700 text-sm leading-relaxed">
                     Coeliac disease is increasingly recognized as a condition that can develop at any age, yet diagnostic awareness remains higher in pediatric settings. Adults presenting with new or worsening symptoms may not be evaluated for coeliac disease as readily, contributing to prolonged delays in this demographic.
