@@ -96,10 +96,10 @@ export default function RootLayout({ children }) {
               <div className="mt-12 pt-8 border-t border-slate-200">
                 <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                   <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-purple-700 rounded flex items-center justify-center">
+                    <div className="w-8 h-8 rounded flex items-center justify-center" style={{background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)'}}>
                       <span className="text-white font-semibold text-sm">C</span>
                     </div>
-                    <span className="text-sm font-medium text-slate-700">Celiac Information Hub</span>
+                    <span className="text-sm font-medium text-slate-700">Coeliac Information Hub</span>
                   </div>
                   <div className="text-center text-sm text-slate-500">
                     <p>&copy; {new Date().getFullYear()} All rights reserved. For educational purposes only.</p>
