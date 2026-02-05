@@ -4,7 +4,7 @@ import { Dna, Activity, Users2, AlertTriangle } from 'lucide-react'
 
 export const metadata = {
   title: 'Understanding Celiac Disease - Celiac Information Hub',
-  description: 'Learn about Celiac disease, an autoimmune disorder triggered by gluten. Understand the basics, symptoms, and how it affects the body.',
+  description: 'Learn about Coeliac disease, an autoimmune disorder triggered by gluten. Understand the basics, symptoms, and how it affects the body.',
 }
 
 export default function UnderstandingPage() {
@@ -52,7 +52,7 @@ export default function UnderstandingPage() {
           <div className="mb-12">
             <InOneMinute>
               <p>
-                <strong>Celiac disease</strong> is an autoimmune disorder where eating gluten causes the immune system to attack the small intestine. This damages the villi—tiny, finger-like projections that line the intestine and absorb nutrients. Over time, this damage leads to malabsorption of essential nutrients. The only treatment is a strict, lifelong gluten-free diet.
+                <strong>Coeliac disease</strong> is an autoimmune disorder where eating gluten causes the immune system to attack the small intestine. This damages the villi—tiny, finger-like projections that line the intestine and absorb nutrients. Over time, this damage leads to malabsorption of essential nutrients. The only treatment is a strict, lifelong gluten-free diet.
               </p>
             </InOneMinute>
           </div>
@@ -71,7 +71,7 @@ export default function UnderstandingPage() {
               </div>
               <div className="space-y-4 text-slate-600">
                 <p>
-                  Celiac disease is a chronic autoimmune disorder that occurs in genetically predisposed individuals. When people with celiac disease eat gluten—a protein found in wheat, barley, and rye—their immune system responds by damaging the lining of the small intestine.
+                  Coeliac disease is a chronic autoimmune disorder that occurs in genetically predisposed individuals. When people with celiac disease eat gluten—a protein found in wheat, barley, and rye—their immune system responds by damaging the lining of the small intestine.
                 </p>
                 <p>
                   This damage reduces the intestine's ability to absorb nutrients, potentially leading to malnutrition and other serious health complications if left untreated.
@@ -124,7 +124,7 @@ export default function UnderstandingPage() {
                   <h2 className="text-2xl font-bold text-slate-800 mb-3">Who Gets Celiac Disease?</h2>
                   <div className="space-y-3 text-slate-700">
                     <p>
-                      Celiac disease affects approximately <strong>1% of the population worldwide</strong>. It can develop at any age and occurs in people who have a genetic predisposition. Having a first-degree relative with celiac disease increases your risk significantly.
+                      Coeliac disease affects approximately <strong>1% of the population worldwide</strong>. It can develop at any age and occurs in people who have a genetic predisposition. Having a first-degree relative with celiac disease increases your risk significantly.
                     </p>
                     <p>
                       The disease is more common in people with other autoimmune disorders, such as Type 1 diabetes, autoimmune thyroid disease, and Down syndrome.

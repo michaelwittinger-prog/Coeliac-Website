@@ -4,7 +4,7 @@ import { Utensils, X, Check, AlertTriangle, ShieldCheck } from 'lucide-react'
 
 export const metadata = {
   title: 'Living with Celiac Disease - Celiac Information Hub',
-  description: 'Practical tips for living well with Celiac disease. Learn about the gluten-free diet, dining out, travel, and maintaining quality of life.',
+  description: 'Practical tips for living well with Coeliac disease. Learn about the gluten-free diet, dining out, travel, and maintaining quality of life.',
 }
 
 export default function LivingPage() {

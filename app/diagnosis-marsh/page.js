@@ -5,7 +5,7 @@ import { Microscope, TestTube, Dna, AlertTriangle, Clock, AlertCircle } from 'lu
 
 export const metadata = {
   title: 'Diagnosis & Marsh Classification - Coeliac Disease Information Hub',
-  description: 'Understand how Coeliac disease (Celiac disease) is diagnosed through blood tests, endoscopy, and the Marsh classification system for intestinal damage.',
+  description: 'Understand how Coeliac disease (Coeliac disease) is diagnosed through blood tests, endoscopy, and the Marsh classification system for intestinal damage.',
   keywords: 'coeliac disease, celiac disease, diagnosis, marsh classification, gluten intolerance, biopsy, blood test',
 }
 

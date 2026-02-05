@@ -4,7 +4,7 @@ import { Users, GraduationCap, Home, Heart } from 'lucide-react'
 
 export const metadata = {
   title: 'Resources for Parents - Celiac Information Hub',
-  description: 'Information and support for parents of children with Celiac disease. Learn about pediatric diagnosis, school management, and family adaptation.',
+  description: 'Information and support for parents of children with Coeliac disease. Learn about pediatric diagnosis, school management, and family adaptation.',
 }
 
 export default function ParentsPage() {

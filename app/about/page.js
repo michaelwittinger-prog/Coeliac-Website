@@ -4,7 +4,7 @@ import { Target, CheckCircle2, RefreshCcw, Users, Info } from 'lucide-react'
 
 export const metadata = {
   title: 'About - Celiac Information Hub',
-  description: 'Learn about the Celiac Information Hub, our mission to provide evidence-based information about Celiac disease, and our commitment to supporting the community.',
+  description: 'Learn about the Celiac Information Hub, our mission to provide evidence-based information about Coeliac disease, and our commitment to supporting the community.',
 }
 
 export default function AboutPage() {
@@ -125,7 +125,7 @@ export default function AboutPage() {
                 <div>
                   <h3 className="font-semibold text-slate-800 mb-2">Regularly Updated</h3>
                   <p className="text-slate-600 text-sm">
-                    Celiac disease research is constantly evolving. We regularly review and update our content to reflect the latest scientific understanding.
+                    Coeliac disease research is constantly evolving. We regularly review and update our content to reflect the latest scientific understanding.
                   </p>
                 </div>
               </div>

@@ -4,7 +4,7 @@ import { Link2, Activity, Dna, AlertCircle } from 'lucide-react'
 
 export const metadata = {
   title: 'Related Conditions - Celiac Information Hub',
-  description: 'Learn about conditions associated with Celiac disease including Type 1 diabetes, thyroid disorders, and other autoimmune conditions.',
+  description: 'Learn about conditions associated with Coeliac disease including Type 1 diabetes, thyroid disorders, and other autoimmune conditions.',
 }
 
 export default function RelatedPage() {
@@ -59,7 +59,7 @@ export default function RelatedPage() {
           <div className="mb-12">
             <InOneMinute>
               <p>
-                Celiac disease is often associated with other autoimmune conditions. People with celiac disease have a higher risk of developing Type 1 diabetes, autoimmune thyroid disease, autoimmune liver disease, and other conditions. First-degree relatives of people with celiac disease should be screened. If you have celiac disease and experience new symptoms, discuss screening for related conditions with your healthcare provider.
+                Coeliac disease is often associated with other autoimmune conditions. People with celiac disease have a higher risk of developing Type 1 diabetes, autoimmune thyroid disease, autoimmune liver disease, and other conditions. First-degree relatives of people with celiac disease should be screened. If you have celiac disease and experience new symptoms, discuss screening for related conditions with your healthcare provider.
               </p>
             </InOneMinute>
           </div>

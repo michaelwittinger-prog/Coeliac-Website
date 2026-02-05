@@ -4,7 +4,7 @@ import { FlaskConical, Beaker, Dna, Info } from 'lucide-react'
 
 export const metadata = {
   title: 'Latest Research - Celiac Information Hub',
-  description: 'Stay informed about the latest Celiac disease research, including new treatments, diagnostic methods, and scientific discoveries.',
+  description: 'Stay informed about the latest Coeliac disease research, including new treatments, diagnostic methods, and scientific discoveries.',
 }
 
 export default function ResearchPage() {
@@ -57,7 +57,7 @@ export default function ResearchPage() {
           <div className="mb-12">
             <InOneMinute>
               <p>
-                Celiac disease research is rapidly advancing. Current areas of investigation include alternative treatments beyond diet (enzyme therapies, vaccines, drugs to restore tolerance), improved diagnostic methods, understanding the role of the microbiome, and identifying environmental triggers. While the gluten-free diet remains the only proven treatment, future therapies may offer additional options for managing celiac disease.
+                Coeliac disease research is rapidly advancing. Current areas of investigation include alternative treatments beyond diet (enzyme therapies, vaccines, drugs to restore tolerance), improved diagnostic methods, understanding the role of the microbiome, and identifying environmental triggers. While the gluten-free diet remains the only proven treatment, future therapies may offer additional options for managing celiac disease.
               </p>
             </InOneMinute>
           </div>

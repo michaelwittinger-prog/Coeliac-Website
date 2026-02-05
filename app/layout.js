@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Coeliac Disease Information Hub',
-  description: 'Comprehensive information about Coeliac disease (Celiac disease), diagnosis, treatment, and living with the condition',
+  description: 'Comprehensive information about Coeliac disease (Coeliac disease), diagnosis, treatment, and living with the condition',
   keywords: 'coeliac disease, celiac disease, gluten free, autoimmune, diagnosis, treatment',
 }
 
