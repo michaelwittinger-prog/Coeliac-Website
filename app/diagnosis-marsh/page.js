@@ -268,15 +268,15 @@ export default function DiagnosisMarchPage() {
             </div>
 
             {/* Closing Context */}
-            <div className="bg-gradient-to-r from-emerald-50/60 via-white to-teal-50/50 rounded-lg p-6 border border-emerald-200/40">
+            <div className="bg-green-50 rounded-lg p-6 border border-green-200">
               <div className="flex items-start space-x-3">
-                <AlertCircle className="w-6 h-6 text-teal-700 flex-shrink-0 mt-1" />
+                <AlertCircle className="w-6 h-6 text-green-700 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-semibold text-slate-800 mb-2">A Systemic Challenge, Not Individual Fault</h4>
-                  <p className="text-slate-700 text-sm leading-relaxed mb-3">
+                  <h4 className="font-semibold text-slate-900 mb-2">A Systemic Challenge, Not Individual Fault</h4>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-3">
                     The diagnostic delay in coeliac disease reflects a gap between symptom recognition and clinical testing, not a failure on the part of patients or individual clinicians. Coeliac disease is common, affecting approximately 1% of the population. It is serious when untreated, but highly manageable with early and accurate diagnosis.
                   </p>
-                  <p className="text-slate-700 text-sm leading-relaxed">
+                  <p className="text-slate-600 text-sm leading-relaxed">
                     Improving awareness across healthcare systems, increasing routine testing in at risk populations, and recognizing the full spectrum of coeliac disease presentations are essential steps toward reducing this delay and improving outcomes for those affected.
                   </p>
                 </div>
@@ -285,14 +285,14 @@ export default function DiagnosisMarchPage() {
           </div>
 
           {/* Important Note */}
-          <div className="bg-gradient-to-r from-amber-50/70 via-orange-50/50 to-yellow-50/40 border border-amber-200/50 rounded-xl p-6 mb-12">
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 mb-12">
             <div className="flex items-start space-x-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-amber-100/80 to-yellow-100/60 rounded-lg flex items-center justify-center flex-shrink-0 border border-amber-200/40">
-                <AlertTriangle className="w-5 h-5 text-amber-800" />
+              <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <AlertTriangle className="w-5 h-5 text-amber-700" />
               </div>
               <div>
-                <h3 className="font-semibold text-slate-800 mb-2">Important Note</h3>
-                <p className="text-slate-700 text-sm leading-relaxed">
+                <h3 className="font-semibold text-slate-900 mb-2">Important Note</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
                   You must continue eating gluten-containing foods before testing. Starting a gluten-free diet before diagnosis can lead to false-negative results and delay proper treatment.
                 </p>
               </div>
