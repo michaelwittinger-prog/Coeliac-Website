@@ -124,6 +124,165 @@ export default function DiagnosisMarchPage() {
             </div>
           </div>
 
+          {/* NEW: The Diagnostic Delay Section */}
+          <div className="bg-white rounded-xl p-8 shadow-sm border border-slate-200 mb-8">
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center">
+                <Clock className="w-6 h-6 text-slate-700" />
+              </div>
+              <h2 className="text-2xl font-bold text-slate-800">Understanding Diagnostic Delay</h2>
+            </div>
+
+            {/* Introduction */}
+            <div className="mb-8">
+              <p className="text-slate-700 leading-relaxed mb-4">
+                Many people with coeliac disease experience symptoms for years before receiving a diagnosis. Research indicates an average diagnostic delay of approximately <strong>13 years</strong> from symptom onset to confirmation. This extended timeframe is not a measure of individual experience, but a reflection of systemic challenges in recognizing a condition that can present in many different ways.
+              </p>
+            </div>
+
+            {/* Why Delay Occurs */}
+            <div className="mb-8">
+              <h3 className="text-xl font-semibold text-slate-800 mb-4">Why Diagnostic Delay Occurs</h3>
+              <div className="space-y-4">
+                <div className="bg-slate-50 rounded-lg p-5 border border-slate-200">
+                  <h4 className="font-semibold text-slate-800 mb-2">Symptom Overlap with Other Conditions</h4>
+                  <p className="text-slate-700 text-sm leading-relaxed">
+                    Coeliac disease shares symptoms with more than 200 other conditions, including irritable bowel syndrome, chronic fatigue, anemia, and anxiety disorders. This overlap often leads to alternative diagnoses that address symptoms but not the underlying autoimmune process. The conditions diagnosed during this period are frequently consequences or correlations of untreated coeliac disease rather than separate root causes.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 rounded-lg p-5 border border-slate-200">
+                  <h4 className="font-semibold text-slate-800 mb-2">Non Classical Presentations</h4>
+                  <p className="text-slate-700 text-sm leading-relaxed">
+                    While digestive symptoms are commonly associated with coeliac disease, many individuals present with non gastrointestinal manifestations such as skin conditions, neurological symptoms, joint pain, or reproductive issues. These less recognized presentations can lead clinicians to investigate other diagnostic pathways before considering coeliac disease.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 rounded-lg p-5 border border-slate-200">
+                  <h4 className="font-semibold text-slate-800 mb-2">Fragmented Healthcare Pathways</h4>
+                  <p className="text-slate-700 text-sm leading-relaxed">
+                    Individuals with diverse symptoms may consult multiple specialists across different medical domains. Without a coordinated approach or a clinical prompt to test for coeliac disease, the condition may remain outside the diagnostic focus even when symptoms persist across consultations.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 rounded-lg p-5 border border-slate-200">
+                  <h4 className="font-semibold text-slate-800 mb-2">Low Testing Rates</h4>
+                  <p className="text-slate-700 text-sm leading-relaxed">
+                    Despite the availability of reliable screening methods, coeliac disease testing is not routinely performed in many clinical settings unless symptoms are strongly suggestive. This results in missed opportunities for early detection, particularly in populations where the condition is underestimated or misunderstood.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 rounded-lg p-5 border border-slate-200">
+                  <h4 className="font-semibold text-slate-800 mb-2">Underrecognition in Adults</h4>
+                  <p className="text-slate-700 text-sm leading-relaxed">
+                    Coeliac disease is increasingly recognized as a condition that can develop at any age, yet diagnostic awareness remains higher in pediatric settings. Adults presenting with new or worsening symptoms may not be evaluated for coeliac disease as readily, contributing to prolonged delays in this demographic.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Impact of Delay */}
+            <div className="mb-6">
+              <h3 className="text-xl font-semibold text-slate-800 mb-4">The Consequences of Prolonged Gluten Exposure</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                During the years before diagnosis, ongoing gluten consumption continues to trigger the autoimmune response, causing sustained intestinal damage and nutrient malabsorption. The effects of this delay extend across physical, psychological, and social dimensions.
+              </p>
+
+              <div className="grid md:grid-cols-3 gap-4 mb-6">
+                <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-lg p-5 border border-red-200">
+                  <h4 className="font-semibold text-slate-800 mb-3 flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                    <span>Physical Impact</span>
+                  </h4>
+                  <ul className="space-y-2 text-slate-700 text-sm">
+                    <li className="flex items-start space-x-2">
+                      <span className="w-1 h-1 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Persistent intestinal damage and inflammation</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <span className="w-1 h-1 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Nutrient deficiencies affecting bones, nerves, and organs</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <span className="w-1 h-1 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Increased risk of osteoporosis and fractures</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <span className="w-1 h-1 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Elevated risk of other autoimmune conditions</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg p-5 border border-blue-200">
+                  <h4 className="font-semibold text-slate-800 mb-3 flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                    <span>Psychological Impact</span>
+                  </h4>
+                  <ul className="space-y-2 text-slate-700 text-sm">
+                    <li className="flex items-start space-x-2">
+                      <span className="w-1 h-1 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Prolonged uncertainty and health anxiety</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <span className="w-1 h-1 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Repeated dismissal of symptoms as psychological</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <span className="w-1 h-1 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Frustration from ineffective treatments</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <span className="w-1 h-1 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Impact on mental health and quality of life</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-5 border border-purple-200">
+                  <h4 className="font-semibold text-slate-800 mb-3 flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                    <span>Social Impact</span>
+                  </h4>
+                  <ul className="space-y-2 text-slate-700 text-sm">
+                    <li className="flex items-start space-x-2">
+                      <span className="w-1 h-1 bg-purple-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Disruption to work, education, and daily activities</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <span className="w-1 h-1 bg-purple-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Strain on personal and family relationships</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <span className="w-1 h-1 bg-purple-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Financial burden from repeated medical consultations</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <span className="w-1 h-1 bg-purple-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Social isolation due to unexplained symptoms</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Closing Context */}
+            <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-lg p-6 border border-slate-200">
+              <div className="flex items-start space-x-3">
+                <AlertCircle className="w-6 h-6 text-slate-600 flex-shrink-0 mt-1" />
+                <div>
+                  <h4 className="font-semibold text-slate-800 mb-2">A Systemic Challenge, Not Individual Fault</h4>
+                  <p className="text-slate-700 text-sm leading-relaxed mb-3">
+                    The diagnostic delay in coeliac disease reflects a gap between symptom recognition and clinical testing, not a failure on the part of patients or individual clinicians. Coeliac disease is common, affecting approximately 1% of the population. It is serious when untreated, but highly manageable with early and accurate diagnosis.
+                  </p>
+                  <p className="text-slate-700 text-sm leading-relaxed">
+                    Improving awareness across healthcare systems, increasing routine testing in at risk populations, and recognizing the full spectrum of coeliac disease presentations are essential steps toward reducing this delay and improving outcomes for those affected.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Important Note */}
           <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-xl p-6 mb-12">
             <div className="flex items-start space-x-4">
