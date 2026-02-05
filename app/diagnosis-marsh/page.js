@@ -92,25 +92,25 @@ export default function DiagnosisMarchPage() {
           </div>
 
           {/* Marsh Classification */}
-          <div className="bg-white rounded-lg p-8 shadow-sm border border-slate-200 mb-8">
+          <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-8 shadow-lg border border-slate-700/50 mb-8">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center">
-                <Dna className="w-6 h-6 text-slate-700" />
+              <div className="w-12 h-12 bg-slate-700/50 rounded-lg flex items-center justify-center border border-slate-600/50">
+                <Dna className="w-6 h-6 text-slate-300" />
               </div>
-              <h2 className="text-2xl font-bold text-slate-900">The Marsh Classification System</h2>
+              <h2 className="text-2xl font-bold text-white">The Marsh Classification System</h2>
             </div>
-            <p className="text-slate-600 mb-6 leading-relaxed">
+            <p className="text-slate-300 mb-6 leading-relaxed">
               The Marsh classification (modified by Oberhuber) is used to categorize the degree of damage to the small intestine based on biopsy results:
             </p>
             <div className="space-y-3">
               {marshStages.map((stage, index) => (
-                <div key={index} className="group hover:bg-slate-50 rounded-lg p-4 transition-colors border border-slate-200">
+                <div key={index} className="group hover:bg-slate-700/30 rounded-lg p-4 transition-colors border border-slate-700/50">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
-                      <h3 className="font-semibold text-slate-900 mb-1.5">
+                      <h3 className="font-semibold text-slate-100 mb-1.5">
                         {stage.stage} - {stage.label}
                       </h3>
-                      <p className="text-slate-600 text-sm leading-relaxed">{stage.description}</p>
+                      <p className="text-slate-300 text-sm leading-relaxed">{stage.description}</p>
                     </div>
                     <div className={`w-3 h-3 rounded-full ml-4 mt-1.5 flex-shrink-0 ${
                       stage.color === 'green' ? 'bg-emerald-500' :
