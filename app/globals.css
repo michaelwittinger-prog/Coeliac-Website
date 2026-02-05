@@ -166,3 +166,12 @@ code {
 .group:hover .group-hover-arrow {
   color: #854F9B !important;
 }
+
+.external-link-hover:hover {
+  border-color: rgba(133, 79, 155, 0.3) !important;
+  box-shadow: 0 4px 6px -1px rgba(133, 79, 155, 0.1), 0 2px 4px -1px rgba(133, 79, 155, 0.06) !important;
+}
+
+.group:hover .group-hover-external-icon {
+  color: #854F9B !important;
+}
