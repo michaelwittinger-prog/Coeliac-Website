@@ -5,7 +5,7 @@ import { ArrowRight, BookOpen, FileText, HeartPulse, Users, Microscope, CheckCir
 
 export const metadata = {
   title: 'Home - Coeliac Disease Information Hub',
-  description: 'Your comprehensive resource for understanding, diagnosing, and living with Coeliac disease (Coeliac disease). Evidence-based information for patients, families, and caregivers.',
+  description: 'Your comprehensive resource for understanding, diagnosing, and living with Coeliac disease (Celiac disease). Evidence-based information for patients, families, and caregivers.',
   keywords: 'coeliac disease, celiac disease, gluten free, autoimmune, diagnosis, gluten intolerance',
 }
 
