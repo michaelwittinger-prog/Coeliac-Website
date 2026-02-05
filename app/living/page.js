@@ -1,5 +1,5 @@
 import InOneMinute from '@/components/InOneMinute'
-import RelatedReading from '@/components/RelatedReading'
+import ExternalResources from '@/components/ExternalResources'
 import { Utensils, X, Check, AlertTriangle, ShieldCheck } from 'lucide-react'
 
 export const metadata = {
@@ -8,10 +8,31 @@ export const metadata = {
 }
 
 export default function LivingPage() {
-  const relatedLinks = [
-    { href: '/healing', title: 'Healing Process' },
-    { href: '/parents', title: 'Resources for Parents' },
-    { href: '/understanding', title: 'Understanding Coeliac Disease' },
+  const externalLinks = [
+    {
+      title: 'Coeliac UK - Living Gluten Free',
+      url: 'https://www.coeliac.org.uk/information-and-support/living-gluten-free/',
+      description: 'Comprehensive guide to daily life with coeliac disease including recipes and tips.',
+      region: 'United Kingdom'
+    },
+    {
+      title: 'Beyond Celiac - Gluten-Free Living',
+      url: 'https://www.beyondceliac.org/',
+      description: 'Practical advice for dining out, travel, and social situations.',
+      region: 'United States'
+    },
+    {
+      title: 'Association of European Coeliac Societies (AOECS)',
+      url: 'https://www.aoecs.org/',
+      description: 'European gluten-free certification standards and travel resources.',
+      region: 'Europe'
+    },
+    {
+      title: 'Gluten Free Passport',
+      url: 'https://www.glutenfreepassport.com/',
+      description: 'Resources for gluten-free travel and dining worldwide.',
+      region: 'International'
+    }
   ]
 
   return (
