@@ -16,12 +16,12 @@ const viennaListings = [
     description: 'The Austrian Coeliac Society providing support, information, and advocacy for people with coeliac disease throughout Austria.',
     notes: 'Membership includes access to product guides and local events',
     websiteUrl: 'https://www.zoeliakie.or.at/',
-    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Österreichische+Arbeitsgemeinschaft+Zöliakie+Vienna',
+    address: 'Antonsplatz 16, 1100 Wien',
     category: 'organization'
   },
   {
     id: 2,
-    name: 'Denn\'s Biomarkt - Mariahilfer Straße',
+    name: 'Denn\'s Biomarkt',
     district: '7th',
     description: 'Organic supermarket with extensive gluten-free section including fresh bread, pasta, and specialty items.',
     notes: 'Staff knowledgeable about gluten-free products',
@@ -36,7 +36,7 @@ const viennaListings = [
     description: 'Health food store chain in Vienna with dedicated gluten-free products, natural remedies, and knowledgeable staff.',
     notes: 'Multiple locations including Wien Mitte and Westfield Donau Zentrum',
     websiteUrl: 'https://www.reformstark.at/',
-    address: 'Wien Mitte The Mall, 1030 Wien',
+    address: 'Wien Mitte The Mall, Landstraßer Hauptstraße 1b, 1030 Wien',
     category: 'shop'
   },
   {
@@ -57,12 +57,11 @@ const viennaListings = [
     notes: 'Referral from GP typically required',
     websiteUrl: 'https://www.meduniwien.ac.at/',
     address: 'Währinger Gürtel 18-20, 1090 Wien',
-    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=AKH+Wien+Allgemeines+Krankenhaus+Vienna',
     category: 'medical'
   },
   {
     id: 6,
-    name: 'Bio Company - Prater',
+    name: 'Bio Company',
     district: '2nd',
     description: 'Large organic supermarket near Prater with comprehensive gluten-free product range.',
     websiteUrl: 'https://www.biocompany.de/',
