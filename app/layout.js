@@ -7,8 +7,9 @@ import { Home, BookOpen, FileText, HeartPulse, Users, Link2, Utensils, FlaskConi
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Celiac Disease Information Hub',
-  description: 'Comprehensive information about Celiac disease, diagnosis, treatment, and living with the condition',
+  title: 'Coeliac Disease Information Hub',
+  description: 'Comprehensive information about Coeliac disease (Celiac disease), diagnosis, treatment, and living with the condition',
+  keywords: 'coeliac disease, celiac disease, gluten free, autoimmune, diagnosis, treatment',
 }
 
 const navLinks = [
