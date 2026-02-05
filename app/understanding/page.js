@@ -4,7 +4,8 @@ import { Dna, Activity, Users2, AlertTriangle } from 'lucide-react'
 
 export const metadata = {
   title: 'Understanding Coeliac Disease - Coeliac Information Hub',
-  description: 'Learn about Coeliac disease, an autoimmune disorder triggered by gluten. Understand the basics, symptoms, and how it affects the body.',
+  description: 'Learn about Coeliac disease (Celiac disease), an autoimmune disorder triggered by gluten. Understand the basics, symptoms, and how it affects the body.',
+  keywords: 'coeliac disease, celiac disease, autoimmune disorder, gluten intolerance, symptoms, villi damage',
 }
 
 export default function UnderstandingPage() {
