@@ -145,6 +145,13 @@ export default function DiagnosisMarchPage() {
               <h3 className="text-xl font-semibold text-slate-800 mb-4">Why Diagnostic Delay Occurs</h3>
               <div className="space-y-4">
                 <div className="bg-slate-50 rounded-lg p-5 border border-slate-200">
+                  <h4 className="font-semibold text-slate-800 mb-2">Low Testing Rates</h4>
+                  <p className="text-slate-700 text-sm leading-relaxed">
+                    Despite the availability of reliable screening methods, coeliac disease testing is not routinely performed in many clinical settings unless symptoms are strongly suggestive. This results in missed opportunities for early detection, particularly in populations where the condition is underestimated or misunderstood.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 rounded-lg p-5 border border-slate-200">
                   <h4 className="font-semibold text-slate-800 mb-2">Symptom Overlap with Other Conditions</h4>
                   <p className="text-slate-700 text-sm leading-relaxed">
                     Coeliac disease shares symptoms with more than 200 other conditions, including irritable bowel syndrome, chronic fatigue, anemia, and anxiety disorders. This overlap often leads to alternative diagnoses that address symptoms but not the underlying autoimmune process. The conditions diagnosed during this period are frequently consequences or correlations of untreated coeliac disease rather than separate root causes.
@@ -162,13 +169,6 @@ export default function DiagnosisMarchPage() {
                   <h4 className="font-semibold text-slate-800 mb-2">Fragmented Healthcare Pathways</h4>
                   <p className="text-slate-700 text-sm leading-relaxed">
                     Individuals with diverse symptoms may consult multiple specialists across different medical domains. Without a coordinated approach or a clinical prompt to test for coeliac disease, the condition may remain outside the diagnostic focus even when symptoms persist across consultations.
-                  </p>
-                </div>
-
-                <div className="bg-slate-50 rounded-lg p-5 border border-slate-200">
-                  <h4 className="font-semibold text-slate-800 mb-2">Low Testing Rates</h4>
-                  <p className="text-slate-700 text-sm leading-relaxed">
-                    Despite the availability of reliable screening methods, coeliac disease testing is not routinely performed in many clinical settings unless symptoms are strongly suggestive. This results in missed opportunities for early detection, particularly in populations where the condition is underestimated or misunderstood.
                   </p>
                 </div>
 
