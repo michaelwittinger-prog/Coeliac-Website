@@ -330,6 +330,11 @@ export default function DiagnosisMarchPage() {
 
           {/* Related Reading Section */}
           <RelatedReading links={relatedLinks} />
+
+          {/* External Resources Section */}
+          <div className="mt-8">
+            <ExternalResources links={externalLinks} title="Clinical & Diagnostic Resources" />
+          </div>
         </div>
       </div>
     </div>
