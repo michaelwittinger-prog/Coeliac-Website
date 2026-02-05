@@ -192,76 +192,76 @@ export default function DiagnosisMarchPage() {
               </p>
 
               <div className="grid md:grid-cols-3 gap-4 mb-6">
-                <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-lg p-5 border border-red-200">
+                <div className="bg-gradient-to-br from-rose-50/80 via-white to-orange-50/60 rounded-lg p-5 border border-rose-200/40">
                   <h4 className="font-semibold text-slate-800 mb-3 flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                    <div className="w-2 h-2 bg-rose-500 rounded-full"></div>
                     <span>Physical Impact</span>
                   </h4>
                   <ul className="space-y-2 text-slate-700 text-sm">
                     <li className="flex items-start space-x-2">
-                      <span className="w-1 h-1 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-rose-400 rounded-full mt-2 flex-shrink-0"></span>
                       <span>Persistent intestinal damage and inflammation</span>
                     </li>
                     <li className="flex items-start space-x-2">
-                      <span className="w-1 h-1 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-rose-400 rounded-full mt-2 flex-shrink-0"></span>
                       <span>Nutrient deficiencies affecting bones, nerves, and organs</span>
                     </li>
                     <li className="flex items-start space-x-2">
-                      <span className="w-1 h-1 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-rose-400 rounded-full mt-2 flex-shrink-0"></span>
                       <span>Increased risk of osteoporosis and fractures</span>
                     </li>
                     <li className="flex items-start space-x-2">
-                      <span className="w-1 h-1 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-rose-400 rounded-full mt-2 flex-shrink-0"></span>
                       <span>Elevated risk of other autoimmune conditions</span>
                     </li>
                   </ul>
                 </div>
 
-                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg p-5 border border-blue-200">
+                <div className="bg-gradient-to-br from-sky-50/80 via-white to-teal-50/60 rounded-lg p-5 border border-sky-200/40">
                   <h4 className="font-semibold text-slate-800 mb-3 flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                    <div className="w-2 h-2 bg-sky-600 rounded-full"></div>
                     <span>Psychological Impact</span>
                   </h4>
                   <ul className="space-y-2 text-slate-700 text-sm">
                     <li className="flex items-start space-x-2">
-                      <span className="w-1 h-1 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-sky-400 rounded-full mt-2 flex-shrink-0"></span>
                       <span>Prolonged uncertainty and health anxiety</span>
                     </li>
                     <li className="flex items-start space-x-2">
-                      <span className="w-1 h-1 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-sky-400 rounded-full mt-2 flex-shrink-0"></span>
                       <span>Repeated dismissal of symptoms as psychological</span>
                     </li>
                     <li className="flex items-start space-x-2">
-                      <span className="w-1 h-1 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-sky-400 rounded-full mt-2 flex-shrink-0"></span>
                       <span>Frustration from ineffective treatments</span>
                     </li>
                     <li className="flex items-start space-x-2">
-                      <span className="w-1 h-1 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-sky-400 rounded-full mt-2 flex-shrink-0"></span>
                       <span>Impact on mental health and quality of life</span>
                     </li>
                   </ul>
                 </div>
 
-                <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-5 border border-purple-200">
+                <div className="bg-gradient-to-br from-purple-50/80 via-white to-indigo-50/60 rounded-lg p-5 border border-purple-200/40">
                   <h4 className="font-semibold text-slate-800 mb-3 flex items-center space-x-2">
                     <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
                     <span>Social Impact</span>
                   </h4>
                   <ul className="space-y-2 text-slate-700 text-sm">
                     <li className="flex items-start space-x-2">
-                      <span className="w-1 h-1 bg-purple-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-purple-400 rounded-full mt-2 flex-shrink-0"></span>
                       <span>Disruption to work, education, and daily activities</span>
                     </li>
                     <li className="flex items-start space-x-2">
-                      <span className="w-1 h-1 bg-purple-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-purple-400 rounded-full mt-2 flex-shrink-0"></span>
                       <span>Strain on personal and family relationships</span>
                     </li>
                     <li className="flex items-start space-x-2">
-                      <span className="w-1 h-1 bg-purple-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-purple-400 rounded-full mt-2 flex-shrink-0"></span>
                       <span>Financial burden from repeated medical consultations</span>
                     </li>
                     <li className="flex items-start space-x-2">
-                      <span className="w-1 h-1 bg-purple-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1 h-1 bg-purple-400 rounded-full mt-2 flex-shrink-0"></span>
                       <span>Social isolation due to unexplained symptoms</span>
                     </li>
                   </ul>
