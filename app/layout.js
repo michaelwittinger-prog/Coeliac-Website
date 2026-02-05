@@ -52,19 +52,7 @@ export default function RootLayout({ children }) {
                       <Link
                         key={link.href}
                         href={link.href}
-                        className="flex items-center space-x-1.5 px-3 py-2 rounded text-sm font-medium text-slate-600 transition-all" 
-                        style={{
-                          '--hover-color': '#854F9B',
-                          '--hover-bg': 'rgba(133, 79, 155, 0.1)'
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.color = '#854F9B'
-                          e.currentTarget.style.backgroundColor = 'rgba(133, 79, 155, 0.1)'
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.color = ''
-                          e.currentTarget.style.backgroundColor = ''
-                        }}
+                        className="flex items-center space-x-1.5 px-3 py-2 rounded text-sm font-medium text-slate-600 hover:bg-opacity-10 transition-all nav-link-hover"
                       >
                         <Icon className="w-4 h-4" />
                         <span>{link.label}</span>
