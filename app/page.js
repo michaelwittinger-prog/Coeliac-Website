@@ -169,6 +169,56 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Local Support Section */}
+      <div className="relative py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-slate-50 to-purple-50 rounded-2xl p-8 md:p-10 border border-slate-200 shadow-sm">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <div className="flex-1">
+                  <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full text-sm font-medium mb-4" style={{backgroundColor: 'rgba(133, 79, 155, 0.1)', color: '#854F9B'}}>
+                    <MapPin className="w-4 h-4" />
+                    <span>Local Support</span>
+                  </div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-3">
+                    Find Support Near You
+                  </h2>
+                  <p className="text-slate-600 leading-relaxed mb-4">
+                    Discover local resources including coeliac support groups, gluten-free shops, restaurants, and medical specialists in your area.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white border border-slate-200 text-slate-600">
+                      <span className="w-2 h-2 rounded-full bg-green-500 mr-2"></span>
+                      Support Groups
+                    </span>
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white border border-slate-200 text-slate-600">
+                      <span className="w-2 h-2 rounded-full bg-blue-500 mr-2"></span>
+                      GF Restaurants
+                    </span>
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white border border-slate-200 text-slate-600">
+                      <span className="w-2 h-2 rounded-full bg-purple-500 mr-2"></span>
+                      Medical Specialists
+                    </span>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <Link
+                    href="/local/austria/vienna"
+                    className="inline-flex items-center justify-center space-x-2 px-6 py-3 text-white rounded-lg font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all"
+                    style={{background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)'}}
+                  >
+                    <MapPin className="w-4 h-4" />
+                    <span>Vienna, Austria</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <p className="text-xs text-slate-500 text-center">More locations coming soon</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Related Reading Section */}
       <div className="relative py-16 bg-slate-50">
         <div className="container mx-auto px-4">
