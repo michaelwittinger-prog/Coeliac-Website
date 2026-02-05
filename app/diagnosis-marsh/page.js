@@ -71,7 +71,7 @@ export default function DiagnosisMarchPage() {
         <div className="max-w-4xl mx-auto">
           {/* Page Header */}
           <div className="mb-12">
-            <div className="inline-flex items-center space-x-2 bg-blue-50 text-blue-700 px-3 py-1.5 rounded-md text-sm font-medium mb-4 border border-blue-100">
+            <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-md text-sm font-medium mb-4 border" style={{backgroundColor: 'rgba(82, 178, 56, 0.1)', color: '#52B238', borderColor: 'rgba(82, 178, 56, 0.2)'}}>
               <Microscope className="w-4 h-4" />
               <span>Diagnostic Information</span>
             </div>
@@ -93,15 +93,15 @@ export default function DiagnosisMarchPage() {
           {/* Diagnostic Process */}
           <div className="bg-white rounded-lg p-8 shadow-sm border border-slate-200 mb-8">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center">
-                <TestTube className="w-6 h-6 text-blue-600" />
+              <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{backgroundColor: 'rgba(82, 178, 56, 0.1)'}}>
+                <TestTube className="w-6 h-6" style={{color: '#52B238'}} />
               </div>
               <h2 className="text-2xl font-bold text-slate-900">Diagnostic Process</h2>
             </div>
             <div className="space-y-6">
               {diagnosticSteps.map((step) => (
                 <div key={step.number} className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center" style={{backgroundColor: '#52B238'}}>
                     <span className="text-white font-semibold text-lg">{step.number}</span>
                   </div>
                   <div className="flex-1 pt-1">
