@@ -270,9 +270,9 @@ export default function DiagnosisMarchPage() {
             </div>
 
             {/* Closing Context */}
-            <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-lg p-6 border border-slate-200">
+            <div className="bg-gradient-to-r from-emerald-50/60 via-white to-teal-50/50 rounded-lg p-6 border border-emerald-200/40">
               <div className="flex items-start space-x-3">
-                <AlertCircle className="w-6 h-6 text-slate-600 flex-shrink-0 mt-1" />
+                <AlertCircle className="w-6 h-6 text-teal-700 flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-semibold text-slate-800 mb-2">A Systemic Challenge, Not Individual Fault</h4>
                   <p className="text-slate-700 text-sm leading-relaxed mb-3">
@@ -287,10 +287,10 @@ export default function DiagnosisMarchPage() {
           </div>
 
           {/* Important Note */}
-          <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-xl p-6 mb-12">
+          <div className="bg-gradient-to-r from-amber-50/70 via-orange-50/50 to-yellow-50/40 border border-amber-200/50 rounded-xl p-6 mb-12">
             <div className="flex items-start space-x-4">
-              <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <AlertTriangle className="w-5 h-5 text-amber-700" />
+              <div className="w-10 h-10 bg-gradient-to-br from-amber-100/80 to-yellow-100/60 rounded-lg flex items-center justify-center flex-shrink-0 border border-amber-200/40">
+                <AlertTriangle className="w-5 h-5 text-amber-800" />
               </div>
               <div>
                 <h3 className="font-semibold text-slate-800 mb-2">Important Note</h3>
