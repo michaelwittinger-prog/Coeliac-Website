@@ -190,7 +190,8 @@ export default function ResearchPage() {
           </div>
 
           {/* Related Reading Section */}
-          <RelatedReading links={relatedLinks} />
+          {/* External Resources Section */}
+          <ExternalResources links={externalLinks} title="Research & Clinical Resources" />
         </div>
       </div>
     </div>

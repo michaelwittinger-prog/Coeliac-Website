@@ -171,7 +171,8 @@ export default function RelatedPage() {
           </div>
 
           {/* Related Reading Section */}
-          <RelatedReading links={relatedLinks} />
+          {/* External Resources Section */}
+          <ExternalResources links={externalLinks} title="Related Conditions Resources" />
         </div>
       </div>
     </div>

@@ -231,7 +231,8 @@ export default function AboutPage() {
           </div>
 
           {/* Related Reading Section */}
-          <RelatedReading links={relatedLinks} />
+          {/* External Resources Section */}
+          <ExternalResources links={externalLinks} title="Coeliac Organisations Worldwide" />
         </div>
       </div>
     </div>

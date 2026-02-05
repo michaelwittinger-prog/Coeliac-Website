@@ -173,7 +173,8 @@ export default function Home() {
       <div className="relative py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <RelatedReading links={relatedLinks} />
+            {/* External Resources Section */}
+            <ExternalResources links={externalLinks} title="Trusted Coeliac Resources" />
           </div>
         </div>
       </div>
