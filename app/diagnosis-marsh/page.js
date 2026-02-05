@@ -94,32 +94,32 @@ export default function DiagnosisMarchPage() {
           </div>
 
           {/* Marsh Classification */}
-          <div className="bg-white rounded-xl p-8 shadow-sm border border-slate-200 mb-8">
+          <div className="bg-gradient-to-br from-white via-purple-50/20 to-sky-50/30 rounded-xl p-8 shadow-sm border border-purple-100/40 mb-8">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-100/80 to-indigo-100/60 rounded-lg flex items-center justify-center border border-purple-200/30">
                 <Dna className="w-6 h-6 text-purple-700" />
               </div>
               <h2 className="text-2xl font-bold text-slate-800">The Marsh Classification System</h2>
             </div>
-            <p className="text-slate-600 mb-6">
+            <p className="text-slate-700 mb-6">
               The Marsh classification (modified by Oberhuber) is used to categorize the degree of damage to the small intestine based on biopsy results:
             </p>
             <div className="space-y-4">
               {marshStages.map((stage, index) => (
-                <div key={index} className="group hover:bg-slate-50 rounded-lg p-4 transition-all border-l-4 border-slate-200 hover:border-purple-500">
+                <div key={index} className="group hover:bg-white/60 rounded-lg p-4 transition-all border-l-4 border-slate-200/60 hover:border-purple-400">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <h3 className="font-semibold text-slate-800 mb-1">
                         {stage.stage} - {stage.label}
                       </h3>
-                      <p className="text-slate-600 text-sm">{stage.description}</p>
+                      <p className="text-slate-700 text-sm">{stage.description}</p>
                     </div>
                     <div className={`w-3 h-3 rounded-full ml-4 mt-1 ${
-                      stage.color === 'green' ? 'bg-green-500' :
-                      stage.color === 'yellow' ? 'bg-yellow-500' :
+                      stage.color === 'green' ? 'bg-emerald-500' :
+                      stage.color === 'yellow' ? 'bg-amber-500' :
                       stage.color === 'orange' ? 'bg-orange-500' :
-                      stage.color === 'darkred' ? 'bg-red-700' :
-                      'bg-red-500'
+                      stage.color === 'darkred' ? 'bg-rose-700' :
+                      'bg-rose-500'
                     }`}></div>
                   </div>
                 </div>
