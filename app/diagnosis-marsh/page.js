@@ -9,12 +9,6 @@ export const metadata = {
 }
 
 export default function DiagnosisMarchPage() {
-  const relatedLinks = [
-    { href: '/understanding', title: 'Understanding Coeliac Disease' },
-    { href: '/healing', title: 'Healing Process and Timeline' },
-    { href: '/research', title: 'Latest Research' },
-  ]
-
   const externalLinks = [
     {
       title: 'International Society for the Study of Coeliac Disease (ISSCD)',
