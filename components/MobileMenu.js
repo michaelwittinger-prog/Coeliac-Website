@@ -131,7 +131,7 @@ export default function MobileMenu() {
         >
           {/* Semi-transparent backdrop - clickable to close */}
           <div 
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm cursor-pointer" 
+            className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm cursor-pointer transition-opacity duration-300" 
             onClick={closeMenu}
             aria-label="Close menu"
           />
@@ -143,31 +143,44 @@ export default function MobileMenu() {
             role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"
-            className="absolute top-0 right-0 h-full w-[280px] max-w-[85vw] bg-white shadow-2xl overflow-y-auto"
+            className="absolute top-0 right-0 h-full w-[300px] max-w-[85vw] shadow-2xl overflow-y-auto overflow-x-hidden"
+            style={{
+              background: 'linear-gradient(180deg, #ffffff 0%, #f8f7fc 50%, #f3f0f7 100%)'
+            }}
           >
+            {/* Decorative background elements */}
+            <div className="absolute top-0 right-0 w-48 h-48 rounded-full opacity-30 blur-3xl pointer-events-none" style={{background: 'radial-gradient(circle, rgba(133, 79, 155, 0.3) 0%, transparent 70%)'}} />
+            <div className="absolute bottom-20 left-0 w-32 h-32 rounded-full opacity-20 blur-2xl pointer-events-none" style={{background: 'radial-gradient(circle, rgba(133, 79, 155, 0.4) 0%, transparent 70%)'}} />
+
             {/* Menu Header */}
-            <div className="sticky top-0 bg-white border-b border-slate-200 px-4 py-4 flex items-center justify-between">
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 rounded flex items-center justify-center" style={{background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)'}}>
-                  <span className="text-white font-semibold text-sm">C</span>
+            <div className="relative sticky top-0 px-5 py-5 flex items-center justify-between" style={{background: 'linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.95) 100%)', backdropFilter: 'blur(10px)'}}>
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg" style={{background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)'}}>
+                  <span className="text-white font-bold text-lg">C</span>
                 </div>
-                <span className="text-sm font-semibold text-slate-800">Menu</span>
+                <div>
+                  <span className="text-base font-semibold text-slate-800 block">Navigate</span>
+                  <span className="text-xs text-slate-500">Coeliac Info Hub</span>
+                </div>
               </div>
               <button
                 type="button"
                 onClick={closeMenu}
                 aria-label="Close menu"
-                className="flex items-center justify-center w-10 h-10 rounded-lg text-slate-500 hover:bg-slate-100 active:bg-slate-200 transition-colors cursor-pointer touch-manipulation"
+                className="flex items-center justify-center w-10 h-10 rounded-xl text-slate-400 hover:text-slate-600 hover:bg-white/80 active:bg-slate-100 transition-all cursor-pointer touch-manipulation shadow-sm border border-slate-200/50"
                 style={{ WebkitTapHighlightColor: 'transparent' }}
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
+            {/* Divider with accent */}
+            <div className="mx-5 h-px bg-gradient-to-r from-transparent via-purple-200 to-transparent" />
+
             {/* Navigation Links */}
-            <nav className="px-2 py-4">
-              <ul className="space-y-1">
-                {navLinks.map((link) => {
+            <nav className="relative px-4 py-5">
+              <ul className="space-y-1.5">
+                {navLinks.map((link, index) => {
                   const Icon = link.icon
                   const isActive = pathname === link.href
                   return (
@@ -175,15 +188,35 @@ export default function MobileMenu() {
                       <a
                         href={link.href}
                         onClick={(e) => handleNavClick(e, link.href)}
-                        className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-base font-medium transition-colors cursor-pointer touch-manipulation ${
+                        className={`group flex items-center space-x-3 px-4 py-3.5 rounded-xl text-base font-medium transition-all cursor-pointer touch-manipulation ${
                           isActive
-                            ? 'bg-purple-50 text-purple-700'
-                            : 'text-slate-700 hover:bg-slate-50 active:bg-slate-100'
+                            ? 'shadow-md'
+                            : 'hover:bg-white/70 active:bg-white/90 hover:shadow-sm'
                         }`}
-                        style={{ WebkitTapHighlightColor: 'transparent' }}
+                        style={{ 
+                          WebkitTapHighlightColor: 'transparent',
+                          ...(isActive ? {
+                            background: 'linear-gradient(135deg, rgba(133, 79, 155, 0.12) 0%, rgba(133, 79, 155, 0.06) 100%)',
+                            borderLeft: '3px solid #854F9B'
+                          } : {})
+                        }}
                       >
-                        <Icon className={`w-5 h-5 flex-shrink-0 ${isActive ? 'text-purple-600' : 'text-slate-500'}`} />
-                        <span>{link.label}</span>
+                        <div className={`w-9 h-9 rounded-lg flex items-center justify-center transition-all ${
+                          isActive 
+                            ? 'shadow-sm' 
+                            : 'group-hover:scale-105'
+                        }`}
+                        style={{
+                          background: isActive 
+                            ? 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)' 
+                            : 'rgba(133, 79, 155, 0.08)'
+                        }}>
+                          <Icon className={`w-4.5 h-4.5 ${isActive ? 'text-white' : 'text-purple-600/70'}`} style={{width: '18px', height: '18px'}} />
+                        </div>
+                        <span className={isActive ? 'text-purple-800' : 'text-slate-700'}>{link.label}</span>
+                        {isActive && (
+                          <div className="ml-auto w-2 h-2 rounded-full" style={{background: '#854F9B'}} />
+                        )}
                       </a>
                     </li>
                   )
@@ -192,8 +225,13 @@ export default function MobileMenu() {
             </nav>
 
             {/* Footer in menu */}
-            <div className="absolute bottom-0 left-0 right-0 px-4 py-4 border-t border-slate-200 bg-slate-50">
-              <p className="text-xs text-slate-500 text-center">
+            <div className="absolute bottom-0 left-0 right-0 px-5 py-5 border-t border-purple-100/50" style={{background: 'linear-gradient(180deg, rgba(243, 240, 247, 0.5) 0%, rgba(243, 240, 247, 0.9) 100%)'}}>
+              <div className="flex items-center justify-center space-x-2 mb-2">
+                <div className="w-1.5 h-1.5 rounded-full" style={{background: '#854F9B'}} />
+                <div className="w-1 h-1 rounded-full" style={{background: '#854F9B', opacity: 0.5}} />
+                <div className="w-1.5 h-1.5 rounded-full" style={{background: '#854F9B'}} />
+              </div>
+              <p className="text-xs text-slate-500 text-center leading-relaxed">
                 Evidence-based coeliac disease information
               </p>
             </div>
