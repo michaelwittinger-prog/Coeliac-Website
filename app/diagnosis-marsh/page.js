@@ -18,7 +18,7 @@ export default function DiagnosisMarchPage() {
 
   const externalLinks = [
     {
-      title: 'International Society for the Study of Celiac Disease (ISSCD)',
+      title: 'International Society for the Study of Coeliac Disease (ISSCD)',
       url: 'https://www.coeliacsociety.org.uk/',
       description: 'Professional medical guidelines and diagnostic standards for coeliac disease from international experts.',
       region: 'International'
@@ -36,9 +36,9 @@ export default function DiagnosisMarchPage() {
       region: 'United Kingdom'
     },
     {
-      title: 'Beyond Celiac - Diagnosis',
-      url: 'https://www.beyondceliac.org/celiac-disease/get-tested/',
-      description: 'Evidence-based information on celiac disease testing and diagnosis from leading US research organisation.',
+      title: 'Beyond Celiac',
+      url: 'https://www.beyondceliac.org/',
+      description: 'Leading US organisation for celiac disease research, acceleration of diagnosis, and patient support resources.',
       region: 'United States'
     }
   ]
