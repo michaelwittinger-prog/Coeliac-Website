@@ -98,6 +98,14 @@ export default function Home() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
+                href="/local/austria/vienna"
+                className="inline-flex items-center space-x-2 px-6 py-3 text-white rounded-lg font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all"
+                style={{background: 'linear-gradient(135deg, #52B238 0%, #6bc74a 100%)'}}
+              >
+                <MapPin className="w-4 h-4" />
+                <span>Local Support</span>
+              </Link>
+              <Link
                 href="/diagnosis-marsh"
                 className="inline-flex items-center space-x-2 px-6 py-3 bg-white rounded-lg font-medium hover:bg-slate-50 transition-all shadow-sm border-2" 
                 style={{color: '#854F9B', borderColor: '#854F9B'}}
