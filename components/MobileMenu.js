@@ -92,6 +92,15 @@ export default function MobileMenu() {
     setIsOpen(false)
   }, [])
 
+  const handleNavClick = useCallback((e, href) => {
+    e.preventDefault()
+    setIsOpen(false)
+    // Use setTimeout to ensure menu closes before navigation
+    setTimeout(() => {
+      router.push(href)
+    }, 10)
+  }, [router])
+
   return (
     <>
       {/* Hamburger Button */}
