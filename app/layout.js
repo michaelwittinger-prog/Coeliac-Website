@@ -1,10 +1,19 @@
-import { Inter } from 'next/font/google'
+import { Inter, Urbanist } from 'next/font/google'
 import './globals.css'
 import Link from 'next/link'
 import MedicalDisclaimer from '@/components/MedicalDisclaimer'
 import { Home, BookOpen, FileText, HeartPulse, Users, Link2, Utensils, FlaskConical, Info } from 'lucide-react'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
+})
+
+const urbanist = Urbanist({ 
+  subsets: ['latin'],
+  weight: ['700'],
+  variable: '--font-urbanist',
+})
 
 export const metadata = {
   title: 'Coeliac Disease Information Hub',
