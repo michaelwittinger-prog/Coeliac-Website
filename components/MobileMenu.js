@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { X, BookOpen, FileText, HeartPulse, Users, Link2, Utensils, FlaskConical, Info, Home } from 'lucide-react'
+import { X, BookOpen, FileText, HeartPulse, Users, Link2, Utensils, FlaskConical, Info, Home, MapPin } from 'lucide-react'
 
 const navLinks = [
   { href: '/', label: 'Home', icon: Home },
@@ -14,6 +14,7 @@ const navLinks = [
   { href: '/related', label: 'Related', icon: Link2 },
   { href: '/living', label: 'Living', icon: Utensils },
   { href: '/research', label: 'Research', icon: FlaskConical },
+  { href: '/local/austria/vienna', label: 'Local Support', icon: MapPin },
   { href: '/about', label: 'About', icon: Info },
 ]
 
