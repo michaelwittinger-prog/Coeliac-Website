@@ -135,15 +135,12 @@ export default function Home() {
                   <Link
                     key={index}
                     href={feature.href}
-                    className="group bg-slate-50 hover:bg-white rounded-xl p-6 transition-all hover:shadow-lg border border-slate-200 hover:border-opacity-50"
-                    style={{'--hover-border-color': '#854F9B'}}
-                    onMouseEnter={(e) => e.currentTarget.style.borderColor = '#854F9B'}
-                    onMouseLeave={(e) => e.currentTarget.style.borderColor = ''}
+                    className="group bg-slate-50 hover:bg-white rounded-xl p-6 transition-all hover:shadow-lg border border-slate-200 feature-card-hover"
                   >
                     <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)'}}>
                       <Icon className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-lg font-semibold text-slate-800 mb-2 transition-colors" style={{'--hover-color': '#854F9B'}}>{feature.title}</h3>
+                    <h3 className="text-lg font-semibold text-slate-800 mb-2 group-hover-title transition-colors">{feature.title}</h3>
                     <p className="text-sm text-slate-600 leading-relaxed">{feature.description}</p>
                     <div className="mt-4 flex items-center text-sm font-medium" style={{color: '#854F9B'}}>
                       <span>Learn more</span>
