@@ -31,11 +31,12 @@ const viennaListings = [
   },
   {
     id: 3,
-    name: 'Reformhaus Martin',
+    name: 'Reformstark Martin',
     district: '1st',
-    description: 'Health food store in the city center with a dedicated gluten-free aisle and knowledgeable staff.',
-    websiteUrl: 'https://www.reformhaus-martin.at/',
-    address: 'Kärntner Straße 26, 1010 Wien',
+    description: 'Health food store chain in Vienna with dedicated gluten-free products, natural remedies, and knowledgeable staff.',
+    notes: 'Multiple locations including Wien Mitte and Westfield Donau Zentrum',
+    websiteUrl: 'https://www.reformstark.at/',
+    address: 'Wien Mitte The Mall, 1030 Wien',
     category: 'shop'
   },
   {
@@ -50,12 +51,13 @@ const viennaListings = [
   },
   {
     id: 5,
-    name: 'AKH Wien - Gastroenterologie',
+    name: 'Medical University of Vienna - Gastroenterology',
     district: '9th',
-    description: 'Vienna General Hospital gastroenterology department with specialists experienced in coeliac disease diagnosis and management.',
+    description: 'Vienna\'s leading university hospital with specialists experienced in coeliac disease diagnosis and management at AKH Wien.',
     notes: 'Referral from GP typically required',
-    websiteUrl: 'https://www.akhwien.at/',
+    websiteUrl: 'https://www.meduniwien.ac.at/',
     address: 'Währinger Gürtel 18-20, 1090 Wien',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=AKH+Wien+Allgemeines+Krankenhaus+Vienna',
     category: 'medical'
   },
   {
@@ -80,9 +82,9 @@ const viennaListings = [
   {
     id: 8,
     name: 'Stiftung Kindergesundheit',
-    district: '3rd',
-    description: 'Foundation supporting children\'s health including resources for paediatric coeliac disease.',
-    websiteUrl: 'https://www.kindergesundheit.at/',
+    description: 'Child Health Foundation supporting children\'s health including resources for paediatric coeliac disease and the Tigerkids nutrition program.',
+    notes: 'Programs available in Germany and Austria',
+    websiteUrl: 'https://www.kindergesundheit.de/',
     category: 'organization'
   }
 ]
