@@ -1,5 +1,6 @@
 import InOneMinute from '@/components/InOneMinute'
 import RelatedReading from '@/components/RelatedReading'
+import ExternalResources from '@/components/ExternalResources'
 import { Microscope, TestTube, Dna, AlertTriangle, Clock, AlertCircle } from 'lucide-react'
 
 export const metadata = {
