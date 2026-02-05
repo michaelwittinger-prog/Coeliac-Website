@@ -9,8 +9,8 @@ export const metadata = {
 
 export default function ParentsPage() {
   const relatedLinks = [
-    { href: '/living', title: 'Living with Celiac Disease' },
-    { href: '/understanding', title: 'Understanding Celiac Disease' },
+    { href: '/living', title: 'Living with Coeliac Disease' },
+    { href: '/understanding', title: 'Understanding Coeliac Disease' },
     { href: '/healing', title: 'Healing Process' },
   ]
 
@@ -41,13 +41,13 @@ export default function ParentsPage() {
             </InOneMinute>
           </div>
 
-          {/* Celiac Disease in Children */}
+          {/* Coeliac Disease in Children */}
           <div className="bg-white rounded-xl p-8 shadow-sm border border-slate-200 mb-8">
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
                 <Heart className="w-6 h-6 text-orange-700" />
               </div>
-              <h2 className="text-2xl font-bold text-slate-800">Celiac Disease in Children</h2>
+              <h2 className="text-2xl font-bold text-slate-800">Coeliac Disease in Children</h2>
             </div>
             <p className="text-slate-600 mb-6">
               Children with celiac disease can experience different symptoms than adults, including:

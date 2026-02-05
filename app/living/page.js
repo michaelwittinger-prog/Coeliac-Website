@@ -3,7 +3,7 @@ import RelatedReading from '@/components/RelatedReading'
 import { Utensils, X, Check, AlertTriangle, ShieldCheck } from 'lucide-react'
 
 export const metadata = {
-  title: 'Living with Celiac Disease - Celiac Information Hub',
+  title: 'Living with Coeliac Disease - Celiac Information Hub',
   description: 'Practical tips for living well with Coeliac disease. Learn about the gluten-free diet, dining out, travel, and maintaining quality of life.',
 }
 
@@ -11,7 +11,7 @@ export default function LivingPage() {
   const relatedLinks = [
     { href: '/healing', title: 'Healing Process' },
     { href: '/parents', title: 'Resources for Parents' },
-    { href: '/understanding', title: 'Understanding Celiac Disease' },
+    { href: '/understanding', title: 'Understanding Coeliac Disease' },
   ]
 
   return (
@@ -27,7 +27,7 @@ export default function LivingPage() {
               <span>Daily Life</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              Living with Celiac Disease
+              Living with Coeliac Disease
             </h1>
             <p className="text-lg text-slate-600">Practical guidance for thriving with celiac disease</p>
           </div>

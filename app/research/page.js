@@ -11,7 +11,7 @@ export default function ResearchPage() {
   const relatedLinks = [
     { href: '/diagnosis-marsh', title: 'Diagnosis & Marsh Classification' },
     { href: '/healing', title: 'Healing Process' },
-    { href: '/understanding', title: 'Understanding Celiac Disease' },
+    { href: '/understanding', title: 'Understanding Coeliac Disease' },
   ]
 
   const treatments = [

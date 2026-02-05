@@ -9,9 +9,9 @@ export const metadata = {
 
 export default function HealingPage() {
   const relatedLinks = [
-    { href: '/living', title: 'Living with Celiac Disease' },
+    { href: '/living', title: 'Living with Coeliac Disease' },
     { href: '/diagnosis-marsh', title: 'Diagnosis & Marsh Classification' },
-    { href: '/understanding', title: 'Understanding Celiac Disease' },
+    { href: '/understanding', title: 'Understanding Coeliac Disease' },
   ]
 
   const timeline = [

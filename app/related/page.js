@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function RelatedPage() {
   const relatedLinks = [
-    { href: '/understanding', title: 'Understanding Celiac Disease' },
+    { href: '/understanding', title: 'Understanding Coeliac Disease' },
     { href: '/diagnosis-marsh', title: 'Diagnosis & Marsh Classification' },
     { href: '/research', title: 'Latest Research' },
   ]
