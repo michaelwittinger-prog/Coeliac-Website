@@ -115,6 +115,7 @@ export default function DiagnosisMarchPage() {
                       stage.color === 'green' ? 'bg-green-500' :
                       stage.color === 'yellow' ? 'bg-yellow-500' :
                       stage.color === 'orange' ? 'bg-orange-500' :
+                      stage.color === 'darkred' ? 'bg-red-700' :
                       'bg-red-500'
                     }`}></div>
                   </div>
