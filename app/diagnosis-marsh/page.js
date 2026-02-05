@@ -41,11 +41,9 @@ export default function DiagnosisMarchPage() {
   ]
 
   return (
-    <div className="bg-gradient-to-br from-stone-50 via-sky-50/30 to-green-50/20">
-      {/* Organic background elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-teal-100/40 rounded-full opacity-30 blur-3xl pointer-events-none"></div>
-      <div className="absolute top-40 right-20 w-72 h-72 bg-purple-100/40 rounded-full opacity-25 blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-emerald-100/30 rounded-full opacity-20 blur-3xl pointer-events-none"></div>
+    <div className="bg-slate-50">
+      {/* Subtle background accent - minimal, clinical */}
+      <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-gradient-to-bl from-blue-50/40 to-transparent pointer-events-none"></div>
       
       <div className="relative container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
