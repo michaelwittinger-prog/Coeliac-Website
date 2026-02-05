@@ -3,9 +3,9 @@
 import { ExternalLink, MapPin } from 'lucide-react'
 
 /**
- * Generate Google Maps search URL from listing data
+ * Generate OpenStreetMap search URL from listing data
  * @param {Object} listing - The listing object
- * @returns {string} - Google Maps search URL
+ * @returns {string} - OpenStreetMap search URL
  */
 function generateMapsUrl(listing) {
   if (listing.mapsUrl) {
@@ -23,7 +23,8 @@ function generateMapsUrl(listing) {
   queryParts.push('Vienna', 'Austria')
   
   const query = encodeURIComponent(queryParts.join(', '))
-  return `https://www.google.com/maps/search/?api=1&query=${query}`
+  // Use OpenStreetMap instead of Google Maps
+  return `https://www.openstreetmap.org/search?query=${query}`
 }
 
 /**
@@ -114,7 +115,7 @@ export default function LocalListingCard({
           }}
         >
           <MapPin className="w-4 h-4" />
-          <span>Google Maps</span>
+          <span>View Map</span>
         </a>
       </div>
     </div>
