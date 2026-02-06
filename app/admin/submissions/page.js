@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import Link from 'next/link'
-import { ArrowLeft, Shield, Clock, CheckCircle, XCircle, AlertCircle, Calendar, FileText, MessageSquare, Trash2, EyeOff } from 'lucide-react'
+import { ArrowLeft, Shield, Clock, CheckCircle, XCircle, AlertCircle, Calendar, FileText, MessageSquare, Trash2, EyeOff, Users, ClipboardList } from 'lucide-react'
+import AdminManagement from '@/components/AdminManagement'
 
 const STATUS_CONFIG = {
   pending: { label: 'Pending', color: 'bg-yellow-100 text-yellow-700 border-yellow-200', icon: Clock },
