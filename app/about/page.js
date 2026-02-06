@@ -1,5 +1,6 @@
 import InOneMinute from '@/components/InOneMinute'
 import ExternalResources from '@/components/ExternalResources'
+import CommunityContributions from '@/components/CommunityContributions'
 import { Target, CheckCircle2, RefreshCcw, Users, Info } from 'lucide-react'
 
 export const metadata = {
