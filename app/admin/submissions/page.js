@@ -186,6 +186,23 @@ export default function AdminSubmissionsPage() {
           </p>
         </div>
 
+        {/* Error Message */}
+        {updateError && (
+          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3">
+            <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+            <div className="flex-1">
+              <p className="text-red-700 text-sm font-medium">Update Failed</p>
+              <p className="text-red-600 text-sm">{updateError}</p>
+            </div>
+            <button 
+              onClick={() => setUpdateError('')}
+              className="text-red-400 hover:text-red-600"
+            >
+              <XCircle className="w-5 h-5" />
+            </button>
+          </div>
+        )}
+
         {/* Filter Tabs */}
         <div className="flex flex-wrap gap-2 mb-6">
           {[
