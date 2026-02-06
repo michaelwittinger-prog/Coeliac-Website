@@ -3,9 +3,9 @@
 import { ExternalLink, MapPin } from 'lucide-react'
 
 /**
- * Generate OpenStreetMap search URL from listing data
+ * Generate Google Maps search URL from listing data
  * @param {Object} listing - The listing object
- * @returns {string} - OpenStreetMap search URL
+ * @returns {string} - Google Maps search URL
  */
 function generateMapsUrl(listing) {
   if (listing.mapsUrl) {
@@ -13,18 +13,22 @@ function generateMapsUrl(listing) {
   }
   
   // Construct query from available data
-  const queryParts = [listing.name]
+  const queryParts = []
+  
+  // Prefer address if available for more accurate results
   if (listing.address) {
     queryParts.push(listing.address)
+  } else {
+    queryParts.push(listing.name)
+    if (listing.district) {
+      queryParts.push(`${listing.district} district`)
+    }
+    queryParts.push('Vienna', 'Austria')
   }
-  if (listing.district) {
-    queryParts.push(`${listing.district} district`)
-  }
-  queryParts.push('Vienna', 'Austria')
   
   const query = encodeURIComponent(queryParts.join(', '))
-  // Use OpenStreetMap instead of Google Maps
-  return `https://www.openstreetmap.org/search?query=${query}`
+  // Use Google Maps search which works better for locations
+  return `https://www.google.com/maps/search/?api=1&query=${query}`
 }
 
 /**
