@@ -92,30 +92,37 @@ export default function AdminSubmissionsPage() {
 
   const handleUpdateStatus = async (submissionId, newStatus) => {
     setProcessing(true)
+    setUpdateError('')
+    
     try {
-      const { error } = await supabase
-        .from('user_submissions')
-        .update({
+      const response = await fetch('/api/admin/submissions/update', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id: submissionId,
           status: newStatus,
-          admin_notes: adminNotes.trim() || null,
-          reviewed_at: new Date().toISOString(),
-          reviewed_by: user.id
+          admin_notes: adminNotes.trim() || null
         })
-        .eq('id', submissionId)
+      })
 
-      if (error) {
-        console.error('Update error:', error)
-        alert('Failed to update submission')
+      const result = await response.json()
+
+      if (!response.ok) {
+        const errorMsg = result.error || 'Failed to update submission'
+        console.error('Update error:', errorMsg)
+        setUpdateError(errorMsg)
         return
       }
 
-      // Refresh submissions
+      // Refresh submissions list
       await fetchSubmissions()
       setSelectedSubmission(null)
       setAdminNotes('')
     } catch (err) {
       console.error('Error:', err)
-      alert('An error occurred')
+      setUpdateError('An unexpected error occurred. Please try again.')
     } finally {
       setProcessing(false)
     }
