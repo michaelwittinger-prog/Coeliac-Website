@@ -264,8 +264,57 @@ export default function MobileMenu() {
               </ul>
             </nav>
 
-            {/* Footer in menu */}
-            <div className="absolute bottom-0 left-0 right-0 px-5 py-5 border-t border-purple-100/50" style={{background: 'linear-gradient(180deg, rgba(243, 240, 247, 0.5) 0%, rgba(243, 240, 247, 0.9) 100%)'}}>
+            {/* Footer in menu with Auth */}
+            <div className="absolute bottom-0 left-0 right-0 px-4 py-4 border-t border-purple-100/50" style={{background: 'linear-gradient(180deg, rgba(243, 240, 247, 0.5) 0%, rgba(243, 240, 247, 0.95) 100%)'}}>
+              {/* Auth Section */}
+              {authLoading ? (
+                <div className="h-12 bg-slate-100 rounded-xl animate-pulse mb-3"></div>
+              ) : user ? (
+                <div className="mb-3 space-y-2">
+                  <a
+                    href="/account"
+                    onClick={(e) => handleNavClick(e, '/account')}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/80 shadow-sm border border-slate-200/50 cursor-pointer"
+                    style={{ WebkitTapHighlightColor: 'transparent' }}
+                  >
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)' }}>
+                      <User className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium text-slate-900 truncate">{user.email}</p>
+                      <p className="text-xs text-slate-500">View Account</p>
+                    </div>
+                  </a>
+                  <button
+                    onClick={handleSignOut}
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-red-600 bg-red-50 hover:bg-red-100 font-medium text-sm transition-colors"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    Sign Out
+                  </button>
+                </div>
+              ) : (
+                <div className="mb-3 flex gap-2">
+                  <a
+                    href="/login"
+                    onClick={(e) => handleNavClick(e, '/login')}
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-white font-medium text-sm cursor-pointer"
+                    style={{ background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)', WebkitTapHighlightColor: 'transparent' }}
+                  >
+                    <LogIn className="w-4 h-4" />
+                    Sign In
+                  </a>
+                  <a
+                    href="/signup"
+                    onClick={(e) => handleNavClick(e, '/signup')}
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-slate-700 bg-white border border-slate-200 font-medium text-sm cursor-pointer hover:bg-slate-50"
+                    style={{ WebkitTapHighlightColor: 'transparent' }}
+                  >
+                    Sign Up
+                  </a>
+                </div>
+              )}
+              
               <div className="flex items-center justify-center space-x-2 mb-2">
                 <div className="w-1.5 h-1.5 rounded-full" style={{background: '#854F9B'}} />
                 <div className="w-1 h-1 rounded-full" style={{background: '#854F9B', opacity: 0.5}} />
