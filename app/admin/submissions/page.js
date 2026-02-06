@@ -281,27 +281,29 @@ export default function AdminSubmissionsPage() {
           </div>
         </div>
 
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {[
-            { value: 'pending', label: 'Pending', count: (showDeactivated ? deactivatedSubmissions : activeSubmissions).filter(s => s.status === 'pending').length },
-            { value: 'approved', label: 'Approved', count: (showDeactivated ? deactivatedSubmissions : activeSubmissions).filter(s => s.status === 'approved').length },
-            { value: 'rejected', label: 'Rejected', count: (showDeactivated ? deactivatedSubmissions : activeSubmissions).filter(s => s.status === 'rejected').length },
-            { value: 'all', label: 'All', count: (showDeactivated ? deactivatedSubmissions : activeSubmissions).length },
-          ].map((tab) => (
-            <button
-              key={tab.value}
-              onClick={() => setFilter(tab.value)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                filter === tab.value
-                  ? 'bg-slate-200 text-slate-800'
-                  : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
-              }`}
-            >
-              {tab.label} ({tab.count})
-            </button>
-          ))}
-        </div>
+        {/* Filter Tabs - Only show for active submissions */}
+        {!showDeactivated && (
+          <div className="flex flex-wrap gap-2 mb-6">
+            {[
+              { value: 'pending', label: 'Pending', count: activeSubmissions.filter(s => s.status === 'pending').length },
+              { value: 'approved', label: 'Approved', count: activeSubmissions.filter(s => s.status === 'approved').length },
+              { value: 'rejected', label: 'Rejected', count: activeSubmissions.filter(s => s.status === 'rejected').length },
+              { value: 'all', label: 'All', count: activeSubmissions.length },
+            ].map((tab) => (
+              <button
+                key={tab.value}
+                onClick={() => setFilter(tab.value)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                  filter === tab.value
+                    ? 'bg-slate-200 text-slate-800'
+                    : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                }`}
+              >
+                {tab.label} ({tab.count})
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Deactivate Confirmation Modal */}
         {confirmDeactivate && (
