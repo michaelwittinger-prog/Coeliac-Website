@@ -226,14 +226,55 @@ export default function AdminSubmissionsPage() {
             <Shield className="w-4 h-4" />
             <span>Admin Panel</span>
           </div>
-          <h1 className="text-3xl font-bold text-slate-900">Review Submissions</h1>
+          <h1 className="text-3xl font-bold text-slate-900">Admin Dashboard</h1>
           <p className="text-slate-600 mt-2">
-            Review and approve community submissions. {pendingCount > 0 && (
-              <span className="font-semibold text-yellow-600">{pendingCount} pending review</span>
-            )}
+            Manage submissions and admin access
           </p>
         </div>
 
+        {/* Tab Navigation */}
+        <div className="flex flex-wrap gap-2 mb-6 border-b border-slate-200 pb-4">
+          <button
+            onClick={() => setActiveTab('submissions')}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
+              activeTab === 'submissions'
+                ? 'text-white shadow-md'
+                : 'bg-white text-slate-600 border border-slate-200 hover:border-slate-300'
+            }`}
+            style={activeTab === 'submissions' ? { background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)' } : {}}
+          >
+            <ClipboardList className="w-4 h-4" />
+            Review Submissions
+            {pendingCount > 0 && (
+              <span className={`px-2 py-0.5 rounded-full text-xs ${
+                activeTab === 'submissions' ? 'bg-white/20 text-white' : 'bg-yellow-100 text-yellow-700'
+              }`}>
+                {pendingCount}
+              </span>
+            )}
+          </button>
+          <button
+            onClick={() => setActiveTab('admins')}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
+              activeTab === 'admins'
+                ? 'text-white shadow-md'
+                : 'bg-white text-slate-600 border border-slate-200 hover:border-slate-300'
+            }`}
+            style={activeTab === 'admins' ? { background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)' } : {}}
+          >
+            <Users className="w-4 h-4" />
+            Manage Admins
+          </button>
+        </div>
+
+        {/* Admin Management Tab */}
+        {activeTab === 'admins' && (
+          <AdminManagement />
+        )}
+
+        {/* Submissions Tab */}
+        {activeTab === 'submissions' && (
+          <>
         {/* Error Message */}
         {updateError && (
           <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3">
