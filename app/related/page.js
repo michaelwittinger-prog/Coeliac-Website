@@ -1,5 +1,5 @@
 import InOneMinute from '@/components/InOneMinute'
-import RelatedReading from '@/components/RelatedReading'
+import ExternalResources from '@/components/ExternalResources'
 import { Link2, Activity, Dna, AlertCircle } from 'lucide-react'
 
 export const metadata = {
@@ -8,10 +8,25 @@ export const metadata = {
 }
 
 export default function RelatedPage() {
-  const relatedLinks = [
-    { href: '/understanding', title: 'Understanding Coeliac Disease' },
-    { href: '/diagnosis-marsh', title: 'Diagnosis & Marsh Classification' },
-    { href: '/research', title: 'Latest Research' },
+  const externalLinks = [
+    {
+      title: 'Coeliac UK - Associated Conditions',
+      url: 'https://www.coeliac.org.uk/information-and-support/coeliac-disease/conditions-linked-to-coeliac-disease/',
+      description: 'Information on conditions commonly associated with coeliac disease.',
+      region: 'United Kingdom'
+    },
+    {
+      title: 'Beyond Celiac - Related Conditions',
+      url: 'https://www.beyondceliac.org/',
+      description: 'Research and resources on autoimmune conditions linked to celiac disease.',
+      region: 'United States'
+    },
+    {
+      title: 'ISSCD - Scientific Research',
+      url: 'https://www.isscd-global.org/',
+      description: 'International scientific society research on coeliac disease comorbidities.',
+      region: 'International'
+    }
   ]
 
   const conditions = [
@@ -156,7 +171,8 @@ export default function RelatedPage() {
           </div>
 
           {/* Related Reading Section */}
-          <RelatedReading links={relatedLinks} />
+          {/* External Resources Section */}
+          <ExternalResources links={externalLinks} title="Related Conditions Resources" />
         </div>
       </div>
     </div>

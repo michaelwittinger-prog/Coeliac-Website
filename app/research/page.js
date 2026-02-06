@@ -1,5 +1,5 @@
 import InOneMinute from '@/components/InOneMinute'
-import RelatedReading from '@/components/RelatedReading'
+import ExternalResources from '@/components/ExternalResources'
 import { FlaskConical, Beaker, Dna, Info } from 'lucide-react'
 
 export const metadata = {
@@ -8,10 +8,31 @@ export const metadata = {
 }
 
 export default function ResearchPage() {
-  const relatedLinks = [
-    { href: '/diagnosis-marsh', title: 'Diagnosis & Marsh Classification' },
-    { href: '/healing', title: 'Healing Process' },
-    { href: '/understanding', title: 'Understanding Coeliac Disease' },
+  const externalLinks = [
+    {
+      title: 'ISSCD - Research Publications',
+      url: 'https://www.isscd-global.org/',
+      description: 'International Society for the Study of Celiac Disease research and publications.',
+      region: 'International'
+    },
+    {
+      title: 'Beyond Celiac - Research News',
+      url: 'https://www.beyondceliac.org/',
+      description: 'Latest clinical trials and research developments in celiac disease.',
+      region: 'United States'
+    },
+    {
+      title: 'Coeliac UK - Research',
+      url: 'https://www.coeliac.org.uk/about-us/our-work/',
+      description: 'UK-funded research projects and scientific advances.',
+      region: 'United Kingdom'
+    },
+    {
+      title: 'ClinicalTrials.gov - Celiac Disease',
+      url: 'https://clinicaltrials.gov/search?cond=Celiac%20Disease',
+      description: 'Database of current clinical trials for celiac disease treatments.',
+      region: 'International'
+    }
   ]
 
   const treatments = [
@@ -169,7 +190,8 @@ export default function ResearchPage() {
           </div>
 
           {/* Related Reading Section */}
-          <RelatedReading links={relatedLinks} />
+          {/* External Resources Section */}
+          <ExternalResources links={externalLinks} title="Research & Clinical Resources" />
         </div>
       </div>
     </div>

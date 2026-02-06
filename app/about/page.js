@@ -1,5 +1,6 @@
 import InOneMinute from '@/components/InOneMinute'
-import RelatedReading from '@/components/RelatedReading'
+import ExternalResources from '@/components/ExternalResources'
+import CommunityContributions from '@/components/CommunityContributions'
 import { Target, CheckCircle2, RefreshCcw, Users, Info } from 'lucide-react'
 
 export const metadata = {
@@ -8,10 +9,31 @@ export const metadata = {
 }
 
 export default function AboutPage() {
-  const relatedLinks = [
-    { href: '/understanding', title: 'Understanding Coeliac Disease' },
-    { href: '/diagnosis-marsh', title: 'Diagnosis & Marsh Classification' },
-    { href: '/research', title: 'Latest Research' },
+  const externalLinks = [
+    {
+      title: 'Coeliac UK',
+      url: 'https://www.coeliac.org.uk/',
+      description: 'Leading UK charity for people with coeliac disease and dermatitis herpetiformis.',
+      region: 'United Kingdom'
+    },
+    {
+      title: 'Beyond Celiac',
+      url: 'https://www.beyondceliac.org/',
+      description: 'US organisation driving diagnosis, treatment and a cure for celiac disease.',
+      region: 'United States'
+    },
+    {
+      title: 'Association of European Coeliac Societies (AOECS)',
+      url: 'https://www.aoecs.org/',
+      description: 'Umbrella organisation for European coeliac societies.',
+      region: 'Europe'
+    },
+    {
+      title: 'Coeliac Australia',
+      url: 'https://www.coeliac.org.au/',
+      description: 'Supporting Australians with coeliac disease through education and advocacy.',
+      region: 'Australia'
+    }
   ]
 
   const missions = [
@@ -195,7 +217,7 @@ export default function AboutPage() {
           </div>
 
           {/* Stay Connected */}
-          <div className="bg-gradient-to-r from-purple-50 to-indigo-50 border border-purple-200 rounded-xl p-6 mb-12">
+          <div className="bg-gradient-to-r from-purple-50 to-indigo-50 border border-purple-200 rounded-xl p-6 mb-8">
             <div className="flex items-start space-x-4">
               <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
                 <Info className="w-5 h-5 text-purple-700" />
@@ -209,8 +231,14 @@ export default function AboutPage() {
             </div>
           </div>
 
+          {/* Community Contributions */}
+          <div className="mb-12">
+            <CommunityContributions maxItems={4} />
+          </div>
+
           {/* Related Reading Section */}
-          <RelatedReading links={relatedLinks} />
+          {/* External Resources Section */}
+          <ExternalResources links={externalLinks} title="Coeliac Organisations Worldwide" />
         </div>
       </div>
     </div>

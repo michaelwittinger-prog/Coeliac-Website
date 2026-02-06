@@ -1,5 +1,5 @@
 import InOneMinute from '@/components/InOneMinute'
-import RelatedReading from '@/components/RelatedReading'
+import ExternalResources from '@/components/ExternalResources'
 import { Dna, Activity, Users2, AlertTriangle } from 'lucide-react'
 
 export const metadata = {
@@ -9,10 +9,25 @@ export const metadata = {
 }
 
 export default function UnderstandingPage() {
-  const relatedLinks = [
-    { href: '/diagnosis-marsh', title: 'Diagnosis & Marsh Classification' },
-    { href: '/healing', title: 'Healing Process and Timeline' },
-    { href: '/living', title: 'Living with Coeliac Disease' },
+  const externalLinks = [
+    {
+      title: 'Coeliac UK - What is Coeliac Disease?',
+      url: 'https://www.coeliac.org.uk/information-and-support/coeliac-disease/about-coeliac-disease/',
+      description: 'Comprehensive overview of coeliac disease from the UK\'s leading charity.',
+      region: 'United Kingdom'
+    },
+    {
+      title: 'Beyond Celiac - Celiac Disease Basics',
+      url: 'https://www.beyondceliac.org/',
+      description: 'Educational resources about celiac disease symptoms, causes, and prevalence.',
+      region: 'United States'
+    },
+    {
+      title: 'Association of European Coeliac Societies (AOECS)',
+      url: 'https://www.aoecs.org/',
+      description: 'Pan-European organisation providing information and advocacy for coeliac disease.',
+      region: 'Europe'
+    }
   ]
 
   const symptoms = {
@@ -136,8 +151,8 @@ export default function UnderstandingPage() {
             </div>
           </div>
 
-          {/* Related Reading Section */}
-          <RelatedReading links={relatedLinks} />
+          {/* External Resources Section */}
+          <ExternalResources links={externalLinks} title="Learn More About Coeliac Disease" />
         </div>
       </div>
     </div>

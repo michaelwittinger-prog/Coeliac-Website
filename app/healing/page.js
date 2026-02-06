@@ -1,5 +1,5 @@
 import InOneMinute from '@/components/InOneMinute'
-import RelatedReading from '@/components/RelatedReading'
+import ExternalResources from '@/components/ExternalResources'
 import { HeartPulse, TrendingUp, Clock, Info } from 'lucide-react'
 
 export const metadata = {
@@ -8,10 +8,25 @@ export const metadata = {
 }
 
 export default function HealingPage() {
-  const relatedLinks = [
-    { href: '/living', title: 'Living with Coeliac Disease' },
-    { href: '/diagnosis-marsh', title: 'Diagnosis & Marsh Classification' },
-    { href: '/understanding', title: 'Understanding Coeliac Disease' },
+  const externalLinks = [
+    {
+      title: 'Coeliac UK - The Gluten-Free Diet',
+      url: 'https://www.coeliac.org.uk/information-and-support/living-gluten-free/the-gluten-free-diet/',
+      description: 'Guidance on maintaining a strict gluten-free diet for optimal intestinal healing.',
+      region: 'United Kingdom'
+    },
+    {
+      title: 'Beyond Celiac - Recovery & Healing',
+      url: 'https://www.beyondceliac.org/',
+      description: 'Information about the healing process and what to expect after diagnosis.',
+      region: 'United States'
+    },
+    {
+      title: 'Associazione Italiana Celiachia (AIC)',
+      url: 'https://www.celiachia.it/',
+      description: 'Italian coeliac association providing resources on diet management and healing.',
+      region: 'Italy'
+    }
   ]
 
   const timeline = [
@@ -164,7 +179,8 @@ export default function HealingPage() {
           </div>
 
           {/* Related Reading Section */}
-          <RelatedReading links={relatedLinks} />
+          {/* External Resources Section */}
+          <ExternalResources links={externalLinks} title="Healing & Recovery Resources" />
         </div>
       </div>
     </div>

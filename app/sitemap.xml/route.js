@@ -11,6 +11,11 @@ export async function GET() {
     '/living',
     '/research',
     '/about',
+    '/local/austria/vienna',
+    '/login',
+    '/signup',
+    '/account',
+    '/submit',
   ]
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

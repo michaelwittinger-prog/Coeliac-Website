@@ -1,5 +1,5 @@
 import InOneMinute from '@/components/InOneMinute'
-import RelatedReading from '@/components/RelatedReading'
+import ExternalResources from '@/components/ExternalResources'
 import { Users, GraduationCap, Home, Heart } from 'lucide-react'
 
 export const metadata = {
@@ -8,10 +8,31 @@ export const metadata = {
 }
 
 export default function ParentsPage() {
-  const relatedLinks = [
-    { href: '/living', title: 'Living with Coeliac Disease' },
-    { href: '/understanding', title: 'Understanding Coeliac Disease' },
-    { href: '/healing', title: 'Healing Process' },
+  const externalLinks = [
+    {
+      title: 'Coeliac UK - Children & Young People',
+      url: 'https://www.coeliac.org.uk/living-with-coeliac-disease/children-and-young-people/',
+      description: 'Dedicated resources for parents of children with coeliac disease.',
+      region: 'United Kingdom'
+    },
+    {
+      title: 'Beyond Celiac - Kids & Teens',
+      url: 'https://www.beyondceliac.org/',
+      description: 'Support resources for families navigating paediatric coeliac disease.',
+      region: 'United States'
+    },
+    {
+      title: 'Association of European Coeliac Societies (AOECS)',
+      url: 'https://www.aoecs.org/',
+      description: 'European guidance on managing coeliac disease in children across different countries.',
+      region: 'Europe'
+    },
+    {
+      title: 'Coeliac Australia - For Parents',
+      url: 'https://www.coeliac.org.au/',
+      description: 'Australian resources for parents including school management tips.',
+      region: 'Australia'
+    }
   ]
 
   return (
@@ -206,7 +227,8 @@ export default function ParentsPage() {
           </div>
 
           {/* Related Reading Section */}
-          <RelatedReading links={relatedLinks} />
+          {/* External Resources Section */}
+          <ExternalResources links={externalLinks} title="Resources for Parents" />
         </div>
       </div>
     </div>
