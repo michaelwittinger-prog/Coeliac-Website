@@ -25,8 +25,9 @@ export default function CommunityContributions({ maxItems = 3 }) {
       try {
         const { data, error } = await supabase
           .from('user_submissions')
-          .select('id, type, title, content, created_at')
+          .select('id, type, title, content, created_at, is_active')
           .eq('status', 'approved')
+          .neq('is_active', false)  // Only show active submissions
           .order('created_at', { ascending: false })
           .limit(maxItems)
 
