@@ -3,9 +3,10 @@
 import { ExternalLink, MapPin } from 'lucide-react'
 
 /**
- * Generate OpenStreetMap URL from listing data
+ * Generate Google Maps URL from listing data
+ * Uses the Maps URLs API for reliable location search
  * @param {Object} listing - The listing object
- * @returns {string} - OpenStreetMap URL
+ * @returns {string} - Google Maps URL
  */
 function generateMapsUrl(listing) {
   if (listing.mapsUrl) {
@@ -16,7 +17,7 @@ function generateMapsUrl(listing) {
   let query = ''
   
   if (listing.address) {
-    // Use just the address for best results
+    // Use the full address for accurate location
     query = listing.address
   } else {
     // Fallback: construct from name and location
@@ -29,8 +30,8 @@ function generateMapsUrl(listing) {
   }
   
   const encodedQuery = encodeURIComponent(query)
-  // Use OpenStreetMap which is not blocked
-  return `https://www.openstreetmap.org/search?query=${encodedQuery}`
+  // Google Maps Search URL - works reliably for addresses
+  return `https://www.google.com/maps/search/?api=1&query=${encodedQuery}`
 }
 
 /**
