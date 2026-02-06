@@ -191,10 +191,17 @@ export default function AdminSubmissionsPage() {
   }
 
   // Filter submissions based on status and active state
+  // is_active can be true, false, null, or undefined
+  // Active = is_active is NOT explicitly false
+  // Deactivated = is_active is explicitly false
   const activeSubmissions = submissions.filter(s => s.is_active !== false)
   const deactivatedSubmissions = submissions.filter(s => s.is_active === false)
   
-  const filteredSubmissions = (showDeactivated ? deactivatedSubmissions : activeSubmissions).filter(s => 
+  // When showing deactivated, only show deactivated items
+  // When showing active, only show active items
+  const baseSubmissions = showDeactivated ? deactivatedSubmissions : activeSubmissions
+  
+  const filteredSubmissions = baseSubmissions.filter(s => 
     filter === 'all' ? true : s.status === filter
   )
 
