@@ -134,6 +134,45 @@ export default function LocalDirectory({
   pageTitle = null,
   pageDescription = null
 }) {
+  return (
+    <Suspense fallback={<DirectoryLoadingState />}>
+      <LocalDirectoryContent
+        initialCountry={initialCountry}
+        initialCity={initialCity}
+        showLocationFilters={showLocationFilters}
+        pageTitle={pageTitle}
+        pageDescription={pageDescription}
+      />
+    </Suspense>
+  )
+}
+
+function DirectoryLoadingState() {
+  return (
+    <div className="bg-slate-50 min-h-screen">
+      <div className="container mx-auto px-4 py-12">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-8">
+            <div className="h-6 w-32 bg-slate-200 rounded-full animate-pulse mb-4"></div>
+            <div className="h-10 w-64 bg-slate-200 rounded animate-pulse mb-3"></div>
+            <div className="h-6 w-96 bg-slate-200 rounded animate-pulse"></div>
+          </div>
+          <div className="flex items-center justify-center py-16">
+            <div className="w-8 h-8 border-4 border-slate-200 border-t-purple-600 rounded-full animate-spin"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function LocalDirectoryContent({ 
+  initialCountry = null, 
+  initialCity = null,
+  showLocationFilters = true,
+  pageTitle = null,
+  pageDescription = null
+}) {
   const router = useRouter()
   const searchParams = useSearchParams()
   
