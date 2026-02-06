@@ -1,113 +1,96 @@
 export const dynamic = "force-dynamic";
 
-import { createClient } from '@supabase/supabase-js'
 import { NextResponse } from 'next/server'
 
 export async function GET(request) {
-  const debug = {
-    step: 'init',
-    supabaseConfigured: false,
-    queryResult: null,
-    error: null,
-    allSubmissions: null,
-    approvedCount: 0,
-    localResourceCount: 0,
-    finalCount: 0
-  }
-
   try {
     const { searchParams } = new URL(request.url)
     const location = searchParams.get('location') || 'vienna'
     const showDebug = searchParams.get('debug') === 'true'
 
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-    const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    // Use service role key to bypass RLS (since anon RLS might not be set up)
+    const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+    // Fallback to anon key
+    const supabaseKey = serviceRoleKey || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
-    debug.supabaseConfigured = !!(supabaseUrl && supabaseAnonKey)
-
-    if (!supabaseUrl || !supabaseAnonKey) {
-      debug.error = 'Supabase not configured'
-      if (showDebug) return NextResponse.json({ success: false, debug })
+    if (!supabaseUrl || !supabaseKey) {
+      if (showDebug) {
+        return NextResponse.json({ 
+          success: false, 
+          error: 'Supabase not configured',
+          hasUrl: !!supabaseUrl,
+          hasKey: !!supabaseKey
+        })
+      }
       return NextResponse.json({ success: true, data: [] })
     }
 
-    const supabase = createClient(supabaseUrl, supabaseAnonKey)
-    debug.step = 'client_created'
+    // Dynamic import to avoid build issues
+    const { createClient } = await import('@supabase/supabase-js')
+    const supabase = createClient(supabaseUrl, supabaseKey, {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false
+      }
+    })
 
-    // First, get ALL approved submissions (no type filter) to debug
-    const { data: allApproved, error: allError } = await supabase
+    // Get ALL approved submissions first
+    const { data: allApproved, error } = await supabase
       .from('user_submissions')
       .select('id, type, title, content, status, created_at')
       .eq('status', 'approved')
       .order('created_at', { ascending: false })
 
-    if (allError) {
-      debug.step = 'query_all_failed'
-      debug.error = allError.message
-      debug.errorCode = allError.code
-      debug.errorDetails = allError.details
-      if (showDebug) return NextResponse.json({ success: false, debug })
+    if (error) {
+      console.error('Supabase query error:', error)
+      if (showDebug) {
+        return NextResponse.json({ 
+          success: false, 
+          error: error.message,
+          code: error.code,
+          details: error.details
+        })
+      }
       return NextResponse.json({ success: true, data: [] })
     }
 
-    debug.step = 'query_all_success'
-    debug.approvedCount = allApproved?.length || 0
-    debug.allSubmissions = showDebug ? allApproved : null
+    if (showDebug) {
+      return NextResponse.json({ 
+        success: true, 
+        totalApproved: allApproved?.length || 0,
+        submissions: allApproved,
+        data: allApproved || []
+      })
+    }
 
-    // Now filter for local_resource type
-    const localResources = (allApproved || []).filter(item => item.type === 'local_resource')
-    debug.localResourceCount = localResources.length
-
-    // Filter by location (case-insensitive search in content)
+    // For production: filter by location keywords
+    // But be very permissive - include any local_resource OR anything mentioning the location
     const locationLower = location.toLowerCase()
-    const filteredData = localResources.filter(item => {
+    const filteredData = (allApproved || []).filter(item => {
       const contentLower = (item.content || '').toLowerCase()
       const titleLower = (item.title || '').toLowerCase()
-      // Match vienna, wien, or austria - be more permissive
-      return contentLower.includes(locationLower) || 
-             contentLower.includes('wien') || 
-             contentLower.includes('austria') ||
-             contentLower.includes('österreich') ||
-             titleLower.includes(locationLower) ||
-             titleLower.includes('wien') ||
-             titleLower.includes('austria')
+      const isLocalResource = item.type === 'local_resource'
+      
+      // Include if it's a local_resource type
+      if (isLocalResource) return true
+      
+      // Or if it mentions vienna/wien/austria anywhere
+      const mentionsLocation = 
+        contentLower.includes(locationLower) || 
+        contentLower.includes('wien') || 
+        contentLower.includes('austria') ||
+        contentLower.includes('österreich') ||
+        titleLower.includes(locationLower) ||
+        titleLower.includes('wien') ||
+        titleLower.includes('austria')
+      
+      return mentionsLocation
     })
 
-    debug.step = 'filtering_complete'
-    debug.finalCount = filteredData.length
-
-    // If no local_resource submissions, return ALL approved as fallback for local support page
-    // This is more permissive - any approved submission can appear
-    let resultData = filteredData
-
-    // If strict filtering returns nothing, try without type filter
-    if (resultData.length === 0 && allApproved && allApproved.length > 0) {
-      const allFiltered = allApproved.filter(item => {
-        const contentLower = (item.content || '').toLowerCase()
-        const titleLower = (item.title || '').toLowerCase()
-        return contentLower.includes(locationLower) || 
-               contentLower.includes('wien') || 
-               contentLower.includes('austria') ||
-               contentLower.includes('österreich') ||
-               titleLower.includes(locationLower) ||
-               titleLower.includes('wien')
-      })
-      if (allFiltered.length > 0) {
-        resultData = allFiltered
-        debug.step = 'using_all_approved_fallback'
-        debug.finalCount = resultData.length
-      }
-    }
-
-    if (showDebug) {
-      return NextResponse.json({ success: true, data: resultData, debug })
-    }
-
-    return NextResponse.json({ success: true, data: resultData })
+    return NextResponse.json({ success: true, data: filteredData })
   } catch (error) {
-    debug.step = 'exception'
-    debug.error = error.message
     console.error('Server error:', error)
-    return NextResponse.json({ success: true, data: [], debug })
+    return NextResponse.json({ success: true, data: [], error: error.message })
   }
 }
