@@ -197,13 +197,11 @@ export default function AdminSubmissionsPage() {
   const activeSubmissions = submissions.filter(s => s.is_active !== false)
   const deactivatedSubmissions = submissions.filter(s => s.is_active === false)
   
-  // When showing deactivated, only show deactivated items
-  // When showing active, only show active items
-  const baseSubmissions = showDeactivated ? deactivatedSubmissions : activeSubmissions
-  
-  const filteredSubmissions = baseSubmissions.filter(s => 
-    filter === 'all' ? true : s.status === filter
-  )
+  // When showing deactivated, show ALL deactivated items (no status filter)
+  // When showing active, apply the status filter
+  const filteredSubmissions = showDeactivated 
+    ? deactivatedSubmissions 
+    : activeSubmissions.filter(s => filter === 'all' ? true : s.status === filter)
 
   const pendingCount = activeSubmissions.filter(s => s.status === 'pending').length
   const deactivatedCount = deactivatedSubmissions.length
