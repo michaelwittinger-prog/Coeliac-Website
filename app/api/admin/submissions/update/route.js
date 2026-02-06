@@ -49,14 +49,18 @@ export async function POST(request) {
       })
       .eq('id', id)
       .select()
-      .single()
 
     if (updateError) {
       console.error('Update error:', updateError)
       return NextResponse.json({ error: updateError.message || 'Failed to update submission' }, { status: 500 })
     }
 
-    return NextResponse.json({ success: true, data })
+    // Check if any row was updated
+    if (!data || data.length === 0) {
+      return NextResponse.json({ error: 'Submission not found or update not permitted' }, { status: 404 })
+    }
+
+    return NextResponse.json({ success: true, data: data[0] })
   } catch (error) {
     console.error('Server error:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
