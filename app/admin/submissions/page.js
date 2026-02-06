@@ -31,6 +31,7 @@ export default function AdminSubmissionsPage() {
   const [adminNotes, setAdminNotes] = useState('')
   const [processing, setProcessing] = useState(false)
   const [filter, setFilter] = useState('pending')
+  const [updateError, setUpdateError] = useState('')
   
   const router = useRouter()
   const supabase = createClient()
