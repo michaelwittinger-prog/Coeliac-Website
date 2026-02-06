@@ -1,4 +1,7 @@
+export const dynamic = "force-dynamic";
+
 import { createClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/supabase/admin'
 import { NextResponse } from 'next/server'
 
 // Get admin emails from environment variable
@@ -22,7 +25,7 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Invalid status. Must be "approved" or "rejected"' }, { status: 400 })
     }
 
-    // Get authenticated user
+    // Get authenticated user (using regular client for auth check)
     const supabase = await createClient()
     const { data: { user }, error: authError } = await supabase.auth.getUser()
 
@@ -30,7 +33,7 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Not authenticated' }, { status: 401 })
     }
 
-    // Verify user is admin
+    // Verify user is admin using ADMIN_EMAILS env var
     const adminEmails = getAdminEmails()
     const isAdmin = adminEmails.includes(user.email?.toLowerCase() || '')
 
@@ -38,8 +41,36 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Forbidden: Admin access required' }, { status: 403 })
     }
 
-    // Update the submission
-    const { data, error: updateError } = await supabase
+    // Use admin client (service role) to bypass RLS
+    let adminSupabase
+    try {
+      adminSupabase = createAdminClient()
+    } catch (e) {
+      return NextResponse.json({ error: 'Admin client error: ' + e.message }, { status: 500 })
+    }
+
+    // First, verify the submission exists
+    const { data: existingData, error: selectError } = await adminSupabase
+      .from('user_submissions')
+      .select('id, status')
+      .eq('id', id)
+      .single()
+
+    if (selectError) {
+      console.error('Select error:', selectError)
+      return NextResponse.json({ 
+        error: 'Failed to find submission', 
+        details: selectError.message,
+        code: selectError.code 
+      }, { status: 404 })
+    }
+
+    if (!existingData) {
+      return NextResponse.json({ error: 'Submission not found with id: ' + id }, { status: 404 })
+    }
+
+    // Now perform the update
+    const { data, error: updateError } = await adminSupabase
       .from('user_submissions')
       .update({
         status: status,
@@ -49,16 +80,24 @@ export async function POST(request) {
       })
       .eq('id', id)
       .select()
-      .single()
 
     if (updateError) {
       console.error('Update error:', updateError)
-      return NextResponse.json({ error: updateError.message || 'Failed to update submission' }, { status: 500 })
+      return NextResponse.json({ 
+        error: 'Update failed', 
+        details: updateError.message,
+        code: updateError.code 
+      }, { status: 500 })
     }
 
-    return NextResponse.json({ success: true, data })
+    // Return success
+    return NextResponse.json({ 
+      success: true, 
+      data: data && data.length > 0 ? data[0] : existingData,
+      message: `Submission ${status}`
+    })
   } catch (error) {
     console.error('Server error:', error)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    return NextResponse.json({ error: error.message || 'Internal server error' }, { status: 500 })
   }
 }
