@@ -98,7 +98,7 @@ export default function Home() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="/local/austria/vienna"
+                href="/local"
                 className="inline-flex items-center space-x-2 px-6 py-3 text-white rounded-lg font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all"
                 style={{background: 'linear-gradient(135deg, #52B238 0%, #6bc74a 100%)'}}
               >
