@@ -1,10 +1,19 @@
-import { Inter } from 'next/font/google'
+import { Inter, Urbanist } from 'next/font/google'
 import './globals.css'
 import Link from 'next/link'
 import MedicalDisclaimer from '@/components/MedicalDisclaimer'
 import Header from '@/components/Header'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
+})
+
+const urbanist = Urbanist({ 
+  subsets: ['latin'],
+  weight: ['700'],
+  variable: '--font-urbanist',
+})
 
 export const metadata = {
   title: 'Coeliac Disease Information Hub',
@@ -14,7 +23,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${urbanist.variable}`}>
       <body className={inter.className}>
         <div className="min-h-screen flex flex-col bg-slate-50">
           {/* Header Navigation */}
