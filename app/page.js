@@ -181,47 +181,80 @@ export default function Home() {
       <div className="relative py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-slate-50 to-purple-50 rounded-2xl p-8 md:p-10 border border-slate-200 shadow-sm">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                <div className="flex-1">
-                  <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full text-sm font-medium mb-4" style={{backgroundColor: 'rgba(133, 79, 155, 0.1)', color: '#854F9B'}}>
-                    <MapPin className="w-4 h-4" />
-                    <span>Local Support</span>
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-3">
-                    Find Support Near You
-                  </h2>
-                  <p className="text-slate-600 leading-relaxed mb-4">
-                    Discover local resources including coeliac support groups, gluten-free shops, restaurants, and medical specialists in your area.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white border border-slate-200 text-slate-600">
-                      <span className="w-2 h-2 rounded-full bg-green-500 mr-2"></span>
-                      Support Groups
-                    </span>
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white border border-slate-200 text-slate-600">
-                      <span className="w-2 h-2 rounded-full bg-blue-500 mr-2"></span>
-                      GF Restaurants
-                    </span>
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white border border-slate-200 text-slate-600">
-                      <span className="w-2 h-2 rounded-full bg-purple-500 mr-2"></span>
-                      Medical Specialists
-                    </span>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-3">
-                  <Link
-                    href="/local/austria/vienna"
-                    className="inline-flex items-center justify-center space-x-2 px-6 py-3 text-white rounded-lg font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all"
-                    style={{background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)'}}
-                  >
-                    <MapPin className="w-4 h-4" />
-                    <span>Vienna, Austria</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                  <p className="text-xs text-slate-500 text-center">More locations coming soon</p>
-                </div>
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full text-sm font-medium mb-4" style={{backgroundColor: 'rgba(133, 79, 155, 0.1)', color: '#854F9B'}}>
+                <MapPin className="w-4 h-4" />
+                <span>Local Support</span>
               </div>
+              <h2 className="text-3xl font-bold text-slate-800 mb-3">
+                Find Support Near You
+              </h2>
+              <p className="text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                Discover gluten-free restaurants, bakeries, shops, and healthcare providers in your city.
+              </p>
+            </div>
+
+            {/* City Cards */}
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              {/* Vienna Card */}
+              <Link
+                href="/local/at/vienna"
+                className="group bg-gradient-to-br from-slate-50 to-purple-50 rounded-2xl p-6 border border-slate-200 hover:border-purple-300 hover:shadow-lg transition-all"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div className="text-4xl">🇦🇹</div>
+                  <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-800 mb-1 group-hover:text-purple-700 transition-colors">Vienna</h3>
+                <p className="text-slate-500 text-sm mb-4">Austria</p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-white border border-slate-200 text-slate-600">
+                    Restaurants
+                  </span>
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-white border border-slate-200 text-slate-600">
+                    Shops
+                  </span>
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-white border border-slate-200 text-slate-600">
+                    Medical
+                  </span>
+                </div>
+              </Link>
+
+              {/* Berlin Card */}
+              <Link
+                href="/local/de/berlin"
+                className="group bg-gradient-to-br from-slate-50 to-purple-50 rounded-2xl p-6 border border-slate-200 hover:border-purple-300 hover:shadow-lg transition-all"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div className="text-4xl">🇩🇪</div>
+                  <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-800 mb-1 group-hover:text-purple-700 transition-colors">Berlin</h3>
+                <p className="text-slate-500 text-sm mb-4">Germany</p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-white border border-slate-200 text-slate-600">
+                    Bakeries
+                  </span>
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-white border border-slate-200 text-slate-600">
+                    Cafés
+                  </span>
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-white border border-slate-200 text-slate-600">
+                    Shops
+                  </span>
+                </div>
+              </Link>
+            </div>
+
+            {/* Browse All Button */}
+            <div className="text-center">
+              <Link
+                href="/local"
+                className="inline-flex items-center space-x-2 px-6 py-3 bg-white rounded-lg font-medium hover:bg-slate-50 transition-all shadow-sm border-2"
+                style={{color: '#854F9B', borderColor: '#854F9B'}}
+              >
+                <span>Browse All Locations</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>
