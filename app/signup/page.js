@@ -76,11 +76,11 @@ export default function SignupPage() {
             </div>
             <h1 className="text-2xl font-bold text-slate-900 mb-4">Check Your Email</h1>
             <p className="text-slate-600 mb-6">
-              We've sent a confirmation link to <strong className="text-slate-900">{email}</strong>. 
+              We&apos;ve sent a confirmation link to <strong className="text-slate-900">{email}</strong>. 
               Please check your inbox and click the link to verify your account.
             </p>
             <p className="text-sm text-slate-500 mb-6">
-              Don't see the email? Check your spam folder.
+              Don&apos;t see the email? Check your spam folder.
             </p>
             <Link
               href="/login"
