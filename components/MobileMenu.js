@@ -3,7 +3,8 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { X, BookOpen, FileText, HeartPulse, Users, Link2, Utensils, FlaskConical, Info, Home, MapPin } from 'lucide-react'
+import { createClient } from '@/lib/supabase/client'
+import { X, BookOpen, FileText, HeartPulse, Users, Link2, Utensils, FlaskConical, Info, Home, MapPin, User, LogIn, LogOut } from 'lucide-react'
 
 const navLinks = [
   { href: '/', label: 'Home', icon: Home },
@@ -20,10 +21,48 @@ const navLinks = [
 
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false)
+  const [user, setUser] = useState(null)
+  const [authLoading, setAuthLoading] = useState(true)
   const menuPanelRef = useRef(null)
   const buttonRef = useRef(null)
   const pathname = usePathname()
   const router = useRouter()
+  const supabase = createClient()
+
+  // Check auth state
+  useEffect(() => {
+    const checkUser = async () => {
+      try {
+        const { data: { session } } = await supabase.auth.getSession()
+        setUser(session?.user || null)
+      } catch (error) {
+        console.error('Error checking session:', error)
+      } finally {
+        setAuthLoading(false)
+      }
+    }
+
+    checkUser()
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        setUser(session?.user || null)
+      }
+    )
+
+    return () => subscription.unsubscribe()
+  }, [supabase.auth])
+
+  const handleSignOut = async () => {
+    try {
+      await supabase.auth.signOut()
+      setIsOpen(false)
+      router.push('/')
+      router.refresh()
+    } catch (error) {
+      console.error('Error signing out:', error)
+    }
+  }
 
   // Close menu when route changes
   useEffect(() => {
