@@ -75,6 +75,17 @@ export async function POST(request) {
       }, { status: 500 })
     }
 
+    // Also deactivate any linked local_listing
+    try {
+      await adminSupabase
+        .from('local_listings')
+        .update({ is_active: false })
+        .eq('submission_id', id)
+    } catch (listingErr) {
+      console.error('Failed to deactivate linked listing:', listingErr)
+      // Don't fail the request, just log it
+    }
+
     return NextResponse.json({ 
       success: true, 
       message: 'Submission deactivated',
