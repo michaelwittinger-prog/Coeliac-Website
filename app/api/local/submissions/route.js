@@ -35,11 +35,13 @@ export async function GET(request) {
       }
     })
 
-    // Get ALL approved submissions first
+    // Get ALL approved AND active submissions first
+    // Use .or() to handle both true and null (for old records without is_active set)
     const { data: allApproved, error } = await supabase
       .from('user_submissions')
-      .select('id, type, title, content, status, created_at')
+      .select('id, type, title, content, status, created_at, is_active')
       .eq('status', 'approved')
+      .or('is_active.eq.true,is_active.is.null')  // Only show active submissions (true or null)
       .order('created_at', { ascending: false })
 
     if (error) {
