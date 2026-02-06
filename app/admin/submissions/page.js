@@ -73,18 +73,19 @@ export default function AdminSubmissionsPage() {
   const fetchSubmissions = async () => {
     setLoadingSubmissions(true)
     try {
-      const { data, error } = await supabase
-        .from('user_submissions')
-        .select('*')
-        .order('created_at', { ascending: false })
+      // Use admin API route to fetch all submissions (bypasses RLS)
+      const response = await fetch('/api/admin/submissions')
+      const result = await response.json()
 
-      if (error) {
-        console.error('Error fetching submissions:', error)
+      if (!response.ok) {
+        console.error('Error fetching submissions:', result.error)
+        setUpdateError(result.error || 'Failed to fetch submissions')
       } else {
-        setSubmissions(data || [])
+        setSubmissions(result.data || [])
       }
     } catch (err) {
       console.error('Fetch error:', err)
+      setUpdateError('Failed to fetch submissions')
     } finally {
       setLoadingSubmissions(false)
     }
