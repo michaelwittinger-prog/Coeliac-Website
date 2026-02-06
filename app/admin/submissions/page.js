@@ -35,6 +35,7 @@ export default function AdminSubmissionsPage() {
   const [updateError, setUpdateError] = useState('')
   const [showDeactivated, setShowDeactivated] = useState(false)
   const [confirmDeactivate, setConfirmDeactivate] = useState(null)
+  const [activeTab, setActiveTab] = useState('submissions') // 'submissions' or 'admins'
   
   const router = useRouter()
   const supabase = createClient()
