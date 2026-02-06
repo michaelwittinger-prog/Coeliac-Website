@@ -3,32 +3,34 @@
 import { ExternalLink, MapPin } from 'lucide-react'
 
 /**
- * Generate Google Maps search URL from listing data
+ * Generate OpenStreetMap URL from listing data
  * @param {Object} listing - The listing object
- * @returns {string} - Google Maps search URL
+ * @returns {string} - OpenStreetMap URL
  */
 function generateMapsUrl(listing) {
   if (listing.mapsUrl) {
     return listing.mapsUrl
   }
   
-  // Construct query from available data
-  const queryParts = []
+  // Construct query from available data - prioritize address for accuracy
+  let query = ''
   
-  // Prefer address if available for more accurate results
   if (listing.address) {
-    queryParts.push(listing.address)
+    // Use just the address for best results
+    query = listing.address
   } else {
-    queryParts.push(listing.name)
+    // Fallback: construct from name and location
+    const queryParts = [listing.name]
     if (listing.district) {
       queryParts.push(`${listing.district} district`)
     }
     queryParts.push('Vienna', 'Austria')
+    query = queryParts.join(', ')
   }
   
-  const query = encodeURIComponent(queryParts.join(', '))
-  // Use Google Maps search which works better for locations
-  return `https://www.google.com/maps/search/?api=1&query=${query}`
+  const encodedQuery = encodeURIComponent(query)
+  // Use OpenStreetMap which is not blocked
+  return `https://www.openstreetmap.org/search?query=${encodedQuery}`
 }
 
 /**
