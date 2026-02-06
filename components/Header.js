@@ -14,7 +14,7 @@ const navLinks = [
   { href: '/related', label: 'Related', icon: Link2 },
   { href: '/living', label: 'Living', icon: Utensils },
   { href: '/research', label: 'Research', icon: FlaskConical },
-  { href: '/local/austria/vienna', label: 'Local Support', icon: MapPin },
+  { href: '/local', label: 'Local Support', icon: MapPin },
   { href: '/about', label: 'About', icon: Info },
 ]
 
