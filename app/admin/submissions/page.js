@@ -554,6 +554,8 @@ export default function AdminSubmissionsPage() {
             </div>
           )}
         </div>
+        </>
+        )}
       </div>
     </div>
   )
