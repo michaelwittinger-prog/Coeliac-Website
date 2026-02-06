@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import MobileMenu from './MobileMenu'
+import AuthButton from './AuthButton'
 import { BookOpen, FileText, HeartPulse, Users, Link2, Utensils, FlaskConical, Info, MapPin } from 'lucide-react'
 
 const navLinks = [
@@ -60,8 +61,13 @@ export default function Header() {
             })}
           </nav>
 
-          {/* Mobile Menu */}
-          <MobileMenu />
+          {/* Auth Button + Mobile Menu */}
+          <div className="flex items-center gap-2">
+            <div className="hidden lg:block">
+              <AuthButton />
+            </div>
+            <MobileMenu />
+          </div>
         </div>
       </div>
     </header>
