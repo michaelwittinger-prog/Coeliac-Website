@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import Link from 'next/link'
-import { ArrowLeft, Shield, Clock, CheckCircle, XCircle, AlertCircle, User, Calendar, FileText, MessageSquare } from 'lucide-react'
+import { ArrowLeft, Shield, Clock, CheckCircle, XCircle, AlertCircle, Calendar, FileText, MessageSquare, Trash2, EyeOff } from 'lucide-react'
 
 const STATUS_CONFIG = {
   pending: { label: 'Pending', color: 'bg-yellow-100 text-yellow-700 border-yellow-200', icon: Clock },
@@ -32,6 +32,8 @@ export default function AdminSubmissionsPage() {
   const [processing, setProcessing] = useState(false)
   const [filter, setFilter] = useState('pending')
   const [updateError, setUpdateError] = useState('')
+  const [showDeactivated, setShowDeactivated] = useState(false)
+  const [confirmDeactivate, setConfirmDeactivate] = useState(null)
   
   const router = useRouter()
   const supabase = createClient()
@@ -129,6 +131,39 @@ export default function AdminSubmissionsPage() {
     }
   }
 
+  const handleDeactivate = async (submissionId) => {
+    setProcessing(true)
+    setUpdateError('')
+    
+    try {
+      const response = await fetch('/api/admin/submissions/deactivate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: submissionId })
+      })
+
+      const result = await response.json()
+
+      if (!response.ok) {
+        const errorMsg = result.error || 'Failed to deactivate submission'
+        console.error('Deactivate error:', errorMsg)
+        setUpdateError(errorMsg)
+        return
+      }
+
+      // Refresh submissions list
+      await fetchSubmissions()
+      setConfirmDeactivate(null)
+    } catch (err) {
+      console.error('Error:', err)
+      setUpdateError('An unexpected error occurred. Please try again.')
+    } finally {
+      setProcessing(false)
+    }
+  }
+
   if (loading) {
     return (
       <div className="min-h-[80vh] flex items-center justify-center">
@@ -155,11 +190,16 @@ export default function AdminSubmissionsPage() {
     })
   }
 
-  const filteredSubmissions = submissions.filter(s => 
+  // Filter submissions based on status and active state
+  const activeSubmissions = submissions.filter(s => s.is_active !== false)
+  const deactivatedSubmissions = submissions.filter(s => s.is_active === false)
+  
+  const filteredSubmissions = (showDeactivated ? deactivatedSubmissions : activeSubmissions).filter(s => 
     filter === 'all' ? true : s.status === filter
   )
 
-  const pendingCount = submissions.filter(s => s.status === 'pending').length
+  const pendingCount = activeSubmissions.filter(s => s.status === 'pending').length
+  const deactivatedCount = deactivatedSubmissions.length
 
   return (
     <div className="min-h-[80vh] py-12 px-4">
@@ -192,7 +232,7 @@ export default function AdminSubmissionsPage() {
           <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3">
             <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
             <div className="flex-1">
-              <p className="text-red-700 text-sm font-medium">Update Failed</p>
+              <p className="text-red-700 text-sm font-medium">Action Failed</p>
               <p className="text-red-600 text-sm">{updateError}</p>
             </div>
             <button 
@@ -204,28 +244,104 @@ export default function AdminSubmissionsPage() {
           </div>
         )}
 
+        {/* View Toggle: Active vs Deactivated */}
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setShowDeactivated(false)}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                !showDeactivated
+                  ? 'text-white shadow-md'
+                  : 'bg-white text-slate-600 border border-slate-200 hover:border-slate-300'
+              }`}
+              style={!showDeactivated ? { background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)' } : {}}
+            >
+              Active ({activeSubmissions.length})
+            </button>
+            <button
+              onClick={() => setShowDeactivated(true)}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                showDeactivated
+                  ? 'bg-slate-700 text-white shadow-md'
+                  : 'bg-white text-slate-600 border border-slate-200 hover:border-slate-300'
+              }`}
+            >
+              <span className="flex items-center gap-2">
+                <EyeOff className="w-4 h-4" />
+                Deactivated ({deactivatedCount})
+              </span>
+            </button>
+          </div>
+        </div>
+
         {/* Filter Tabs */}
         <div className="flex flex-wrap gap-2 mb-6">
           {[
-            { value: 'pending', label: 'Pending', count: submissions.filter(s => s.status === 'pending').length },
-            { value: 'approved', label: 'Approved', count: submissions.filter(s => s.status === 'approved').length },
-            { value: 'rejected', label: 'Rejected', count: submissions.filter(s => s.status === 'rejected').length },
-            { value: 'all', label: 'All', count: submissions.length },
+            { value: 'pending', label: 'Pending', count: (showDeactivated ? deactivatedSubmissions : activeSubmissions).filter(s => s.status === 'pending').length },
+            { value: 'approved', label: 'Approved', count: (showDeactivated ? deactivatedSubmissions : activeSubmissions).filter(s => s.status === 'approved').length },
+            { value: 'rejected', label: 'Rejected', count: (showDeactivated ? deactivatedSubmissions : activeSubmissions).filter(s => s.status === 'rejected').length },
+            { value: 'all', label: 'All', count: (showDeactivated ? deactivatedSubmissions : activeSubmissions).length },
           ].map((tab) => (
             <button
               key={tab.value}
               onClick={() => setFilter(tab.value)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
                 filter === tab.value
-                  ? 'text-white shadow-md'
-                  : 'bg-white text-slate-600 border border-slate-200 hover:border-slate-300'
+                  ? 'bg-slate-200 text-slate-800'
+                  : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
               }`}
-              style={filter === tab.value ? { background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)' } : {}}
             >
               {tab.label} ({tab.count})
             </button>
           ))}
         </div>
+
+        {/* Deactivate Confirmation Modal */}
+        {confirmDeactivate && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-2xl shadow-xl max-w-md w-full p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                  <Trash2 className="w-6 h-6 text-red-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-slate-900">Deactivate Submission?</h3>
+                  <p className="text-sm text-slate-500">This will hide it from public pages</p>
+                </div>
+              </div>
+              <p className="text-slate-600 mb-6">
+                Are you sure you want to deactivate <strong>&quot;{confirmDeactivate.title}&quot;</strong>? 
+                It will no longer appear on public pages but will remain in the database for audit purposes.
+              </p>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setConfirmDeactivate(null)}
+                  disabled={processing}
+                  className="flex-1 px-4 py-2.5 rounded-lg border border-slate-200 text-slate-700 font-medium hover:bg-slate-50 transition-all disabled:opacity-50"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={() => handleDeactivate(confirmDeactivate.id)}
+                  disabled={processing}
+                  className="flex-1 px-4 py-2.5 rounded-lg bg-red-600 text-white font-medium hover:bg-red-700 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                >
+                  {processing ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      Deactivating...
+                    </>
+                  ) : (
+                    <>
+                      <Trash2 className="w-4 h-4" />
+                      Deactivate
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Submissions List */}
         <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
@@ -240,7 +356,12 @@ export default function AdminSubmissionsPage() {
               </div>
               <h3 className="text-lg font-semibold text-slate-900 mb-2">No submissions found</h3>
               <p className="text-slate-600">
-                {filter === 'pending' ? 'All caught up! No pending submissions.' : `No ${filter} submissions.`}
+                {showDeactivated 
+                  ? 'No deactivated submissions.' 
+                  : filter === 'pending' 
+                    ? 'All caught up! No pending submissions.' 
+                    : `No ${filter} submissions.`
+                }
               </p>
             </div>
           ) : (
@@ -249,17 +370,35 @@ export default function AdminSubmissionsPage() {
                 const statusConfig = STATUS_CONFIG[submission.status] || STATUS_CONFIG.pending
                 const StatusIcon = statusConfig.icon
                 const isSelected = selectedSubmission?.id === submission.id
+                const isDeactivated = submission.is_active === false
                 
                 return (
-                  <div key={submission.id} className={`p-6 ${isSelected ? 'bg-purple-50' : 'hover:bg-slate-50'} transition-colors`}>
+                  <div 
+                    key={submission.id} 
+                    className={`p-6 transition-colors ${
+                      isDeactivated 
+                        ? 'bg-slate-50 opacity-75' 
+                        : isSelected 
+                          ? 'bg-purple-50' 
+                          : 'hover:bg-slate-50'
+                    }`}
+                  >
                     <div className="flex flex-wrap items-start justify-between gap-4 mb-3">
                       <div className="flex-1 min-w-0">
                         <div className="flex flex-wrap items-center gap-2 mb-1">
-                          <h3 className="font-semibold text-slate-900">{submission.title}</h3>
+                          <h3 className={`font-semibold ${isDeactivated ? 'text-slate-500' : 'text-slate-900'}`}>
+                            {submission.title}
+                          </h3>
                           <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium border ${statusConfig.color}`}>
                             <StatusIcon className="w-3 h-3" />
                             {statusConfig.label}
                           </span>
+                          {isDeactivated && (
+                            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-slate-200 text-slate-600 border border-slate-300">
+                              <EyeOff className="w-3 h-3" />
+                              Deactivated
+                            </span>
+                          )}
                         </div>
                         <div className="flex flex-wrap items-center gap-3 text-sm text-slate-500">
                           <span className="inline-flex items-center gap-1">
@@ -270,29 +409,49 @@ export default function AdminSubmissionsPage() {
                             <Calendar className="w-3.5 h-3.5" />
                             {formatDate(submission.created_at)}
                           </span>
+                          {isDeactivated && submission.deactivated_at && (
+                            <span className="inline-flex items-center gap-1 text-red-500">
+                              <Trash2 className="w-3.5 h-3.5" />
+                              Deactivated {formatDate(submission.deactivated_at)}
+                            </span>
+                          )}
                         </div>
                       </div>
                       
-                      {submission.status === 'pending' && (
-                        <button
-                          onClick={() => {
-                            setSelectedSubmission(isSelected ? null : submission)
-                            setAdminNotes('')
-                          }}
-                          className="px-4 py-2 text-sm font-medium rounded-lg border transition-all"
-                          style={{ 
-                            borderColor: '#854F9B', 
-                            color: isSelected ? 'white' : '#854F9B',
-                            background: isSelected ? 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)' : 'transparent'
-                          }}
-                        >
-                          {isSelected ? 'Cancel' : 'Review'}
-                        </button>
-                      )}
+                      <div className="flex items-center gap-2">
+                        {!isDeactivated && submission.status === 'pending' && (
+                          <button
+                            onClick={() => {
+                              setSelectedSubmission(isSelected ? null : submission)
+                              setAdminNotes('')
+                            }}
+                            className="px-4 py-2 text-sm font-medium rounded-lg border transition-all"
+                            style={{ 
+                              borderColor: '#854F9B', 
+                              color: isSelected ? 'white' : '#854F9B',
+                              background: isSelected ? 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)' : 'transparent'
+                            }}
+                          >
+                            {isSelected ? 'Cancel' : 'Review'}
+                          </button>
+                        )}
+                        
+                        {!isDeactivated && (
+                          <button
+                            onClick={() => setConfirmDeactivate(submission)}
+                            className="p-2 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all"
+                            title="Deactivate submission"
+                          >
+                            <Trash2 className="w-5 h-5" />
+                          </button>
+                        )}
+                      </div>
                     </div>
                     
-                    <div className="bg-slate-100 rounded-lg p-4 mb-3">
-                      <p className="text-sm text-slate-700 whitespace-pre-wrap">{submission.content}</p>
+                    <div className={`rounded-lg p-4 mb-3 ${isDeactivated ? 'bg-slate-100' : 'bg-slate-100'}`}>
+                      <p className={`text-sm whitespace-pre-wrap ${isDeactivated ? 'text-slate-500' : 'text-slate-700'}`}>
+                        {submission.content}
+                      </p>
                     </div>
                     
                     {submission.admin_notes && (
@@ -306,7 +465,7 @@ export default function AdminSubmissionsPage() {
                     )}
                     
                     {/* Review Actions */}
-                    {isSelected && submission.status === 'pending' && (
+                    {isSelected && submission.status === 'pending' && !isDeactivated && (
                       <div className="mt-4 p-4 bg-white rounded-lg border border-slate-200">
                         <label className="block text-sm font-medium text-slate-700 mb-2">
                           Admin Notes (optional)
