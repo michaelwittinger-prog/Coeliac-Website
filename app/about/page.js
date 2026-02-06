@@ -217,7 +217,7 @@ export default function AboutPage() {
           </div>
 
           {/* Stay Connected */}
-          <div className="bg-gradient-to-r from-purple-50 to-indigo-50 border border-purple-200 rounded-xl p-6 mb-12">
+          <div className="bg-gradient-to-r from-purple-50 to-indigo-50 border border-purple-200 rounded-xl p-6 mb-8">
             <div className="flex items-start space-x-4">
               <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
                 <Info className="w-5 h-5 text-purple-700" />
@@ -229,6 +229,11 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
+          </div>
+
+          {/* Community Contributions */}
+          <div className="mb-12">
+            <CommunityContributions maxItems={4} />
           </div>
 
           {/* Related Reading Section */}
