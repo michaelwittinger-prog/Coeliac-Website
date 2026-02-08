@@ -410,8 +410,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust Signal - Authoritative Voices */}
-      <TrustSignal />
+      {/* Trust Signal - Rolling Logo Carousel */}
+      <LogoCarousel />
 
       {/* Minimal Footer Note */}
       <section className="py-8 bg-white border-t border-slate-200">
