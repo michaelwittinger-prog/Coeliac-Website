@@ -245,22 +245,14 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Featured Cities Grid - 13 verified cities */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-6">
+            {/* Featured Cities Grid - 5 verified cities */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-6">
               {[
+                { flag: '🇪🇸', city: 'Madrid', country: 'Spain', slug: '/local/es/madrid', listings: '19' },
+                { flag: '🇦🇹', city: 'Vienna', country: 'Austria', slug: '/local/at/vienna', listings: '11' },
                 { flag: '🇬🇧', city: 'London', country: 'UK', slug: '/local/gb/london', listings: '5' },
-                { flag: '🇫🇷', city: 'Paris', country: 'France', slug: '/local/fr/paris', listings: '10' },
-                { flag: '🇮🇹', city: 'Rome', country: 'Italy', slug: '/local/it/rome', listings: '8' },
-                { flag: '🇪🇸', city: 'Barcelona', country: 'Spain', slug: '/local/es/barcelona', listings: '7' },
-                { flag: '🇪🇸', city: 'Madrid', country: 'Spain', slug: '/local/es/madrid', listings: '7' },
-                { flag: '🇩🇪', city: 'Berlin', country: 'Germany', slug: '/local/de/berlin', listings: '7' },
                 { flag: '🇩🇪', city: 'Munich', country: 'Germany', slug: '/local/de/munich', listings: '5' },
-                { flag: '🇦🇹', city: 'Vienna', country: 'Austria', slug: '/local/at/vienna', listings: '7' },
                 { flag: '🇨🇿', city: 'Prague', country: 'Czechia', slug: '/local/cz/prague', listings: '5' },
-                { flag: '🇳🇱', city: 'Amsterdam', country: 'Netherlands', slug: '/local/nl/amsterdam', listings: '5' },
-                { flag: '🇮🇹', city: 'Milan', country: 'Italy', slug: '/local/it/milan', listings: '6' },
-                { flag: '🇭🇺', city: 'Budapest', country: 'Hungary', slug: '/local/hu/budapest', listings: '6' },
-                { flag: '🇵🇱', city: 'Warsaw', country: 'Poland', slug: '/local/pl/warsaw', listings: '5' },
               ].map((item) => (
                 <Link
                   key={item.slug}
@@ -287,7 +279,7 @@ export default function Home() {
                 style={{ background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)' }}
               >
                 <Globe className="w-4 h-4" />
-                <span>Browse all 83 verified places</span>
+                <span>Browse all 45 verified places</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
