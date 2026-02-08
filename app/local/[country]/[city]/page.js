@@ -1,18 +1,36 @@
 import LocalDirectory from '@/components/LocalDirectory'
 import { notFound } from 'next/navigation'
 
-// Location data for metadata generation
+// Location data for verified cities (45 places from spreadsheet)
 const LOCATIONS = {
   at: {
     name: 'Austria',
     cities: {
-      vienna: { name: 'Vienna', description: 'Find gluten-free restaurants, shops, and coeliac support in Vienna, Austria.' }
+      vienna: { name: 'Vienna', description: 'Discover 11 verified gluten-free restaurants, bakeries, and cafes in Vienna, Austria. All places have real addresses and website links.' }
+    }
+  },
+  cz: {
+    name: 'Czech Republic',
+    cities: {
+      prague: { name: 'Prague', description: 'Find 5 verified gluten-free restaurants and bakeries in Prague, Czech Republic. Including 100% dedicated GF venues.' }
     }
   },
   de: {
     name: 'Germany',
     cities: {
-      berlin: { name: 'Berlin', description: 'Discover gluten-free bakeries, restaurants, and healthcare providers in Berlin, Germany.' }
+      munich: { name: 'Munich', description: 'Explore 5 verified gluten-free cafes and restaurants in Munich, Germany. Including Palmtreeclub - 100% dedicated GF.' }
+    }
+  },
+  es: {
+    name: 'Spain',
+    cities: {
+      madrid: { name: 'Madrid', description: 'Browse 19 verified gluten-free restaurants, bakeries, and tapas bars in Madrid, Spain. The largest GF directory in our network.' }
+    }
+  },
+  gb: {
+    name: 'United Kingdom',
+    cities: {
+      london: { name: 'London', description: 'Discover 5 verified gluten-free restaurants and bakeries in London, UK. Including 100% dedicated GF venues.' }
     }
   }
 }
@@ -27,17 +45,20 @@ export async function generateMetadata({ params }) {
   }
 
   return {
-    title: `Local Support in ${cityData.name}, ${countryData.name} - Coeliac Information Hub`,
+    title: `Verified Gluten-Free Places in ${cityData.name}, ${countryData.name} - Coeliac Connect`,
     description: cityData.description,
-    keywords: `coeliac, celiac, gluten-free, ${cityData.name}, ${countryData.name}, restaurants, shops, support`
+    keywords: `coeliac, celiac, gluten-free, ${cityData.name}, ${countryData.name}, restaurants, bakeries, verified`
   }
 }
 
 export async function generateStaticParams() {
-  return [
-    { country: 'at', city: 'vienna' },
-    { country: 'de', city: 'berlin' }
-  ]
+  const params = []
+  for (const [countryCode, countryData] of Object.entries(LOCATIONS)) {
+    for (const citySlug of Object.keys(countryData.cities)) {
+      params.push({ country: countryCode, city: citySlug })
+    }
+  }
+  return params
 }
 
 export default async function CityLocalPage({ params }) {
@@ -57,7 +78,7 @@ export default async function CityLocalPage({ params }) {
       initialCountry={countryCode}
       initialCity={citySlug}
       showLocationFilters={false}
-      pageTitle={`Local Support in ${cityData.name}`}
+      pageTitle={`Verified Places in ${cityData.name}`}
       pageDescription={cityData.description}
     />
   )

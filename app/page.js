@@ -235,78 +235,40 @@ export default function Home() {
             <div className="text-center mb-10">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium mb-4" style={{backgroundColor: 'rgba(133, 79, 155, 0.1)', color: '#854F9B'}}>
                 <MapPin className="w-4 h-4" />
-                <span>Local Directory</span>
+                <span>Verified Directory</span>
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-3">
-                Trusted support near you
+                Trusted gluten-free places
               </h2>
               <p className="text-slate-600 max-w-2xl mx-auto">
-                Discover gluten-free restaurants, bakeries, shops, and healthcare providers across 20 European cities
+                Hand-verified restaurants, bakeries, cafes, and support resources across Europe
               </p>
             </div>
 
-            {/* Featured Cities Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            {/* Featured Cities Grid - 5 verified cities */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-6">
               {[
-                { flag: '🇬🇧', city: 'London', country: 'United Kingdom', slug: '/local/gb/london', listings: '16+' },
-                { flag: '🇫🇷', city: 'Paris', country: 'France', slug: '/local/fr/paris', listings: '16+' },
-                { flag: '🇩🇪', city: 'Berlin', country: 'Germany', slug: '/local/de/berlin', listings: '18+' },
-                { flag: '🇮🇹', city: 'Rome', country: 'Italy', slug: '/local/it/rome', listings: '16+' },
-                { flag: '🇪🇸', city: 'Madrid', country: 'Spain', slug: '/local/es/madrid', listings: '16+' },
-                { flag: '🇳🇱', city: 'Amsterdam', country: 'Netherlands', slug: '/local/nl/amsterdam', listings: '16+' },
-                { flag: '🇦🇹', city: 'Vienna', country: 'Austria', slug: '/local/at/vienna', listings: '17+' },
-                { flag: '🇵🇱', city: 'Warsaw', country: 'Poland', slug: '/local/pl/warsaw', listings: '16+' },
+                { flag: '🇪🇸', city: 'Madrid', country: 'Spain', slug: '/local/es/madrid', listings: '19' },
+                { flag: '🇦🇹', city: 'Vienna', country: 'Austria', slug: '/local/at/vienna', listings: '11' },
+                { flag: '🇬🇧', city: 'London', country: 'UK', slug: '/local/gb/london', listings: '5' },
+                { flag: '🇩🇪', city: 'Munich', country: 'Germany', slug: '/local/de/munich', listings: '5' },
+                { flag: '🇨🇿', city: 'Prague', country: 'Czechia', slug: '/local/cz/prague', listings: '5' },
               ].map((item) => (
                 <Link
                   key={item.slug}
                   href={item.slug}
-                  className="group relative bg-white rounded-2xl p-5 border border-slate-200 hover:border-purple-300 hover:shadow-lg transition-all duration-300 overflow-hidden"
+                  className="group relative bg-white rounded-xl p-4 border border-slate-200 hover:border-purple-300 hover:shadow-md transition-all duration-300"
                 >
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-purple-50 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="relative">
-                    <div className="flex items-start justify-between mb-3">
-                      <span className="text-3xl">{item.flag}</span>
-                      <span className="text-xs font-medium text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">{item.listings}</span>
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl">{item.flag}</span>
+                    <div className="min-w-0 flex-1">
+                      <h3 className="font-semibold text-slate-800 group-hover:text-purple-700 transition-colors text-sm truncate">{item.city}</h3>
+                      <p className="text-xs text-slate-500">{item.country}</p>
                     </div>
-                    <h3 className="font-bold text-slate-800 group-hover:text-purple-700 transition-colors text-base mb-0.5">{item.city}</h3>
-                    <p className="text-xs text-slate-500">{item.country}</p>
-                    <div className="flex items-center gap-1 mt-3 text-xs font-medium text-purple-600 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span>Explore</span>
-                      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                    </div>
+                    <span className="text-xs font-semibold text-green-600 bg-green-50 px-2 py-0.5 rounded-full flex-shrink-0">{item.listings}</span>
                   </div>
                 </Link>
               ))}
-            </div>
-
-            {/* More cities - styled pills */}
-            <div className="bg-white rounded-2xl border border-slate-200 p-6 mb-6">
-              <p className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-4 text-center">More cities to explore</p>
-              <div className="flex flex-wrap gap-2 justify-center">
-                {[
-                  { flag: '🇮🇹', city: 'Milan', slug: '/local/it/milan' },
-                  { flag: '🇪🇸', city: 'Barcelona', slug: '/local/es/barcelona' },
-                  { flag: '🇩🇪', city: 'Munich', slug: '/local/de/munich' },
-                  { flag: '🇨🇿', city: 'Prague', slug: '/local/cz/prague' },
-                  { flag: '🇭🇺', city: 'Budapest', slug: '/local/hu/budapest' },
-                  { flag: '🇧🇪', city: 'Brussels', slug: '/local/be/brussels' },
-                  { flag: '🇷🇺', city: 'Moscow', slug: '/local/ru/moscow' },
-                  { flag: '🇹🇷', city: 'Istanbul', slug: '/local/tr/istanbul' },
-                  { flag: '🇷🇴', city: 'Bucharest', slug: '/local/ro/bucharest' },
-                  { flag: '🇧🇬', city: 'Sofia', slug: '/local/bg/sofia' },
-                  { flag: '🇩🇪', city: 'Hamburg', slug: '/local/de/hamburg' },
-                  { flag: '🇷🇺', city: 'St Petersburg', slug: '/local/ru/saint-petersburg' },
-                ].map((item) => (
-                  <Link
-                    key={item.slug}
-                    href={item.slug}
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-700 hover:bg-purple-50 hover:border-purple-300 hover:text-purple-700 transition-all"
-                  >
-                    <span className="text-base">{item.flag}</span>
-                    <span>{item.city}</span>
-                  </Link>
-                ))}
-              </div>
             </div>
 
             {/* CTA buttons */}
@@ -317,7 +279,7 @@ export default function Home() {
                 style={{ background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)' }}
               >
                 <Globe className="w-4 h-4" />
-                <span>Browse all 334 listings</span>
+                <span>Browse all 45 verified places</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
@@ -325,7 +287,7 @@ export default function Home() {
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-slate-200 text-slate-700 font-medium rounded-xl hover:border-purple-300 hover:text-purple-700 transition-all"
               >
                 <MapPin className="w-4 h-4" />
-                <span>Add your city</span>
+                <span>Suggest a place</span>
               </Link>
             </div>
           </div>
