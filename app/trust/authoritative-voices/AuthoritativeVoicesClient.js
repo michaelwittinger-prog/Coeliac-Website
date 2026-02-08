@@ -159,7 +159,6 @@ export default function AuthoritativeVoicesClient() {
                         </span>
                       </div>
                       <p className="text-sm text-slate-600 font-medium">{voice.bestFor}</p>
-                    </div>
                   </div>
 
                   {/* Why it matters */}
