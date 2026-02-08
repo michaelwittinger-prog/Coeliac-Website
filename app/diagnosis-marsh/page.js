@@ -1,5 +1,6 @@
 import InOneMinute from '@/components/InOneMinute'
 import ExternalResources from '@/components/ExternalResources'
+import SourcesPanel from '@/components/SourcesPanel'
 import { Microscope, TestTube, Dna, AlertTriangle, Clock, AlertCircle } from 'lucide-react'
 
 export const metadata = {
@@ -323,6 +324,9 @@ export default function DiagnosisMarchPage() {
 
           {/* External Resources Section */}
           <ExternalResources links={externalLinks} title="Clinical & Diagnostic Resources" />
+
+          {/* Sources Panel */}
+          <SourcesPanel sources={['espghan', 'coeliac-uk', 'beyond-celiac', 'aoecs', 'niddk']} />
         </div>
       </div>
     </div>

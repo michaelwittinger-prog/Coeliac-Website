@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import Link from 'next/link'
-import { User, Mail, LogOut, ArrowLeft, Shield, Calendar, FileText, Clock, CheckCircle, XCircle, AlertCircle, Plus } from 'lucide-react'
+import { User, Mail, LogOut, ArrowLeft, Shield, Calendar, FileText, Clock, CheckCircle, XCircle, AlertCircle, Plus, BarChart3 } from 'lucide-react'
 
 const STATUS_CONFIG = {
   pending: { label: 'Pending Review', color: 'bg-yellow-100 text-yellow-700', icon: Clock },
@@ -167,14 +167,23 @@ export default function AccountPage() {
             <p className="text-slate-600 mt-2">Manage your account and submissions</p>
           </div>
           {isAdmin && (
-            <Link
-              href="/admin/submissions"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white transition-all hover:shadow-md"
-              style={{ background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)' }}
-            >
-              <Shield className="w-4 h-4" />
-              Admin Panel
-            </Link>
+            <div className="flex flex-wrap gap-2">
+              <Link
+                href="/admin/analytics"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white transition-all hover:shadow-md bg-gradient-to-r from-blue-500 to-blue-600"
+              >
+                <BarChart3 className="w-4 h-4" />
+                Analytics
+              </Link>
+              <Link
+                href="/admin/submissions"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white transition-all hover:shadow-md"
+                style={{ background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)' }}
+              >
+                <Shield className="w-4 h-4" />
+                Admin Panel
+              </Link>
+            </div>
           )}
         </div>
 
