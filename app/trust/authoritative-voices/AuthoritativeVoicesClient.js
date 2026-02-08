@@ -138,7 +138,6 @@ export default function AuthoritativeVoicesClient() {
         {/* Cards Grid */}
         <div className="grid md:grid-cols-2 gap-6">
           {filteredVoices.map((voice) => {
-            const TypeIcon = typeIcons[voice.type] || Shield
             const isExpanded = expandedCard === voice.id
 
             return (
@@ -148,16 +147,12 @@ export default function AuthoritativeVoicesClient() {
               >
                 {/* Card Header */}
                 <div className="p-5">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0">
-                      <TypeIcon className="w-6 h-6 text-slate-500" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-slate-800 mb-1">{voice.name}</h3>
-                      <div className="flex flex-wrap gap-2 mb-2">
-                        <span className={`inline-flex px-2 py-0.5 rounded-full text-xs font-medium ${typeColors[voice.type]}`}>
-                          {typeLabels[voice.type]}
-                        </span>
+                  <div>
+                    <h3 className="font-semibold text-slate-800 mb-2">{voice.name}</h3>
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      <span className={`inline-flex px-2 py-0.5 rounded-full text-xs font-medium ${typeColors[voice.type]}`}>
+                        {typeLabels[voice.type]}
+                      </span>
                         <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-600">
                           <Globe className="w-3 h-3" />
                           {voice.region}
