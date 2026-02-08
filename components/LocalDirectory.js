@@ -14,17 +14,113 @@ import {
 // Location data
 const LOCATIONS = {
   AT: {
-    name: 'Austria',
+    name: 'Austria', 
     flag: '🇦🇹',
     cities: [
       { slug: 'vienna', name: 'Vienna' }
+    ]
+  },
+  BE: {
+    name: 'Belgium',
+    flag: '🇧🇪',
+    cities: [
+      { slug: 'brussels', name: 'Brussels' }
+    ]
+  },
+  BG: {
+    name: 'Bulgaria',
+    flag: '🇧🇬',
+    cities: [
+      { slug: 'sofia', name: 'Sofia' }
+    ]
+  },
+  CZ: {
+    name: 'Czech Republic',
+    flag: '🇨🇿',
+    cities: [
+      { slug: 'prague', name: 'Prague' }
     ]
   },
   DE: {
     name: 'Germany', 
     flag: '🇩🇪',
     cities: [
-      { slug: 'berlin', name: 'Berlin' }
+      { slug: 'berlin', name: 'Berlin' },
+      { slug: 'hamburg', name: 'Hamburg' },
+      { slug: 'munich', name: 'Munich' }
+    ]
+  },
+  ES: {
+    name: 'Spain',
+    flag: '🇪🇸',
+    cities: [
+      { slug: 'barcelona', name: 'Barcelona' },
+      { slug: 'madrid', name: 'Madrid' }
+    ]
+  },
+  FR: {
+    name: 'France',
+    flag: '🇫🇷',
+    cities: [
+      { slug: 'paris', name: 'Paris' }
+    ]
+  },
+  GB: {
+    name: 'United Kingdom',
+    flag: '🇬🇧',
+    cities: [
+      { slug: 'london', name: 'London' }
+    ]
+  },
+  HU: {
+    name: 'Hungary',
+    flag: '🇭🇺',
+    cities: [
+      { slug: 'budapest', name: 'Budapest' }
+    ]
+  },
+  IT: {
+    name: 'Italy',
+    flag: '🇮🇹',
+    cities: [
+      { slug: 'milan', name: 'Milan' },
+      { slug: 'rome', name: 'Rome' }
+    ]
+  },
+  NL: {
+    name: 'Netherlands',
+    flag: '🇳🇱',
+    cities: [
+      { slug: 'amsterdam', name: 'Amsterdam' }
+    ]
+  },
+  PL: {
+    name: 'Poland',
+    flag: '🇵🇱',
+    cities: [
+      { slug: 'warsaw', name: 'Warsaw' }
+    ]
+  },
+  RO: {
+    name: 'Romania',
+    flag: '🇷🇴',
+    cities: [
+      { slug: 'bucharest', name: 'Bucharest' }
+    ]
+  },
+  RU: {
+    name: 'Russia',
+    flag: '🇷🇺',
+    cities: [
+      { slug: 'moscow', name: 'Moscow' },
+      { slug: 'saint-petersburg', name: 'Saint Petersburg' }
+    ]
+  },
+  TR: {
+    name: 'Turkey',
+    flag: '🇹🇷',
+    cities: [
+      { slug: 'istanbul', name: 'Istanbul' }
     ]
   }
 }
