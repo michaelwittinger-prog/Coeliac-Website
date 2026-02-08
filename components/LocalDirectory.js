@@ -3,11 +3,12 @@
 import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
+import { createClient } from '@/lib/supabase/client'
 import { 
   MapPin, Building2, Coffee, Cake, Hotel, 
   Stethoscope, Heart, Pill, Hospital, ShoppingBag, 
   Calendar, Users, MoreHorizontal, Filter, X, Globe,
-  ExternalLink, Map, Sparkles, ChevronDown
+  ExternalLink, Map, Sparkles, ChevronDown, Plus
 } from 'lucide-react'
 
 // Location data
