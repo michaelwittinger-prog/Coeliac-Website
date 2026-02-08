@@ -147,22 +147,20 @@ export default function AuthoritativeVoicesClient() {
               >
                 {/* Card Header */}
                 <div className="p-5">
-                  <div>
-                    <h3 className="font-semibold text-slate-800 mb-2">{voice.name}</h3>
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      <span className={`inline-flex px-2 py-0.5 rounded-full text-xs font-medium ${typeColors[voice.type]}`}>
-                        {typeLabels[voice.type]}
-                      </span>
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-600">
-                          <Globe className="w-3 h-3" />
-                          {voice.region}
-                        </span>
-                      </div>
-                      <p className="text-sm text-slate-600 font-medium">{voice.bestFor}</p>
+                  <h3 className="font-semibold text-slate-800 mb-2">{voice.name}</h3>
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    <span className={`inline-flex px-2 py-0.5 rounded-full text-xs font-medium ${typeColors[voice.type]}`}>
+                      {typeLabels[voice.type]}
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-600">
+                      <Globe className="w-3 h-3" />
+                      {voice.region}
+                    </span>
                   </div>
+                  <p className="text-sm text-slate-600 font-medium mb-3">{voice.bestFor}</p>
 
                   {/* Why it matters */}
-                  <p className="text-sm text-slate-500 mt-4 leading-relaxed">
+                  <p className="text-sm text-slate-500 leading-relaxed">
                     {voice.whyItMatters}
                   </p>
                 </div>
