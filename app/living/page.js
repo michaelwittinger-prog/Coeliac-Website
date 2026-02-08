@@ -262,6 +262,9 @@ export default function LivingPage() {
           {/* Related Reading Section */}
           {/* External Resources Section */}
           <ExternalResources links={externalLinks} title="Gluten-Free Living Resources" />
+
+          {/* Sources Panel */}
+          <SourcesPanel sources={['coeliac-uk', 'beyond-celiac', 'aoecs', 'gig', 'fda']} />
         </div>
       </div>
     </div>
