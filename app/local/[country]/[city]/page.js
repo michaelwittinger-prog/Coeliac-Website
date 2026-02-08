@@ -1,69 +1,36 @@
 import LocalDirectory from '@/components/LocalDirectory'
 import { notFound } from 'next/navigation'
 
-// Location data for all 13 verified cities (83 total places)
+// Location data for verified cities (45 places from spreadsheet)
 const LOCATIONS = {
   at: {
     name: 'Austria',
     cities: {
-      vienna: { name: 'Vienna', description: 'Discover verified gluten-free restaurants, bakeries, cafes, and coeliac support resources in Vienna, Austria.' }
+      vienna: { name: 'Vienna', description: 'Discover 11 verified gluten-free restaurants, bakeries, and cafes in Vienna, Austria. All places have real addresses and website links.' }
     }
   },
   cz: {
     name: 'Czech Republic',
     cities: {
-      prague: { name: 'Prague', description: 'Discover verified gluten-free restaurants and bakeries in Prague, Czech Republic. All places hand-checked for coeliac safety.' }
+      prague: { name: 'Prague', description: 'Find 5 verified gluten-free restaurants and bakeries in Prague, Czech Republic. Including 100% dedicated GF venues.' }
     }
   },
   de: {
     name: 'Germany',
     cities: {
-      berlin: { name: 'Berlin', description: 'Find verified gluten-free bakeries, restaurants, and coeliac community resources in Berlin, Germany.' },
-      munich: { name: 'Munich', description: 'Find verified gluten-free cafes and restaurants in Munich, Germany. All places hand-checked for coeliac safety.' }
+      munich: { name: 'Munich', description: 'Explore 5 verified gluten-free cafes and restaurants in Munich, Germany. Including Palmtreeclub - 100% dedicated GF.' }
     }
   },
   es: {
     name: 'Spain',
     cities: {
-      barcelona: { name: 'Barcelona', description: 'Explore verified 100% gluten-free restaurants and tapas bars in Barcelona, Spain. Certified by the Catalan coeliac society.' },
-      madrid: { name: 'Madrid', description: 'Find verified dedicated gluten-free restaurants and bakeries in Madrid, Spain.' }
-    }
-  },
-  fr: {
-    name: 'France',
-    cities: {
-      paris: { name: 'Paris', description: 'Discover the best verified gluten-free bakeries, restaurants, and cafes in Paris, France. Award-winning patisseries and dedicated GF Italian.' }
+      madrid: { name: 'Madrid', description: 'Browse 19 verified gluten-free restaurants, bakeries, and tapas bars in Madrid, Spain. The largest GF directory in our network.' }
     }
   },
   gb: {
     name: 'United Kingdom',
     cities: {
-      london: { name: 'London', description: 'Explore verified gluten-free restaurants and bakeries in London, UK. All places hand-checked for coeliac safety.' }
-    }
-  },
-  hu: {
-    name: 'Hungary',
-    cities: {
-      budapest: { name: 'Budapest', description: 'Find verified dedicated gluten-free restaurants with traditional Hungarian cuisine in Budapest.' }
-    }
-  },
-  it: {
-    name: 'Italy',
-    cities: {
-      milan: { name: 'Milan', description: 'Discover verified gluten-free restaurants, risotterias, and bakeries in Milan, Italy. AIC-certified venues.' },
-      rome: { name: 'Rome', description: 'Explore verified gluten-free pizzerias, gelaterias, and restaurants in Rome, Italy. AIC-certified and dedicated GF venues.' }
-    }
-  },
-  nl: {
-    name: 'Netherlands',
-    cities: {
-      amsterdam: { name: 'Amsterdam', description: 'Find verified dedicated gluten-free restaurants and bakeries in Amsterdam, Netherlands.' }
-    }
-  },
-  pl: {
-    name: 'Poland',
-    cities: {
-      warsaw: { name: 'Warsaw', description: 'Discover verified gluten-free restaurants certified by the Polish Celiac Society in Warsaw.' }
+      london: { name: 'London', description: 'Discover 5 verified gluten-free restaurants and bakeries in London, UK. Including 100% dedicated GF venues.' }
     }
   }
 }
