@@ -237,7 +237,7 @@ export default function Home() {
                   Trusted support near you
                 </h2>
                 <p className="text-slate-600">
-                  Restaurants, bakeries, shops, and healthcare providers
+                  20 cities across Europe with restaurants, bakeries, shops, and healthcare providers
                 </p>
               </div>
               <Link
@@ -250,64 +250,75 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* City Preview Cards */}
-            <div className="grid md:grid-cols-3 gap-4 md:gap-6 mb-6">
-              {/* Vienna */}
-              <Link
-                href="/local/at/vienna"
-                className="group bg-white rounded-xl p-5 border border-slate-200 hover:border-purple-300 hover:shadow-md transition-all"
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-2xl">🇦🇹</span>
-                  <div>
-                    <h3 className="font-semibold text-slate-800 group-hover:text-purple-700 transition-colors">Vienna</h3>
-                    <p className="text-xs text-slate-500">Austria</p>
+            {/* City Preview Cards - Scrollable on mobile */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6">
+              {[
+                { flag: '🇬🇧', city: 'London', country: 'United Kingdom', slug: '/local/gb/london' },
+                { flag: '🇫🇷', city: 'Paris', country: 'France', slug: '/local/fr/paris' },
+                { flag: '🇩🇪', city: 'Berlin', country: 'Germany', slug: '/local/de/berlin' },
+                { flag: '🇮🇹', city: 'Rome', country: 'Italy', slug: '/local/it/rome' },
+                { flag: '🇪🇸', city: 'Madrid', country: 'Spain', slug: '/local/es/madrid' },
+                { flag: '🇳🇱', city: 'Amsterdam', country: 'Netherlands', slug: '/local/nl/amsterdam' },
+                { flag: '🇦🇹', city: 'Vienna', country: 'Austria', slug: '/local/at/vienna' },
+                { flag: '🇵🇱', city: 'Warsaw', country: 'Poland', slug: '/local/pl/warsaw' },
+              ].map((item) => (
+                <Link
+                  key={item.slug}
+                  href={item.slug}
+                  className="group bg-white rounded-xl p-4 border border-slate-200 hover:border-purple-300 hover:shadow-md transition-all"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <span className="text-xl">{item.flag}</span>
+                    <div className="min-w-0">
+                      <h3 className="font-semibold text-slate-800 group-hover:text-purple-700 transition-colors text-sm truncate">{item.city}</h3>
+                      <p className="text-xs text-slate-500 truncate">{item.country}</p>
+                    </div>
+                    <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-purple-500 ml-auto flex-shrink-0 group-hover:translate-x-0.5 transition-all" />
                   </div>
-                  <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-purple-500 ml-auto group-hover:translate-x-1 transition-all" />
-                </div>
-                <div className="flex flex-wrap gap-1.5">
-                  <span className="text-xs px-2 py-1 bg-slate-100 text-slate-600 rounded-full">Cafés</span>
-                  <span className="text-xs px-2 py-1 bg-slate-100 text-slate-600 rounded-full">Bakeries</span>
-                  <span className="text-xs px-2 py-1 bg-slate-100 text-slate-600 rounded-full">Medical</span>
-                </div>
-              </Link>
+                </Link>
+              ))}
+            </div>
 
-              {/* Berlin */}
-              <Link
-                href="/local/de/berlin"
-                className="group bg-white rounded-xl p-5 border border-slate-200 hover:border-purple-300 hover:shadow-md transition-all"
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-2xl">🇩🇪</span>
-                  <div>
-                    <h3 className="font-semibold text-slate-800 group-hover:text-purple-700 transition-colors">Berlin</h3>
-                    <p className="text-xs text-slate-500">Germany</p>
-                  </div>
-                  <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-purple-500 ml-auto group-hover:translate-x-1 transition-all" />
-                </div>
-                <div className="flex flex-wrap gap-1.5">
-                  <span className="text-xs px-2 py-1 bg-slate-100 text-slate-600 rounded-full">Bakeries</span>
-                  <span className="text-xs px-2 py-1 bg-slate-100 text-slate-600 rounded-full">Restaurants</span>
-                  <span className="text-xs px-2 py-1 bg-slate-100 text-slate-600 rounded-full">Shops</span>
-                </div>
-              </Link>
+            {/* More cities row */}
+            <div className="flex flex-wrap gap-2 justify-center mb-6">
+              {[
+                { flag: '🇮🇹', city: 'Milan', slug: '/local/it/milan' },
+                { flag: '🇪🇸', city: 'Barcelona', slug: '/local/es/barcelona' },
+                { flag: '🇩🇪', city: 'Munich', slug: '/local/de/munich' },
+                { flag: '🇨🇿', city: 'Prague', slug: '/local/cz/prague' },
+                { flag: '🇭🇺', city: 'Budapest', slug: '/local/hu/budapest' },
+                { flag: '🇧🇪', city: 'Brussels', slug: '/local/be/brussels' },
+                { flag: '🇷🇺', city: 'Moscow', slug: '/local/ru/moscow' },
+                { flag: '🇹🇷', city: 'Istanbul', slug: '/local/tr/istanbul' },
+                { flag: '🇷🇴', city: 'Bucharest', slug: '/local/ro/bucharest' },
+                { flag: '🇧🇬', city: 'Sofia', slug: '/local/bg/sofia' },
+                { flag: '🇩🇪', city: 'Hamburg', slug: '/local/de/hamburg' },
+                { flag: '🇷🇺', city: 'St Petersburg', slug: '/local/ru/saint-petersburg' },
+              ].map((item) => (
+                <Link
+                  key={item.slug}
+                  href={item.slug}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-600 hover:border-purple-300 hover:text-purple-700 transition-all"
+                >
+                  <span>{item.flag}</span>
+                  <span>{item.city}</span>
+                </Link>
+              ))}
+            </div>
 
-              {/* Suggest a City */}
+            {/* Add your city CTA */}
+            <div className="text-center">
               <Link
                 href="/submit"
-                className="group bg-gradient-to-br from-slate-50 to-slate-100 rounded-xl p-5 border border-dashed border-slate-300 hover:border-purple-400 hover:from-purple-50 hover:to-purple-100 transition-all flex flex-col items-center justify-center text-center"
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-600 hover:text-purple-700 transition-colors"
               >
-                <div className="w-10 h-10 rounded-full bg-slate-200 group-hover:bg-purple-200 flex items-center justify-center mb-2 transition-colors">
-                  <MapPin className="w-5 h-5 text-slate-500 group-hover:text-purple-600 transition-colors" />
-                </div>
-                <p className="text-sm font-medium text-slate-600 group-hover:text-purple-700 transition-colors">
-                  Add your city
-                </p>
+                <MapPin className="w-4 h-4" />
+                <span>Don't see your city? Add it</span>
               </Link>
             </div>
 
             {/* Mobile CTA */}
-            <div className="md:hidden text-center">
+            <div className="md:hidden text-center mt-4">
               <Link
                 href="/local"
                 className="inline-flex items-center text-sm font-medium"
