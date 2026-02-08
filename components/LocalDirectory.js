@@ -176,12 +176,31 @@ function LocalDirectoryContent({
 }) {
   const router = useRouter()
   const searchParams = useSearchParams()
+  const supabase = createClient()
   
   const [listings, setListings] = useState([])
   const [loading, setLoading] = useState(true)
+  const [user, setUser] = useState(null)
   const [selectedCountry, setSelectedCountry] = useState(initialCountry || searchParams.get('country') || '')
   const [selectedCity, setSelectedCity] = useState(initialCity || searchParams.get('city') || '')
   const [selectedCategory, setSelectedCategory] = useState(searchParams.get('category') || '')
+  
+  // Check for logged-in user
+  useEffect(() => {
+    const checkUser = async () => {
+      const { data: { session } } = await supabase.auth.getSession()
+      setUser(session?.user || null)
+    }
+    checkUser()
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        setUser(session?.user || null)
+      }
+    )
+
+    return () => subscription.unsubscribe()
+  }, [supabase.auth])
   
   // Get available cities based on selected country
   const availableCities = selectedCountry && LOCATIONS[selectedCountry] 
