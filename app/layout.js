@@ -3,6 +3,7 @@ import './globals.css'
 import Link from 'next/link'
 import MedicalDisclaimer from '@/components/MedicalDisclaimer'
 import Header from '@/components/Header'
+import PageViewTracker from '@/components/PageViewTracker'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
+        <PageViewTracker />
         <div className="min-h-screen flex flex-col bg-slate-50">
           {/* Header Navigation */}
           <Header />
