@@ -122,46 +122,46 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
-              {/* Action 1 - Local Support */}
+              {/* Action 1 - Local Support - Teal */}
               <Link
                 href="/local"
-                className="group bg-white rounded-2xl p-5 md:p-6 shadow-md hover:shadow-lg border border-slate-200 hover:border-purple-300 transform hover:-translate-y-1 transition-all"
+                className="group bg-white rounded-2xl p-5 md:p-6 shadow-md hover:shadow-lg border border-slate-200 hover:border-teal-300 transform hover:-translate-y-1 transition-all"
               >
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-3" style={{background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)'}}>
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-3 bg-gradient-to-br from-teal-500 to-teal-600">
                   <MapPin className="w-5 h-5 text-white" />
                 </div>
                 <h2 className="text-base md:text-lg font-bold text-slate-800 mb-1.5">Find support nearby</h2>
                 <p className="text-slate-500 text-xs md:text-sm mb-3 leading-relaxed">
                   Restaurants, shops & doctors in your city
                 </p>
-                <div className="flex items-center text-xs md:text-sm font-medium" style={{color: '#854F9B'}}>
+                <div className="flex items-center text-xs md:text-sm font-medium text-teal-600">
                   <span>Explore</span>
                   <ArrowRight className="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
 
-              {/* Action 2 - Learn */}
+              {/* Action 2 - Learn - Indigo */}
               <Link
                 href="/understanding"
-                className="group bg-white rounded-2xl p-5 md:p-6 shadow-md hover:shadow-lg border border-slate-200 hover:border-purple-300 transform hover:-translate-y-1 transition-all"
+                className="group bg-white rounded-2xl p-5 md:p-6 shadow-md hover:shadow-lg border border-slate-200 hover:border-indigo-300 transform hover:-translate-y-1 transition-all"
               >
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-3" style={{background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)'}}>
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-3 bg-gradient-to-br from-indigo-500 to-indigo-600">
                   <BookOpen className="w-5 h-5 text-white" />
                 </div>
                 <h2 className="text-base md:text-lg font-bold text-slate-800 mb-1.5">Learn the essentials</h2>
                 <p className="text-slate-500 text-xs md:text-sm mb-3 leading-relaxed">
                   Diagnosis, symptoms & gluten-free living
                 </p>
-                <div className="flex items-center text-xs md:text-sm font-medium" style={{color: '#854F9B'}}>
+                <div className="flex items-center text-xs md:text-sm font-medium text-indigo-600">
                   <span>Start learning</span>
                   <ArrowRight className="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
 
-              {/* Action 3 - Contribute */}
+              {/* Action 3 - Contribute - Amber */}
               <Link
                 href="/submit"
-                className="group bg-white rounded-2xl p-5 md:p-6 shadow-md hover:shadow-lg border border-slate-200 hover:border-purple-300 transform hover:-translate-y-1 transition-all"
+                className="group bg-white rounded-2xl p-5 md:p-6 shadow-md hover:shadow-lg border border-slate-200 hover:border-amber-300 transform hover:-translate-y-1 transition-all"
               >
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-3 bg-gradient-to-br from-amber-500 to-orange-500">
                   <Send className="w-5 h-5 text-white" />
@@ -176,10 +176,10 @@ export default function Home() {
                 </div>
               </Link>
 
-              {/* Action 4 - Community */}
+              {/* Action 4 - Community - Blue */}
               <Link
                 href="/signup"
-                className="group bg-white rounded-2xl p-5 md:p-6 shadow-md hover:shadow-lg border border-slate-200 hover:border-purple-300 transform hover:-translate-y-1 transition-all"
+                className="group bg-white rounded-2xl p-5 md:p-6 shadow-md hover:shadow-lg border border-slate-200 hover:border-blue-300 transform hover:-translate-y-1 transition-all"
               >
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-3 bg-gradient-to-br from-blue-500 to-blue-600">
                   <Users className="w-5 h-5 text-white" />
