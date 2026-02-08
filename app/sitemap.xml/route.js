@@ -14,6 +14,7 @@ export async function GET() {
     '/local',
     '/local/at/vienna',
     '/local/de/berlin',
+    '/trust/authoritative-voices',
     '/login',
     '/signup',
     '/account',
