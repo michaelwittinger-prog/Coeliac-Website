@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, MapPin, BookOpen, Users, Heart, Stethoscope, HelpCircle, Baby, Utensils, Send, MessageCircle, Bell } from 'lucide-react'
+import { ArrowRight, MapPin, BookOpen, Users, Heart, Stethoscope, HelpCircle, Baby, Utensils, Send, MessageCircle, Bell, Globe } from 'lucide-react'
 import LogoCarousel from '@/components/LogoCarousel'
 
 export const metadata = {
