@@ -291,7 +291,7 @@ export default function Home() {
                 style={{ background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)' }}
               >
                 <Globe className="w-4 h-4" />
-                <span>Browse all 15 verified places</span>
+                <span>Browse all 29 verified places</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
