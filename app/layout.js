@@ -32,7 +32,25 @@ export default function RootLayout({ children }) {
             <div className="container mx-auto px-4 py-12">
               <MedicalDisclaimer />
               
-              <div className="mt-12 pt-8 border-t border-slate-200">
+              {/* Footer Links */}
+              <div className="mt-8 pt-8 border-t border-slate-200">
+                <div className="flex flex-wrap justify-center gap-6 mb-8">
+                  <Link href="/about" className="text-sm text-slate-500 hover:text-purple-700 transition-colors">
+                    About
+                  </Link>
+                  <Link href="/trust/authoritative-voices" className="text-sm text-slate-500 hover:text-purple-700 transition-colors">
+                    Authoritative Voices
+                  </Link>
+                  <Link href="/local" className="text-sm text-slate-500 hover:text-purple-700 transition-colors">
+                    Local Support
+                  </Link>
+                  <Link href="/submit" className="text-sm text-slate-500 hover:text-purple-700 transition-colors">
+                    Contribute
+                  </Link>
+                </div>
+              </div>
+              
+              <div className="pt-6 border-t border-slate-200">
                 <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                   <div className="flex items-center space-x-2">
                     <div className="w-8 h-8 rounded flex items-center justify-center" style={{background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)'}}>
