@@ -1,5 +1,6 @@
 import InOneMinute from '@/components/InOneMinute'
 import ExternalResources from '@/components/ExternalResources'
+import SourcesPanel from '@/components/SourcesPanel'
 import { Users, GraduationCap, Home, Heart } from 'lucide-react'
 
 export const metadata = {
