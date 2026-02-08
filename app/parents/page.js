@@ -230,6 +230,9 @@ export default function ParentsPage() {
           {/* Related Reading Section */}
           {/* External Resources Section */}
           <ExternalResources links={externalLinks} title="Resources for Parents" />
+
+          {/* Sources Panel */}
+          <SourcesPanel sources={['espghan', 'coeliac-uk', 'beyond-celiac', 'celiac-disease-foundation', 'coeliac-australia']} />
         </div>
       </div>
     </div>
