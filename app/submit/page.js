@@ -4,15 +4,40 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import Link from 'next/link'
-import { ArrowLeft, Send, CheckCircle2, AlertCircle, FileText } from 'lucide-react'
+import { ArrowLeft, Send, CheckCircle2, AlertCircle, FileText, MapPin, Utensils, Lightbulb, Heart, PenLine, HelpCircle } from 'lucide-react'
 
+// Main submission types
 const SUBMISSION_TYPES = [
-  { value: 'local_resource', label: 'Local Resource', description: 'A shop, restaurant, or support group' },
-  { value: 'recipe', label: 'Recipe', description: 'A gluten-free recipe to share' },
-  { value: 'tip', label: 'Living Tip', description: 'A helpful tip for daily life' },
-  { value: 'experience', label: 'Personal Experience', description: 'Your coeliac journey story' },
-  { value: 'correction', label: 'Correction', description: 'A correction to existing content' },
-  { value: 'other', label: 'Other', description: 'Something else' },
+  { value: 'local_place', label: 'Local Place', description: 'Restaurant, café, bakery, shop, or similar', icon: MapPin },
+  { value: 'local_service', label: 'Local Service', description: 'Doctor, dietitian, pharmacy, or hospital', icon: Heart },
+  { value: 'local_community', label: 'Local Community', description: 'Support group, event, or organisation', icon: Utensils },
+  { value: 'tip', label: 'Living Tip', description: 'A helpful tip for daily life', icon: Lightbulb },
+  { value: 'experience', label: 'Personal Experience', description: 'Your coeliac journey story', icon: PenLine },
+  { value: 'other', label: 'Other', description: 'Something else', icon: HelpCircle },
+]
+
+// Categories for local places (aligned with local_listings table)
+const LOCAL_PLACE_CATEGORIES = [
+  { value: 'restaurant', label: 'Restaurant' },
+  { value: 'cafe', label: 'Café' },
+  { value: 'bakery', label: 'Bakery' },
+  { value: 'hotel', label: 'Hotel' },
+  { value: 'shop', label: 'Shop' },
+  { value: 'other', label: 'Other' },
+]
+
+// Categories for local services
+const LOCAL_SERVICE_CATEGORIES = [
+  { value: 'doctor', label: 'Doctor / Gastroenterologist' },
+  { value: 'dietitian', label: 'Dietitian / Nutritionist' },
+  { value: 'pharmacy', label: 'Pharmacy' },
+  { value: 'hospital', label: 'Hospital / Clinic' },
+]
+
+// Categories for local community
+const LOCAL_COMMUNITY_CATEGORIES = [
+  { value: 'community', label: 'Support Group / Organisation' },
+  { value: 'event', label: 'Event / Meetup' },
 ]
 
 export default function SubmitPage() {
@@ -24,12 +49,27 @@ export default function SubmitPage() {
   
   const [formData, setFormData] = useState({
     type: '',
+    category: '',
     title: '',
+    location: '',
     content: ''
   })
   
   const router = useRouter()
   const supabase = createClient()
+
+  // Determine if this is a local submission type
+  const isLocalType = ['local_place', 'local_service', 'local_community'].includes(formData.type)
+  
+  // Get category options based on type
+  const getCategoryOptions = () => {
+    switch (formData.type) {
+      case 'local_place': return LOCAL_PLACE_CATEGORIES
+      case 'local_service': return LOCAL_SERVICE_CATEGORIES
+      case 'local_community': return LOCAL_COMMUNITY_CATEGORIES
+      default: return []
+    }
+  }
 
   useEffect(() => {
     const checkUser = async () => {
@@ -65,12 +105,27 @@ export default function SubmitPage() {
     return () => subscription.unsubscribe()
   }, [router, supabase.auth])
 
+  // Reset category when type changes
+  useEffect(() => {
+    setFormData(prev => ({ ...prev, category: '', location: '' }))
+  }, [formData.type])
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     setError('')
 
     if (!formData.type || !formData.title || !formData.content) {
-      setError('Please fill in all fields')
+      setError('Please fill in all required fields')
+      return
+    }
+
+    if (isLocalType && !formData.category) {
+      setError('Please select a category')
+      return
+    }
+
+    if (isLocalType && !formData.location) {
+      setError('Please provide a location (city/country)')
       return
     }
 
@@ -87,13 +142,19 @@ export default function SubmitPage() {
     setSubmitting(true)
 
     try {
+      // Build content with structured data for local submissions
+      let fullContent = formData.content
+      if (isLocalType) {
+        fullContent = `Category: ${formData.category}\nLocation: ${formData.location}\n\n${formData.content}`
+      }
+
       const { error: insertError } = await supabase
         .from('user_submissions')
         .insert({
           user_id: user.id,
-          type: formData.type,
+          type: isLocalType ? formData.category : formData.type, // Use specific category for local types
           title: formData.title.trim(),
-          content: formData.content.trim(),
+          content: fullContent.trim(),
           status: 'pending'
         })
 
@@ -104,7 +165,7 @@ export default function SubmitPage() {
       }
 
       setSuccess(true)
-      setFormData({ type: '', title: '', content: '' })
+      setFormData({ type: '', category: '', title: '', location: '', content: '' })
     } catch (err) {
       console.error('Submission error:', err)
       setError('An unexpected error occurred. Please try again.')
@@ -179,9 +240,9 @@ export default function SubmitPage() {
             <FileText className="w-4 h-4" />
             <span>Community Contribution</span>
           </div>
-          <h1 className="text-3xl font-bold text-slate-900">Submit Content</h1>
+          <h1 className="text-3xl font-bold text-slate-900">Share a Discovery</h1>
           <p className="text-slate-600 mt-2">
-            Share your knowledge with the coeliac community. All submissions are reviewed before publishing.
+            Help the coeliac community by sharing local places, tips, or your experience. All submissions are reviewed before publishing.
           </p>
         </div>
 
@@ -196,38 +257,98 @@ export default function SubmitPage() {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Type Field */}
+            {/* Type Selection */}
             <div>
-              <label htmlFor="type" className="block text-sm font-medium text-slate-700 mb-2">
-                Submission Type *
+              <label className="block text-sm font-medium text-slate-700 mb-3">
+                What would you like to share? *
               </label>
-              <select
-                id="type"
-                value={formData.type}
-                onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all outline-none text-slate-900 bg-white"
-                disabled={submitting}
-              >
-                <option value="">Select a type...</option>
-                {SUBMISSION_TYPES.map((type) => (
-                  <option key={type.value} value={type.value}>
-                    {type.label} - {type.description}
-                  </option>
-                ))}
-              </select>
+              <div className="grid grid-cols-2 gap-3">
+                {SUBMISSION_TYPES.map((type) => {
+                  const Icon = type.icon
+                  const isSelected = formData.type === type.value
+                  return (
+                    <button
+                      key={type.value}
+                      type="button"
+                      onClick={() => setFormData({ ...formData, type: type.value })}
+                      className={`p-4 rounded-xl border-2 text-left transition-all ${
+                        isSelected 
+                          ? 'border-purple-500 bg-purple-50' 
+                          : 'border-slate-200 hover:border-slate-300 bg-white'
+                      }`}
+                      disabled={submitting}
+                    >
+                      <div className="flex items-start gap-3">
+                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                          isSelected ? 'bg-purple-500 text-white' : 'bg-slate-100 text-slate-500'
+                        }`}>
+                          <Icon className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <p className={`font-medium text-sm ${isSelected ? 'text-purple-900' : 'text-slate-800'}`}>
+                            {type.label}
+                          </p>
+                          <p className="text-xs text-slate-500 mt-0.5">{type.description}</p>
+                        </div>
+                      </div>
+                    </button>
+                  )
+                })}
+              </div>
             </div>
+
+            {/* Category Selection (for local types) */}
+            {isLocalType && (
+              <div>
+                <label htmlFor="category" className="block text-sm font-medium text-slate-700 mb-2">
+                  Category *
+                </label>
+                <select
+                  id="category"
+                  value={formData.category}
+                  onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                  className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all outline-none text-slate-900 bg-white"
+                  disabled={submitting}
+                >
+                  <option value="">Select a category...</option>
+                  {getCategoryOptions().map((cat) => (
+                    <option key={cat.value} value={cat.value}>
+                      {cat.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+
+            {/* Location (for local types) */}
+            {isLocalType && (
+              <div>
+                <label htmlFor="location" className="block text-sm font-medium text-slate-700 mb-2">
+                  Location (City, Country) *
+                </label>
+                <input
+                  id="location"
+                  type="text"
+                  value={formData.location}
+                  onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                  placeholder="e.g., Vienna, Austria"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all outline-none text-slate-900 placeholder-slate-400"
+                  disabled={submitting}
+                />
+              </div>
+            )}
 
             {/* Title Field */}
             <div>
               <label htmlFor="title" className="block text-sm font-medium text-slate-700 mb-2">
-                Title *
+                {isLocalType ? 'Name *' : 'Title *'}
               </label>
               <input
                 id="title"
                 type="text"
                 value={formData.title}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                placeholder="Give your submission a clear title"
+                placeholder={isLocalType ? 'Name of the place or service' : 'Give your submission a clear title'}
                 className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all outline-none text-slate-900 placeholder-slate-400"
                 disabled={submitting}
                 maxLength={200}
@@ -238,14 +359,17 @@ export default function SubmitPage() {
             {/* Content Field */}
             <div>
               <label htmlFor="content" className="block text-sm font-medium text-slate-700 mb-2">
-                Content *
+                {isLocalType ? 'Details *' : 'Content *'}
               </label>
               <textarea
                 id="content"
                 value={formData.content}
                 onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                placeholder="Provide the details of your submission. Include relevant information like addresses, ingredients, tips, etc."
-                rows={8}
+                placeholder={isLocalType 
+                  ? 'Include address, website, what makes it good for coeliac patients, any tips for visiting...'
+                  : 'Provide the details of your submission...'
+                }
+                rows={6}
                 className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all outline-none text-slate-900 placeholder-slate-400 resize-none"
                 disabled={submitting}
                 maxLength={5000}
@@ -288,11 +412,11 @@ export default function SubmitPage() {
             </li>
             <li className="flex items-start gap-2">
               <span className="text-purple-600">•</span>
-              For local resources, include address and contact details if available
+              For local places, include address and what makes it coeliac-friendly
             </li>
             <li className="flex items-start gap-2">
               <span className="text-purple-600">•</span>
-              For recipes, list all ingredients and note any potential cross-contamination risks
+              Share personal experience when relevant - it helps others
             </li>
             <li className="flex items-start gap-2">
               <span className="text-purple-600">•</span>
