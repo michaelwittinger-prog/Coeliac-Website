@@ -1,8 +1,14 @@
 import LocalDirectory from '@/components/LocalDirectory'
 import { notFound } from 'next/navigation'
 
-// Location data for verified cities only
+// Location data for verified cities only (5 cities, 29 total places)
 const LOCATIONS = {
+  at: {
+    name: 'Austria',
+    cities: {
+      vienna: { name: 'Vienna', description: 'Discover verified gluten-free restaurants, bakeries, cafes, and coeliac support resources in Vienna, Austria.' }
+    }
+  },
   cz: {
     name: 'Czech Republic',
     cities: {
@@ -12,6 +18,7 @@ const LOCATIONS = {
   de: {
     name: 'Germany',
     cities: {
+      berlin: { name: 'Berlin', description: 'Find verified gluten-free bakeries, restaurants, and coeliac community resources in Berlin, Germany.' },
       munich: { name: 'Munich', description: 'Find verified gluten-free cafes and restaurants in Munich, Germany. All places hand-checked for coeliac safety.' }
     }
   },
