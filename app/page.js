@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { ArrowRight, MapPin, BookOpen, Users, Heart, Stethoscope, HelpCircle, Baby, Utensils, Send, MessageCircle, Bell } from 'lucide-react'
-import TrustSignal from '@/components/TrustSignal'
+import LogoCarousel from '@/components/LogoCarousel'
 
 export const metadata = {
   title: 'Coeliac Info Hub - Support for Living with Coeliac Disease',
