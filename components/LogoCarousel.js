@@ -8,14 +8,19 @@ import authoritativeVoices from '@/data/authoritativeVoices'
 function OrganisationTile({ voice }) {
   return (
     <div 
-      className="flex-shrink-0 mx-4"
+      className="flex-shrink-0 mx-3"
       title={voice.name}
     >
-      <div className="w-48 h-20 bg-white border border-slate-200 rounded-lg px-5 py-4 flex flex-col justify-center hover:border-slate-300 transition-colors">
-        <span className="text-sm font-semibold text-slate-800 leading-tight line-clamp-2">
-          {voice.shortName || voice.name.split('(')[0].trim()}
-        </span>
-        <span className="text-[11px] text-slate-400 mt-1">
+      <div className="w-56 h-24 bg-white border border-slate-200 rounded-lg px-5 py-4 flex flex-col justify-between hover:border-slate-300 transition-colors">
+        <div>
+          <span className="text-sm font-semibold text-slate-800 leading-tight line-clamp-1">
+            {voice.shortName || voice.name.split('(')[0].trim()}
+          </span>
+          <p className="text-[11px] text-slate-500 mt-1 line-clamp-2 leading-relaxed">
+            {voice.bestFor}
+          </p>
+        </div>
+        <span className="text-[10px] text-slate-400">
           {voice.region.split('/')[0].trim()}
         </span>
       </div>
