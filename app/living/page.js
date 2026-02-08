@@ -1,5 +1,6 @@
 import InOneMinute from '@/components/InOneMinute'
 import ExternalResources from '@/components/ExternalResources'
+import SourcesPanel from '@/components/SourcesPanel'
 import { Utensils, X, Check, AlertTriangle, ShieldCheck } from 'lucide-react'
 
 export const metadata = {
