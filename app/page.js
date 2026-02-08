@@ -121,60 +121,76 @@ export default function Home() {
       <section className="relative pb-12">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-4 md:gap-6">
-              {/* Action 1 - Local Support (Primary) */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+              {/* Action 1 - Local Support */}
               <Link
                 href="/local"
-                className="group relative bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-6 md:p-8 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all"
+                className="group bg-white rounded-2xl p-5 md:p-6 shadow-md hover:shadow-lg border border-slate-200 hover:border-purple-300 transform hover:-translate-y-1 transition-all"
               >
-                <div className="absolute top-4 right-4 w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                  <MapPin className="w-6 h-6" />
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-3" style={{background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)'}}>
+                  <MapPin className="w-5 h-5 text-white" />
                 </div>
-                <div className="pt-8">
-                  <h2 className="text-xl md:text-2xl font-bold mb-2">Get support near me</h2>
-                  <p className="text-green-100 text-sm md:text-base mb-4">
-                    Find restaurants, doctors, and community support in your city
-                  </p>
-                  <div className="flex items-center text-sm font-medium text-white/90 group-hover:text-white">
-                    <span>Explore local support</span>
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </div>
+                <h2 className="text-base md:text-lg font-bold text-slate-800 mb-1.5">Find support nearby</h2>
+                <p className="text-slate-500 text-xs md:text-sm mb-3 leading-relaxed">
+                  Restaurants, shops & doctors in your city
+                </p>
+                <div className="flex items-center text-xs md:text-sm font-medium" style={{color: '#854F9B'}}>
+                  <span>Explore</span>
+                  <ArrowRight className="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
 
               {/* Action 2 - Learn */}
               <Link
                 href="/understanding"
-                className="group bg-white rounded-2xl p-6 md:p-8 shadow-md hover:shadow-lg border border-slate-200 hover:border-purple-300 transform hover:-translate-y-1 transition-all"
+                className="group bg-white rounded-2xl p-5 md:p-6 shadow-md hover:shadow-lg border border-slate-200 hover:border-purple-300 transform hover:-translate-y-1 transition-all"
               >
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)'}}>
-                  <BookOpen className="w-6 h-6 text-white" />
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-3" style={{background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)'}}>
+                  <BookOpen className="w-5 h-5 text-white" />
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-2">Learn the essentials</h2>
-                <p className="text-slate-600 text-sm md:text-base mb-4">
-                  Diagnosis, Marsh score, symptoms, and living gluten-free
+                <h2 className="text-base md:text-lg font-bold text-slate-800 mb-1.5">Learn the essentials</h2>
+                <p className="text-slate-500 text-xs md:text-sm mb-3 leading-relaxed">
+                  Diagnosis, symptoms & gluten-free living
                 </p>
-                <div className="flex items-center text-sm font-medium" style={{color: '#854F9B'}}>
+                <div className="flex items-center text-xs md:text-sm font-medium" style={{color: '#854F9B'}}>
                   <span>Start learning</span>
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
 
-              {/* Action 3 - Community */}
+              {/* Action 3 - Contribute */}
+              <Link
+                href="/submit"
+                className="group bg-white rounded-2xl p-5 md:p-6 shadow-md hover:shadow-lg border border-slate-200 hover:border-purple-300 transform hover:-translate-y-1 transition-all"
+              >
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-3 bg-gradient-to-br from-amber-500 to-orange-500">
+                  <Send className="w-5 h-5 text-white" />
+                </div>
+                <h2 className="text-base md:text-lg font-bold text-slate-800 mb-1.5">Share a discovery</h2>
+                <p className="text-slate-500 text-xs md:text-sm mb-3 leading-relaxed">
+                  Add a place, tip, or story to help others
+                </p>
+                <div className="flex items-center text-xs md:text-sm font-medium text-amber-600">
+                  <span>Contribute</span>
+                  <ArrowRight className="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+
+              {/* Action 4 - Community */}
               <Link
                 href="/signup"
-                className="group bg-white rounded-2xl p-6 md:p-8 shadow-md hover:shadow-lg border border-slate-200 hover:border-purple-300 transform hover:-translate-y-1 transition-all"
+                className="group bg-white rounded-2xl p-5 md:p-6 shadow-md hover:shadow-lg border border-slate-200 hover:border-purple-300 transform hover:-translate-y-1 transition-all"
               >
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 bg-gradient-to-br from-blue-500 to-blue-600">
-                  <Users className="w-6 h-6 text-white" />
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-3 bg-gradient-to-br from-blue-500 to-blue-600">
+                  <Users className="w-5 h-5 text-white" />
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-2">Join the community</h2>
-                <p className="text-slate-600 text-sm md:text-base mb-4">
-                  Get updates and help others by sharing what you know
+                <h2 className="text-base md:text-lg font-bold text-slate-800 mb-1.5">Join the community</h2>
+                <p className="text-slate-500 text-xs md:text-sm mb-3 leading-relaxed">
+                  Get updates & connect with others
                 </p>
-                <div className="flex items-center text-sm font-medium text-blue-600">
-                  <span>Create account</span>
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                <div className="flex items-center text-xs md:text-sm font-medium text-blue-600">
+                  <span>Sign up</span>
+                  <ArrowRight className="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
             </div>
