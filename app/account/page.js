@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import Link from 'next/link'
-import { User, Mail, LogOut, ArrowLeft, Shield, Calendar, FileText, Clock, CheckCircle, XCircle, AlertCircle, Plus } from 'lucide-react'
+import { User, Mail, LogOut, ArrowLeft, Shield, Calendar, FileText, Clock, CheckCircle, XCircle, AlertCircle, Plus, BarChart3 } from 'lucide-react'
 
 const STATUS_CONFIG = {
   pending: { label: 'Pending Review', color: 'bg-yellow-100 text-yellow-700', icon: Clock },
