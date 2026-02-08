@@ -5,6 +5,7 @@ export const authoritativeVoices = [
   {
     id: 'celiac-disease-foundation',
     name: 'Celiac Disease Foundation',
+    shortName: 'CDF',
     region: 'USA',
     type: 'patient_org',
     bestFor: 'Patient education and advocacy',
@@ -12,11 +13,13 @@ export const authoritativeVoices = [
     howWeUseIt: 'We reference their patient education materials and symptom guidance to ensure our content aligns with trusted patient-focused messaging.',
     howUsersCanExplore: 'Visit their site for webinars, local support groups, and a comprehensive symptom checklist for discussing with your doctor.',
     officialUrl: 'https://celiac.org',
-    logo: null
+    logo: 'https://celiac.org/wp-content/uploads/2019/09/CDF-logo.png',
+    logoFallback: 'CDF'
   },
   {
     id: 'beyond-celiac',
     name: 'Beyond Celiac',
+    shortName: 'Beyond Celiac',
     region: 'USA / Global',
     type: 'patient_org',
     bestFor: 'Research advocacy and patient resources',
@@ -24,11 +27,13 @@ export const authoritativeVoices = [
     howWeUseIt: 'We draw on their research updates and clinical trial information to keep our content current with emerging treatments and studies.',
     howUsersCanExplore: 'Explore their clinical trial finder, sign up for research updates, and access their extensive recipe database.',
     officialUrl: 'https://www.beyondceliac.org',
-    logo: null
+    logo: 'https://www.beyondceliac.org/globalassets/images/beyond-celiac-logo.png',
+    logoFallback: 'BC'
   },
   {
     id: 'aoecs',
     name: 'Association of European Coeliac Societies (AOECS)',
+    shortName: 'AOECS',
     region: 'Europe',
     type: 'patient_org',
     bestFor: 'European standards and crossed grain symbol',
@@ -36,11 +41,13 @@ export const authoritativeVoices = [
     howWeUseIt: 'We reference AOECS standards for gluten-free labelling and their guidance on safe gluten thresholds in food products.',
     howUsersCanExplore: 'Learn about the Crossed Grain symbol, find your national coeliac society, and access travel guides for eating safely across Europe.',
     officialUrl: 'https://www.aoecs.org',
-    logo: null
+    logo: 'https://www.aoecs.org/sites/default/files/aoecs_logo.png',
+    logoFallback: 'AOECS'
   },
   {
     id: 'coeliac-uk',
     name: 'Coeliac UK',
+    shortName: 'Coeliac UK',
     region: 'UK / Europe',
     type: 'patient_org',
     bestFor: 'Comprehensive patient support and food guidance',
@@ -48,11 +55,13 @@ export const authoritativeVoices = [
     howWeUseIt: 'We align our dietary guidance with Coeliac UK\'s food standards and reference their healthcare resources for clinical information.',
     howUsersCanExplore: 'Access their food and drink directory app, find local groups, and explore their extensive recipe collection and eating out guide.',
     officialUrl: 'https://www.coeliac.org.uk',
-    logo: null
+    logo: 'https://www.coeliac.org.uk/img/coeliac-uk-logo.svg',
+    logoFallback: 'CUK'
   },
   {
     id: 'sscd',
     name: 'Society for the Study of Celiac Disease (SSCD)',
+    shortName: 'SSCD',
     region: 'USA / International',
     type: 'research_org',
     bestFor: 'Clinical research and medical education',
@@ -60,11 +69,13 @@ export const authoritativeVoices = [
     howWeUseIt: 'We reference SSCD research findings and clinical recommendations to ensure our medical content reflects current scientific consensus.',
     howUsersCanExplore: 'Access their research publications and find coeliac disease specialists who are members of the society.',
     officialUrl: 'https://www.theceliacsociety.org',
-    logo: null
+    logo: null,
+    logoFallback: 'SSCD'
   },
   {
     id: 'espghan',
     name: 'ESPGHAN',
+    shortName: 'ESPGHAN',
     region: 'Global',
     type: 'guideline_body',
     bestFor: 'Paediatric diagnosis guidelines',
@@ -72,11 +83,13 @@ export const authoritativeVoices = [
     howWeUseIt: 'We base our paediatric diagnosis information on ESPGHAN guidelines, particularly for antibody testing and biopsy protocols in children.',
     howUsersCanExplore: 'Access their clinical guidelines and position papers on coeliac disease diagnosis and management in children.',
     officialUrl: 'https://www.espghan.org',
-    logo: null
+    logo: 'https://www.espghan.org/assets/images/espghan-logo.png',
+    logoFallback: 'ESPGHAN'
   },
   {
     id: 'niddk',
     name: 'National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)',
+    shortName: 'NIDDK',
     region: 'USA',
     type: 'research_org',
     bestFor: 'Research funding and health information',
@@ -84,11 +97,13 @@ export const authoritativeVoices = [
     howWeUseIt: 'We reference NIDDK health information pages for accurate medical descriptions and their research priorities to contextualise emerging science.',
     howUsersCanExplore: 'Read their comprehensive coeliac disease overview, clinical trials information, and digestive health resources.',
     officialUrl: 'https://www.niddk.nih.gov',
-    logo: null
+    logo: 'https://www.niddk.nih.gov/-/media/Images/Components/Logo/niddk-logo.png',
+    logoFallback: 'NIDDK'
   },
   {
     id: 'fda',
     name: 'U.S. Food and Drug Administration (FDA)',
+    shortName: 'FDA',
     region: 'USA',
     type: 'regulator',
     bestFor: 'Gluten-free labelling regulations',
@@ -96,11 +111,13 @@ export const authoritativeVoices = [
     howWeUseIt: 'We reference FDA regulations when explaining gluten-free labelling requirements and safe consumption thresholds.',
     howUsersCanExplore: 'Review official gluten-free labelling requirements and report concerns about mislabelled products.',
     officialUrl: 'https://www.fda.gov',
-    logo: null
+    logo: 'https://www.fda.gov/themes/custom/preview/assets/images/FDA-Logo.svg',
+    logoFallback: 'FDA'
   },
   {
     id: 'wgo',
     name: 'World Gastroenterology Organisation (WGO)',
+    shortName: 'WGO',
     region: 'Global',
     type: 'guideline_body',
     bestFor: 'Global clinical guidelines',
@@ -108,11 +125,13 @@ export const authoritativeVoices = [
     howWeUseIt: 'We reference WGO global guidelines to ensure our content is applicable across different healthcare systems and regions.',
     howUsersCanExplore: 'Access their coeliac disease global guidelines and educational resources for patients and healthcare providers.',
     officialUrl: 'https://www.worldgastroenterology.org',
-    logo: null
+    logo: 'https://www.worldgastroenterology.org/images/WGO-logo.png',
+    logoFallback: 'WGO'
   },
   {
     id: 'pubmed',
     name: 'PubMed',
+    shortName: 'PubMed',
     region: 'Global',
     type: 'medical_publisher',
     bestFor: 'Research literature database',
@@ -120,11 +139,13 @@ export const authoritativeVoices = [
     howWeUseIt: 'We use PubMed to verify clinical claims, find original research, and ensure our content reflects published scientific evidence.',
     howUsersCanExplore: 'Search for coeliac disease research papers, systematic reviews, and clinical studies to dive deeper into specific topics.',
     officialUrl: 'https://pubmed.ncbi.nlm.nih.gov',
-    logo: null
+    logo: 'https://cdn.ncbi.nlm.nih.gov/pubmed/persistent/pubmed-meta-image.png',
+    logoFallback: 'PubMed'
   },
   {
     id: 'bmj',
     name: 'British Medical Journal (BMJ)',
+    shortName: 'BMJ',
     region: 'UK / Global',
     type: 'medical_publisher',
     bestFor: 'Clinical evidence and practice guidelines',
@@ -132,11 +153,13 @@ export const authoritativeVoices = [
     howWeUseIt: 'We reference BMJ publications and BMJ Best Practice guidelines for clinical accuracy in our medical information.',
     howUsersCanExplore: 'Access patient information leaflets and read summaries of latest coeliac disease research findings.',
     officialUrl: 'https://www.bmj.com',
-    logo: null
+    logo: 'https://www.bmj.com/sites/default/files/sites/default/themes/flavour/flavour_bmj/images/bmj-logo.svg',
+    logoFallback: 'BMJ'
   },
   {
     id: 'coeliac-australia',
     name: 'Coeliac Australia',
+    shortName: 'Coeliac Australia',
     region: 'Australia',
     type: 'patient_org',
     bestFor: 'Australian patient support and certification',
@@ -144,11 +167,13 @@ export const authoritativeVoices = [
     howWeUseIt: 'We reference their dietary guidelines and product certification standards, particularly for Australian and Asia-Pacific contexts.',
     howUsersCanExplore: 'Access their ingredient checker app, find endorsed products, and connect with local support groups across Australia.',
     officialUrl: 'https://www.coeliac.org.au',
-    logo: null
+    logo: 'https://www.coeliac.org.au/img/coeliac-australia-logo.svg',
+    logoFallback: 'CA'
   },
   {
     id: 'celiac-canada',
     name: 'Celiac Canada',
+    shortName: 'Celiac Canada',
     region: 'Canada',
     type: 'patient_org',
     bestFor: 'Canadian patient advocacy and resources',
@@ -156,11 +181,13 @@ export const authoritativeVoices = [
     howWeUseIt: 'We reference their guidance for Canadian-specific labelling regulations and healthcare navigation.',
     howUsersCanExplore: 'Access bilingual resources, find local chapters, and learn about Canadian food labelling requirements.',
     officialUrl: 'https://www.celiac.ca',
-    logo: null
+    logo: 'https://www.celiac.ca/wp-content/uploads/2020/01/celiac-canada-logo.png',
+    logoFallback: 'CC'
   },
   {
     id: 'gig',
     name: 'Gluten Intolerance Group (GIG)',
+    shortName: 'GIG',
     region: 'USA / Global',
     type: 'patient_org',
     bestFor: 'GFCO certification and food service training',
@@ -168,11 +195,13 @@ export const authoritativeVoices = [
     howWeUseIt: 'We reference GFCO certification standards when explaining product safety and food service best practices.',
     howUsersCanExplore: 'Search their database of GFCO-certified products and access their food service training resources.',
     officialUrl: 'https://gluten.org',
-    logo: null
+    logo: 'https://gluten.org/wp-content/uploads/2020/01/gig-logo.png',
+    logoFallback: 'GIG'
   },
   {
     id: 'finnish-celiac-society',
     name: 'Finnish Celiac Society (Keliakialiitto)',
+    shortName: 'Keliakialiitto',
     region: 'Finland',
     type: 'patient_org',
     bestFor: 'Nordic patient support and oat research',
@@ -180,11 +209,13 @@ export const authoritativeVoices = [
     howWeUseIt: 'We reference Finnish research on oat consumption and their pioneering work on coeliac disease screening programs.',
     howUsersCanExplore: 'Learn about Nordic approaches to coeliac care and access research on pure oat safety.',
     officialUrl: 'https://www.keliakialiitto.fi',
-    logo: null
+    logo: null,
+    logoFallback: 'FCS'
   },
   {
     id: 'aic',
     name: 'Associazione Italiana Celiachia (AIC)',
+    shortName: 'AIC',
     region: 'Italy',
     type: 'patient_org',
     bestFor: 'Italian patient support and Mediterranean diet guidance',
@@ -192,11 +223,13 @@ export const authoritativeVoices = [
     howWeUseIt: 'We reference Italian screening protocols and their expertise in adapting Mediterranean cuisine for coeliac patients.',
     howUsersCanExplore: 'Access their restaurant guide for Italy, gluten-free product database, and travel resources.',
     officialUrl: 'https://www.celiachia.it',
-    logo: null
+    logo: 'https://www.celiachia.it/wp-content/uploads/2020/01/aic-logo.png',
+    logoFallback: 'AIC'
   },
   {
     id: 'nca',
     name: 'National Celiac Association',
+    shortName: 'NCA',
     region: 'USA',
     type: 'patient_org',
     bestFor: 'US patient support and community events',
@@ -204,7 +237,8 @@ export const authoritativeVoices = [
     howWeUseIt: 'We reference their patient education materials and community resources for practical living guidance.',
     howUsersCanExplore: 'Find local support groups, attend educational events, and connect with the coeliac community.',
     officialUrl: 'https://nationalceliac.org',
-    logo: null
+    logo: null,
+    logoFallback: 'NCA'
   }
 ];
 

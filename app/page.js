@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { ArrowRight, MapPin, BookOpen, Users, Heart, Stethoscope, HelpCircle, Baby, Utensils, Send, MessageCircle, Bell } from 'lucide-react'
-import TrustSignal from '@/components/TrustSignal'
+import LogoCarousel from '@/components/LogoCarousel'
 
 export const metadata = {
   title: 'Coeliac Info Hub - Support for Living with Coeliac Disease',
@@ -410,8 +410,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust Signal - Authoritative Voices */}
-      <TrustSignal />
+      {/* Trust Signal - Rolling Logo Carousel */}
+      <LogoCarousel />
 
       {/* Minimal Footer Note */}
       <section className="py-8 bg-white border-t border-slate-200">
