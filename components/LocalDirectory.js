@@ -292,16 +292,32 @@ function LocalDirectoryContent({
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <div className="mb-8">
-            <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full text-sm font-medium mb-4" style={{backgroundColor: 'rgba(133, 79, 155, 0.1)', color: '#854F9B'}}>
-              <MapPin className="w-4 h-4" />
-              <span>Local Support</span>
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div>
+                <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full text-sm font-medium mb-4" style={{backgroundColor: 'rgba(133, 79, 155, 0.1)', color: '#854F9B'}}>
+                  <MapPin className="w-4 h-4" />
+                  <span>Local Support</span>
+                </div>
+                <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-3">
+                  {pageTitle || 'Local Support Directory'}
+                </h1>
+                <p className="text-lg text-slate-600">
+                  {pageDescription || 'Find gluten-free friendly restaurants, shops, healthcare providers, and community support near you.'}
+                </p>
+              </div>
+              
+              {/* New Submission Button - Only for logged-in users */}
+              {user && (
+                <Link
+                  href="/submit"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 text-white font-medium rounded-xl transition-all hover:shadow-lg flex-shrink-0"
+                  style={{ background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)' }}
+                >
+                  <Plus className="w-4 h-4" />
+                  <span>New Submission</span>
+                </Link>
+              )}
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-3">
-              {pageTitle || 'Local Support Directory'}
-            </h1>
-            <p className="text-lg text-slate-600">
-              {pageDescription || 'Find gluten-free friendly restaurants, shops, healthcare providers, and community support near you.'}
-            </p>
           </div>
 
           {/* Filters */}
