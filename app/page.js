@@ -410,6 +410,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Trust Signal - Authoritative Voices */}
+      <TrustSignal />
+
       {/* Minimal Footer Note */}
       <section className="py-8 bg-white border-t border-slate-200">
         <div className="container mx-auto px-4">
