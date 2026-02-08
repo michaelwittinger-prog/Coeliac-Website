@@ -1,274 +1,409 @@
-import InOneMinute from '@/components/InOneMinute'
-import ExternalResources from '@/components/ExternalResources'
 import Link from 'next/link'
-import { ArrowRight, BookOpen, FileText, HeartPulse, Users, Microscope, CheckCircle2, MapPin } from 'lucide-react'
+import { ArrowRight, MapPin, BookOpen, Users, Heart, Stethoscope, HelpCircle, Baby, Utensils, Send, MessageCircle, Bell } from 'lucide-react'
 
 export const metadata = {
-  title: 'Home - Coeliac Disease Information Hub',
-  description: 'Your comprehensive resource for understanding, diagnosing, and living with Coeliac disease (Celiac disease). Evidence-based information for patients, families, and caregivers.',
-  keywords: 'coeliac disease, celiac disease, gluten free, autoimmune, diagnosis, gluten intolerance',
+  title: 'Coeliac Info Hub - Support for Living with Coeliac Disease',
+  description: 'Find trusted local support, clear guidance, and a community that understands. Your guide to living well with coeliac disease.',
+  keywords: 'coeliac disease, celiac disease, gluten free, local support, diagnosis, community',
 }
 
 export default function Home() {
-  const externalLinks = [
+  // Situational shortcuts - "I am here because..."
+  const situations = [
     {
-      title: 'Coeliac UK',
-      url: 'https://www.coeliac.org.uk/',
-      description: 'The UK\'s leading charity for coeliac disease information and support.',
-      region: 'United Kingdom'
-    },
-    {
-      title: 'Beyond Celiac',
-      url: 'https://www.beyondceliac.org/',
-      description: 'Leading US organisation for celiac disease awareness and research.',
-      region: 'United States'
-    },
-    {
-      title: 'Association of European Coeliac Societies (AOECS)',
-      url: 'https://www.aoecs.org/',
-      description: 'Pan-European organisation representing coeliac societies across Europe.',
-      region: 'Europe'
-    }
-  ]
-
-  const features = [
-    {
-      icon: BookOpen,
-      title: 'Understanding',
-      description: 'Comprehensive overview of coeliac disease fundamentals',
-      href: '/understanding',
-    },
-    {
-      icon: FileText,
-      title: 'Diagnosis & Marsh',
-      description: 'Testing procedures and classification systems',
+      label: 'I was recently diagnosed',
       href: '/diagnosis-marsh',
+      icon: Stethoscope,
     },
     {
-      icon: HeartPulse,
-      title: 'Healing',
-      description: 'Recovery timeline and monitoring progress',
-      href: '/healing',
+      label: 'I suspect coeliac disease',
+      href: '/understanding',
+      icon: HelpCircle,
     },
     {
-      icon: Users,
-      title: 'Parents',
-      description: 'Resources for families with children',
+      label: 'I live with coeliac disease',
+      href: '/living',
+      icon: Utensils,
+    },
+    {
+      label: 'I support someone with coeliac disease',
       href: '/parents',
+      icon: Baby,
     },
   ]
 
-  const keyPoints = [
-    'Affects approximately 1% of the global population',
-    'Autoimmune disorder triggered by gluten consumption',
-    'Only treatment is a strict gluten-free diet',
-    'Early diagnosis prevents serious complications',
+  // Education topics
+  const topics = [
+    {
+      title: 'Diagnosis & Marsh Classification',
+      description: 'Testing, biopsy results, and what they mean',
+      href: '/diagnosis-marsh',
+      icon: Stethoscope,
+    },
+    {
+      title: 'Understanding Coeliac Disease',
+      description: 'Symptoms, causes, and misdiagnosis',
+      href: '/understanding',
+      icon: BookOpen,
+    },
+    {
+      title: 'Living Gluten-Free',
+      description: 'Daily life, food choices, and practical tips',
+      href: '/living',
+      icon: Utensils,
+    },
+    {
+      title: 'Children & Family',
+      description: 'Supporting young ones with coeliac disease',
+      href: '/parents',
+      icon: Baby,
+    },
+    {
+      title: 'Healing & Recovery',
+      description: 'Timeline, monitoring, and feeling better',
+      href: '/healing',
+      icon: Heart,
+    },
+    {
+      title: 'Research & Updates',
+      description: 'Latest findings and developments',
+      href: '/research',
+      icon: BookOpen,
+    },
+  ]
+
+  // Community actions
+  const communityActions = [
+    {
+      title: 'Submit a local place',
+      description: 'Share a restaurant, shop, or resource',
+      href: '/submit',
+      icon: MapPin,
+    },
+    {
+      title: 'Share an experience',
+      description: 'Help others with your story',
+      href: '/submit',
+      icon: MessageCircle,
+    },
+    {
+      title: 'Join for updates',
+      description: 'Stay informed about new resources',
+      href: '/signup',
+      icon: Bell,
+    },
   ]
 
   return (
-    <div className="bg-slate-50">
-      {/* Geometric Background Pattern */}
-      <div className="absolute top-0 left-0 w-full h-[600px] overflow-hidden pointer-events-none">
-        <div className="absolute top-20 right-10 w-64 h-64 rounded-full opacity-30 blur-3xl" style={{backgroundColor: '#854F9B'}}></div>
-        <div className="absolute top-40 left-20 w-48 h-48 bg-blue-100 rounded-full opacity-30 blur-3xl"></div>
+    <div className="bg-slate-50 min-h-screen">
+      {/* Subtle Background */}
+      <div className="absolute top-0 left-0 w-full h-[500px] overflow-hidden pointer-events-none">
+        <div className="absolute top-10 right-10 w-72 h-72 rounded-full opacity-20 blur-3xl" style={{backgroundColor: '#854F9B'}}></div>
+        <div className="absolute top-32 left-10 w-56 h-56 bg-green-200 rounded-full opacity-20 blur-3xl"></div>
       </div>
 
-      {/* Hero Section */}
-      <div className="relative container mx-auto px-4 py-16">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium mb-6" style={{backgroundColor: 'rgba(133, 79, 155, 0.1)', color: '#854F9B'}}>
-              <Microscope className="w-4 h-4" />
-              <span>Evidence-Based Medical Information</span>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-slate-800 mb-6 leading-tight">
-              Coeliac Disease<br />
-              <span style={{color: '#854F9B'}}>Information Hub</span>
+      {/* Hero Section - Minimal, Action-Oriented */}
+      <section className="relative">
+        <div className="container mx-auto px-4 pt-12 pb-8 md:pt-16 md:pb-12">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4 leading-tight">
+              Support for living with{' '}
+              <span style={{color: '#854F9B'}}>coeliac disease</span>
             </h1>
-            <p className="text-xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Your trusted resource for comprehensive, evidence-based information about coeliac disease diagnosis, management, and living well.
+            <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
+              Find trusted local support, clear guidance, and a community that understands.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link
-                href="/understanding"
-                className="inline-flex items-center space-x-2 px-6 py-3 text-white rounded-lg font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all"
-                style={{backgroundColor: '#854F9B'}}
-              >
-                <span>Get Started</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Primary Action Cards - CRITICAL: Must be visible without scrolling */}
+      <section className="relative pb-12">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+              {/* Action 1 - Local Support (Primary) */}
               <Link
                 href="/local"
-                className="inline-flex items-center space-x-2 px-6 py-3 text-white rounded-lg font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all"
-                style={{background: 'linear-gradient(135deg, #52B238 0%, #6bc74a 100%)'}}
+                className="group relative bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-6 md:p-8 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all"
               >
-                <MapPin className="w-4 h-4" />
-                <span>Local Support</span>
+                <div className="absolute top-4 right-4 w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div className="pt-8">
+                  <h2 className="text-xl md:text-2xl font-bold mb-2">Get support near me</h2>
+                  <p className="text-green-100 text-sm md:text-base mb-4">
+                    Find restaurants, doctors, and community support in your city
+                  </p>
+                  <div className="flex items-center text-sm font-medium text-white/90 group-hover:text-white">
+                    <span>Explore local support</span>
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
               </Link>
+
+              {/* Action 2 - Learn */}
               <Link
-                href="/diagnosis-marsh"
-                className="inline-flex items-center space-x-2 px-6 py-3 bg-white rounded-lg font-medium hover:bg-slate-50 transition-all shadow-sm border-2" 
-                style={{color: '#854F9B', borderColor: '#854F9B'}}
+                href="/understanding"
+                className="group bg-white rounded-2xl p-6 md:p-8 shadow-md hover:shadow-lg border border-slate-200 hover:border-purple-300 transform hover:-translate-y-1 transition-all"
               >
-                <FileText className="w-4 h-4" />
-                <span>Learn About Diagnosis</span>
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)'}}>
+                  <BookOpen className="w-6 h-6 text-white" />
+                </div>
+                <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-2">Learn the essentials</h2>
+                <p className="text-slate-600 text-sm md:text-base mb-4">
+                  Diagnosis, Marsh score, symptoms, and living gluten-free
+                </p>
+                <div className="flex items-center text-sm font-medium" style={{color: '#854F9B'}}>
+                  <span>Start learning</span>
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+
+              {/* Action 3 - Community */}
+              <Link
+                href="/signup"
+                className="group bg-white rounded-2xl p-6 md:p-8 shadow-md hover:shadow-lg border border-slate-200 hover:border-purple-300 transform hover:-translate-y-1 transition-all"
+              >
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 bg-gradient-to-br from-blue-500 to-blue-600">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
+                <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-2">Join the community</h2>
+                <p className="text-slate-600 text-sm md:text-base mb-4">
+                  Get updates and help others by sharing what you know
+                </p>
+                <div className="flex items-center text-sm font-medium text-blue-600">
+                  <span>Create account</span>
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </div>
               </Link>
             </div>
           </div>
-
-          {/* Key Points Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
-            {keyPoints.map((point, index) => (
-              <div key={index} className="bg-white rounded-lg p-5 shadow-sm border border-slate-200">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" style={{color: '#854F9B'}} />
-                  <p className="text-sm text-slate-700 leading-relaxed">{point}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
-      </div>
+      </section>
 
-      {/* In One Minute Section */}
-      <div className="relative bg-gradient-to-b from-slate-50 to-white py-16">
+      {/* Situational Shortcuts - "I am here because..." */}
+      <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <InOneMinute>
-              <p className="text-white">
-                <strong>Coeliac disease</strong> is an autoimmune disorder where consuming gluten triggers an immune response that damages the small intestine. It affects approximately 1% of the population worldwide. The only treatment is a strict, lifelong gluten-free diet. Early diagnosis and proper management can prevent serious complications and help patients live healthy, normal lives.
-              </p>
-            </InOneMinute>
-          </div>
-        </div>
-      </div>
-
-      {/* Features Grid */}
-      <div className="relative py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-800 mb-4">Explore Topics</h2>
-              <p className="text-slate-600">Comprehensive information organised by topic</p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {features.map((feature, index) => {
-                const Icon = feature.icon
+            <h2 className="text-lg font-semibold text-slate-500 mb-6 text-center">
+              I am here because...
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+              {situations.map((situation, index) => {
+                const Icon = situation.icon
                 return (
                   <Link
                     key={index}
-                    href={feature.href}
-                    className="group bg-slate-50 hover:bg-white rounded-xl p-6 transition-all hover:shadow-lg border border-slate-200 feature-card-hover"
+                    href={situation.href}
+                    className="group flex flex-col items-center p-4 md:p-5 rounded-xl bg-slate-50 hover:bg-purple-50 border border-slate-200 hover:border-purple-300 transition-all text-center"
                   >
-                    <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)'}}>
-                      <Icon className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-slate-800 mb-2 group-hover-title transition-colors">{feature.title}</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">{feature.description}</p>
-                    <div className="mt-4 flex items-center text-sm font-medium" style={{color: '#854F9B'}}>
-                      <span>Learn more</span>
-                      <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                    </div>
+                    <Icon className="w-5 h-5 text-slate-400 group-hover:text-purple-600 mb-2 transition-colors" />
+                    <span className="text-sm font-medium text-slate-700 group-hover:text-purple-700 transition-colors">
+                      {situation.label}
+                    </span>
                   </Link>
                 )
               })}
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Local Support Section */}
-      <div className="relative py-16 bg-white">
+      {/* Local Support Preview */}
+      <section className="py-12 md:py-16 bg-slate-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full text-sm font-medium mb-4" style={{backgroundColor: 'rgba(133, 79, 155, 0.1)', color: '#854F9B'}}>
-                <MapPin className="w-4 h-4" />
-                <span>Local Support</span>
+          <div className="max-w-5xl mx-auto">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-8">
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-2">
+                  Trusted support near you
+                </h2>
+                <p className="text-slate-600">
+                  Restaurants, bakeries, shops, and healthcare providers
+                </p>
               </div>
-              <h2 className="text-3xl font-bold text-slate-800 mb-3">
-                Find Support Near You
+              <Link
+                href="/local"
+                className="hidden md:inline-flex items-center text-sm font-medium mt-4 md:mt-0"
+                style={{color: '#854F9B'}}
+              >
+                <span>See all local support</span>
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </Link>
+            </div>
+
+            {/* City Preview Cards */}
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6 mb-6">
+              {/* Vienna */}
+              <Link
+                href="/local/at/vienna"
+                className="group bg-white rounded-xl p-5 border border-slate-200 hover:border-purple-300 hover:shadow-md transition-all"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-2xl">🇦🇹</span>
+                  <div>
+                    <h3 className="font-semibold text-slate-800 group-hover:text-purple-700 transition-colors">Vienna</h3>
+                    <p className="text-xs text-slate-500">Austria</p>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-purple-500 ml-auto group-hover:translate-x-1 transition-all" />
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  <span className="text-xs px-2 py-1 bg-slate-100 text-slate-600 rounded-full">Cafés</span>
+                  <span className="text-xs px-2 py-1 bg-slate-100 text-slate-600 rounded-full">Bakeries</span>
+                  <span className="text-xs px-2 py-1 bg-slate-100 text-slate-600 rounded-full">Medical</span>
+                </div>
+              </Link>
+
+              {/* Berlin */}
+              <Link
+                href="/local/de/berlin"
+                className="group bg-white rounded-xl p-5 border border-slate-200 hover:border-purple-300 hover:shadow-md transition-all"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-2xl">🇩🇪</span>
+                  <div>
+                    <h3 className="font-semibold text-slate-800 group-hover:text-purple-700 transition-colors">Berlin</h3>
+                    <p className="text-xs text-slate-500">Germany</p>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-purple-500 ml-auto group-hover:translate-x-1 transition-all" />
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  <span className="text-xs px-2 py-1 bg-slate-100 text-slate-600 rounded-full">Bakeries</span>
+                  <span className="text-xs px-2 py-1 bg-slate-100 text-slate-600 rounded-full">Restaurants</span>
+                  <span className="text-xs px-2 py-1 bg-slate-100 text-slate-600 rounded-full">Shops</span>
+                </div>
+              </Link>
+
+              {/* Suggest a City */}
+              <Link
+                href="/submit"
+                className="group bg-gradient-to-br from-slate-50 to-slate-100 rounded-xl p-5 border border-dashed border-slate-300 hover:border-purple-400 hover:from-purple-50 hover:to-purple-100 transition-all flex flex-col items-center justify-center text-center"
+              >
+                <div className="w-10 h-10 rounded-full bg-slate-200 group-hover:bg-purple-200 flex items-center justify-center mb-2 transition-colors">
+                  <MapPin className="w-5 h-5 text-slate-500 group-hover:text-purple-600 transition-colors" />
+                </div>
+                <p className="text-sm font-medium text-slate-600 group-hover:text-purple-700 transition-colors">
+                  Add your city
+                </p>
+              </Link>
+            </div>
+
+            {/* Mobile CTA */}
+            <div className="md:hidden text-center">
+              <Link
+                href="/local"
+                className="inline-flex items-center text-sm font-medium"
+                style={{color: '#854F9B'}}
+              >
+                <span>See all local support</span>
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Education Preview - Topics, Not Articles */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-2">
+                Learn at your own pace
               </h2>
-              <p className="text-slate-600 leading-relaxed max-w-2xl mx-auto">
-                Discover gluten-free restaurants, bakeries, shops, and healthcare providers in your city.
+              <p className="text-slate-600">
+                Clear, evidence-based information when you need it
               </p>
             </div>
 
-            {/* City Cards */}
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
-              {/* Vienna Card */}
-              <Link
-                href="/local/at/vienna"
-                className="group bg-gradient-to-br from-slate-50 to-purple-50 rounded-2xl p-6 border border-slate-200 hover:border-purple-300 hover:shadow-lg transition-all"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="text-4xl">🇦🇹</div>
-                  <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-1 group-hover:text-purple-700 transition-colors">Vienna</h3>
-                <p className="text-slate-500 text-sm mb-4">Austria</p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-white border border-slate-200 text-slate-600">
-                    Restaurants
-                  </span>
-                  <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-white border border-slate-200 text-slate-600">
-                    Shops
-                  </span>
-                  <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-white border border-slate-200 text-slate-600">
-                    Medical
-                  </span>
-                </div>
-              </Link>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+              {topics.map((topic, index) => {
+                const Icon = topic.icon
+                return (
+                  <Link
+                    key={index}
+                    href={topic.href}
+                    className="group bg-slate-50 hover:bg-white rounded-xl p-5 md:p-6 border border-slate-200 hover:border-purple-300 hover:shadow-md transition-all"
+                  >
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3 transition-transform group-hover:scale-110" style={{background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)'}}>
+                      <Icon className="w-5 h-5 text-white" />
+                    </div>
+                    <h3 className="font-semibold text-slate-800 group-hover:text-purple-700 mb-1 transition-colors text-sm md:text-base">
+                      {topic.title}
+                    </h3>
+                    <p className="text-xs md:text-sm text-slate-500 leading-relaxed">
+                      {topic.description}
+                    </p>
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
 
-              {/* Berlin Card */}
-              <Link
-                href="/local/de/berlin"
-                className="group bg-gradient-to-br from-slate-50 to-purple-50 rounded-2xl p-6 border border-slate-200 hover:border-purple-300 hover:shadow-lg transition-all"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="text-4xl">🇩🇪</div>
-                  <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-1 group-hover:text-purple-700 transition-colors">Berlin</h3>
-                <p className="text-slate-500 text-sm mb-4">Germany</p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-white border border-slate-200 text-slate-600">
-                    Bakeries
-                  </span>
-                  <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-white border border-slate-200 text-slate-600">
-                    Cafés
-                  </span>
-                  <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-white border border-slate-200 text-slate-600">
-                    Shops
-                  </span>
-                </div>
-              </Link>
+      {/* Community & Contribution Section */}
+      <section className="py-12 md:py-16 bg-gradient-to-br from-purple-50 to-slate-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-2">
+                Help others by sharing what you know
+              </h2>
+              <p className="text-slate-600">
+                Your experience can make someone else's journey easier
+              </p>
             </div>
 
-            {/* Browse All Button */}
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6 mb-8">
+              {communityActions.map((action, index) => {
+                const Icon = action.icon
+                return (
+                  <Link
+                    key={index}
+                    href={action.href}
+                    className="group bg-white rounded-xl p-5 md:p-6 border border-slate-200 hover:border-purple-300 hover:shadow-md transition-all text-center"
+                  >
+                    <div className="w-12 h-12 rounded-full bg-purple-100 group-hover:bg-purple-200 flex items-center justify-center mx-auto mb-3 transition-colors">
+                      <Icon className="w-5 h-5 text-purple-600" />
+                    </div>
+                    <h3 className="font-semibold text-slate-800 group-hover:text-purple-700 mb-1 transition-colors">
+                      {action.title}
+                    </h3>
+                    <p className="text-sm text-slate-500">
+                      {action.description}
+                    </p>
+                  </Link>
+                )
+              })}
+            </div>
+
             <div className="text-center">
               <Link
-                href="/local"
-                className="inline-flex items-center space-x-2 px-6 py-3 bg-white rounded-lg font-medium hover:bg-slate-50 transition-all shadow-sm border-2"
-                style={{color: '#854F9B', borderColor: '#854F9B'}}
+                href="/signup"
+                className="inline-flex items-center space-x-2 px-6 py-3 text-white rounded-xl font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all"
+                style={{background: 'linear-gradient(135deg, #854F9B 0%, #9d6bb3 100%)'}}
               >
-                <span>Browse All Locations</span>
+                <span>Join the community</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Related Reading Section */}
-      <div className="relative py-16 bg-slate-50">
+      {/* Minimal Footer Note */}
+      <section className="py-8 bg-white border-t border-slate-200">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            {/* External Resources Section */}
-            <ExternalResources links={externalLinks} title="Trusted Coeliac Resources" />
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-sm text-slate-500">
+              Coeliac Info Hub provides evidence-based information for educational purposes. 
+              Always consult healthcare professionals for medical advice.
+            </p>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   )
 }
